@@ -166,7 +166,7 @@ function refreshBubbleWidget() {
     priorHash_bubble = getHash();
 }
 
-const indicatorsUrl = "/io/build/api/USEEIOv2.0/indicators.json";
+const indicatorsUrl = "/io/build/api/USEEIOv2.0.1-411/indicators.json";
 let indicators = new Set();
 let dropdownX = $("#graph-picklist-x");
 let dropdownY = $("#graph-picklist-y");
@@ -241,7 +241,7 @@ function updateTitle(x,y,z) {
   var unitx, unity, unitz;
   console.log("updateTitle " + x + " " + y + " " + z);
   //let params = loadParams(location.search,location.hash);
-  d3.json("/io/build/api/USEEIOv2.0/indicators.json").then(function(consdata){
+  d3.json("/io/build/api/USEEIOv2.0.1-411/indicators.json").then(function(consdata){
     console.log("attempt");
     var filteredData = consdata.filter(function(d) {
       if (d["id"]==x) {
@@ -651,7 +651,7 @@ function updateChart(x,y,z,useeioList,boundry) {
   consoleLog("updateChart " + x + " hiddenhash.naics in bubble.js: " + hiddenhash.naics);
   waitForVariable('allData', function() {
     //alert("Got allData in updateChart: " + allData);
-    console.log("Got allData in updateChart...");
+    console.log("Got allData in bubble.js updateChart...");
     console.log(allData); // 301 Industries
     if (!(x && y && z)) { // Same as above
       x = 'ENRG';

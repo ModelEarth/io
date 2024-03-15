@@ -1,0 +1,9 @@
+
+Mar 12, 2024
+Manually copied Q from from: https://smmtool.app.cloud.gov/api/USEEIOv2.0.1-411/matrix/q
+
+
+IN usseio.js ran insead of npm install
+
+	
+	npm ci

@@ -1,5 +1,0 @@
-Static JSON files generated from the USEEIO API reside in this folder.
-
-Nov 30, 2023 - Renamed the folder USEEIOv2.0.1-411 to USEEIOv2.0 so existing script points at it.
-
-Dec 6, 2023 - Moved in 5 states and removed "-s-20" from folder names.
