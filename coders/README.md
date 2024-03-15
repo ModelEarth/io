@@ -32,7 +32,7 @@ Collaborate on open source modeling tools using API mashups for environmental im
 
 Mark your calendar and join in our [Earth Day AI projects](../)
 
-We'll use our Earthscape Chatbot UI fork to combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.
+We'll use our Earthscape Chatbot UI fork to combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.
 <br>
 
 
