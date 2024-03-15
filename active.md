@@ -1,7 +1,7 @@
 Regular meetings: [Sunday 10 PM EST and Thursday Noon EST](/io/coders/)
 <!--Overview Session on Tuesday at Noon ET for new team members.-->
----
-<br>
+
+<hr style="margin-bottom:20px">
 
 # Active Projects
 
@@ -48,15 +48,27 @@ Pre-processed data for county industry levels, based on employment, establishmen
 <!-- [CMD - Build IO .json files from EPA API for all 50 states](/io/charts/) - Honglin (next week)--><!-- Zhu -->
 
 <!--
-Welcome! - Our next Model.earth meetup is Thursday at Noon EDT
-
-Hi, thanks for registering with our ModelEarth team!
+We're meeting today (Thursday) at Noon EDT, and again on Sunday at 10 PM EDT.
+(We also do focused meetups Mondays and Tuesdays in the afternoon.)
 
 We're meeting tonight (Sunday) at 10 PM EDT, and again on Thursday at Noon EDT.
 (We also do focused meetups Mondays and Tuesdays in the afternoon.)
 
+Welcome! - Our next Model.earth meetup is Thursday at Noon EDT
+
+
+
+
+Welcome! - Our next Model.earth meetup is Sunday at 10 PM EDT
+
+
+Hi, thanks for registering with our ModelEarth team!
+
+We meet next on Sunday at 10 PM EDT, and again on Thursday at Noon EDT.
+(We also do focused meetups Mondays and Tuesdays in the afternoon.)
+
 Let me know which of the following areas you're interested in:
-Javascript, React, D3, Leaflet, Python, Forecasting with ML
+Javascript, React, D3, Leaflet, Python, Forecasting with ML, LLM Chat JSON
 
 Our meetup link is here. (It's always the same)
 https://model.earth/io/coders
@@ -64,15 +76,38 @@ https://model.earth/io/coders
 Here are our active projects:
 https://model.earth/io
 
-You can pull down our main repos with a single cmd. First make a fork of the data-pipeline and data-commons repos in GitHub.com/modelearth. Then select the checkboxes for those 2 repos here:
-
+You can pull down our main repos with a single cmd after forking our three:
 https://model.earth/localsite/start/steps
 
-Let me know if you need a welcome letter for the OPT program.
+Let me know if you'd like a welcome letter for the OPT program.
 
 Looking forward to working with you!
 
 Loren Heyns
+
+----
+
+Here's the template for the OPT letter.
+Please adjust anything to fit your needs - update the start, job title, etc.
+
+Here's a page with our current python ML to-do's:
+https://model.earth/data-pipeline/timelines/training/naics
+
+Our LLM chat work will be taking place in this fork of Chatbot UI which will allow us to use NLP while interacting with 100+ LLM APIs! 
+
+What's your favorite LLM currently? ChatGPT, Claude, Perplexity, MJ or another? I've been using chat.openai.com 3.5 a lot to create code snippets.
+
+Go ahead and fork our Earthscape Chatbot UI instance:
+https://model.earth/earthscape
+https://github.com/modelearth/earthscape
+
+And finally, let me know your area of interest in our Data Commons repo:
+
+https://model.earth/data-commons/dist
+
+Looking forward to Sunday, thanks for getting involved!
+
+
 
 
 

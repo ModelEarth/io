@@ -20,24 +20,18 @@ The Google Meetup link above remains the same for all meetings.
 Collaborate on open source modeling tools using API mashups for environmental impacts, local job levels, industry timelines and [sustainable product profiles](../../io/template/).  
 
 - [Connect with us at Democracy Lab if you haven't already](https://www.democracylab.org/projects/834)
-- [Get Started by installing our 5 Localsite repos (with one cmd)](../../localsite/start/steps/)
-- [Join our ModelEarth Facebook group for additional updates](https://www.facebook.com/groups/modelearth)
-
+- [Get Started by installing our Localsite repos (with one cmd)](../../localsite/start/steps/)
+- [Join our Facebook group for additional updates](https://www.facebook.com/groups/modelearth)
+- [Join our ModelEarth Slack in Democracy Lab](https://democracylab-org.slack.com/archives/C06F73YKEQN)
 <br>
 
-<!--
-- [Join our ModelEarth Slack in Democracy Lab](https://democracylab-org.slack.com/archives/C06F73YKEQN)
-- [Deploy Apache ECharts 3D Globes and Lines for Input-Output](https://echarts.apache.org/examples/en/index.html#chart-type-lines3D)
--->
-
-
-### Earthathon 2024 - Online with DemocracyLab
+# Earthathon 2024
+### Online with DemocracyLab
 #### Saturday, April 20, 2024
-9 AM - 5 PM PDT  
-6 AM - 2 PM EDT
+### Noon to 8 PM EDT Atlanta &nbsp;(9 AM to 5 PM PDT Seattle)
 
 Mark your calendar and join in our [Earth Day AI projects](../)
-<br>
+
 We'll use our Earthscape Chatbot UI fork to combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.
 <br>
 
