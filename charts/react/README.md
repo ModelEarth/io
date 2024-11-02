@@ -19,11 +19,10 @@ The io/build folder contains the [fixed versions](https://github.com/USEPA/useei
 
 ## Quick Steps
 
-Run these in the useeio-widgets folder rather than the parent webroot:
-npm ci (clean install) is similar to npm install, but doesn't modify the package-lock.json.
+Run these in the useeio-widgets folder rather than the parent webroot. [from wiki](https://github.com/USEPA/useeio-widgets/wiki/Build)
+npm ci (clean install) is similar to `npm install`, but doesn't modify the package-lock.json.
 
 	npm ci
-	npm run server
 
 Copy json files from [io repo](https://github.com/ModelEarth/io/tree/main/build/api) and place in useeio-widgets/build/api. (More info below)  
 Or copy from [OpenFootprint/impacts](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020)
@@ -32,6 +31,8 @@ Then start a new terminal, also in the useeio-widgets folder and run: (Takes 30 
 
 	npm run build
 
+	npm run server
+	
 View at: [http://localhost:8080](http://localhost:8080)
 
 Optionally run this command in your webroot (the folder containing useeio-widgets):
