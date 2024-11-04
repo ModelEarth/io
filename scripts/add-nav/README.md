@@ -5,9 +5,9 @@ Start a virtual environment:
 
 	python3 -m venv env
 	source env/bin/activate
-On Windoes: `.\env\Scripts\activate`
+On Windows: `.\env\Scripts\activate`
 
-Fork and clone these 3 repos: localsite, io, useeio-widgets
+Fork and clone these 3 repos: [localsite, io, useeio-widgets](/localsite/start/steps/)
 
 Run in the root of your website to add localsite.js navigation to US EPA samples.
 
