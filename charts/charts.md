@@ -78,6 +78,7 @@ The React widgets in the [io repo](https://github.com/modelearth/io/) originate 
 Note: EPA downgraded reactjs from ^18.2.0 to ^17.0.2 to solve compability issue with MAC. (Jan 2024)
 
 [The build folder](../build) is copied from useeio-widgets into the [io repo](https://github.com/modelearth/io/) to provide a static copy of the API's json files.  
+We run our [add-nav python script](../scripts/add-nav) to append localsite.js state navigation onto the build folder samples.  
 The io repo includes additional code for integrating widgets.
 
 - [Inflow-Outflow Chart](inflow-outflow/#set=prosperity&indicators=VADD,JOBS) - [Tires](inflow-outflow/#sectors=326210&set=prosperity&indicators=JOBS,VADD) - (<a href="../build/iochart.html#indicators=ENRG,GHG,VADD&sectors=113000,327310,327400,333613,335912,336111,562111,562212">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/iochart.html#sectors=322130,325520,327910,541200)-->  
