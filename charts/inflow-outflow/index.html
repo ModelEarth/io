@@ -290,39 +290,37 @@
 
 <script src="../../build/lib/useeio_widgets.js"></script>
 <script>
-	//var naics = "311615,311812,321113,221112,113310,322110,311821,311612,325211,311813,311911,311919,311830,311119,322121,311824,311941,325991,311710,311930";
+//var naics = "311615,311812,321113,221112,113310,322110,311821,311612,325211,311813,311911,311919,311830,311119,322121,311824,311941,325991,311710,311930";
 
-    //var naicsCodes = naics.split(',');
+//var naicsCodes = naics.split(',');
 
-    var hiddenhash = {
-        indicators: "VADD"
-    };
-    let hash = getHash();
-    var config = useeio.urlConfig();
-    
-    let endpoint = "/io/build/api";
-    if (hash.beta == "true") {
-        endpoint = "/OpenFootprint/impacts/2020";
-    }
+var hiddenhash = {
+    indicators: "VADD"
+};
+let hash = getHash();
+var config = useeio.urlConfig();
 
-    let theModel = 'USEEIOv2.0.1-411'; // Previously USEEIOv2.0
-    if (hash.beta == "true") {
-        if (hash.state) { // Prior to 2024 states were GA, ME, MN, OR, WA
-            let thestate = hash.state.split(",")[0].toUpperCase();
-            theModel = thestate + "EEIOv1.0-s-20"
+let endpoint = "/io/build/api";
+if (hash.beta == "true") {
+    endpoint = "/OpenFootprint/impacts/2020";
+}
 
-            naics = ""; // TEMP. 
+function updateChart() {
 
-            // With transition to 73 Sectors the Naics are not in the models.
-            alert("BETA BUG with transition to 73 Sectors. Model:\r" + endpoint + "/" + theModel);
-        }
+    let theModel = 'USEEIOv2.0.1-411';
+    if (hash.state) { // Prior to 2024 states were GA, ME, MN, OR, WA
+        let thestate = hash.state.split(",")[0].toUpperCase();
+        theModel = thestate + "EEIOv1.0-s-20"
+
+        naics = ""; // TEMP. 
+
+        // With transition to 73 Sectors the Naics are not in the models.
+        console.log("BETA BUG with transition to 73 Sectors.\r\r" + hash.state + " State model:\r" + endpoint + "/" + theModel);
     }
     var modelID = config.get().model || theModel;
-
     if (param.iomodel) {
         modelID = param.iomodel;
     }
-
 
     var model = useeio.model({
         endpoint: endpoint,
@@ -338,6 +336,13 @@
         page:1
     })
     config.join(ioGrid);
+}
+updateChart();
+
+document.addEventListener('hashChangeEvent', function (elem) {
+    alert("inflow-outflow page detects URL hashChangeEvent");
+    updateChart();
+}, false);
 
 </script>
 <!-- /INFLOW OUTFLOW -->
