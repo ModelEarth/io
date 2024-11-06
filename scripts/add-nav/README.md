@@ -12,7 +12,7 @@ Fork and clone these 3 repos: [localsite, io, useeio-widgets](/localsite/start/s
 
 Run in the root of your website to add localsite.js navigation to US EPA samples.
 
-	python io/scripts/add_nav_wrapper.py useeio-widgets/build
+	python io/scripts/add-nav/add_nav_wrapper.py useeio-widgets/build
 
 TO DO: Dhananjay is making updates so the script updates all the .html files in the build folder.
 
