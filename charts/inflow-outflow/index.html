@@ -29,19 +29,18 @@
     $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
 
 
-    // Not used
+    // Not used yet
     $(document).ready(function() {
 
-        // `hashChangeEvent` event reside in multiple widgets. 
+        // `hashChangeEvent` event resides in multiple widgets. 
         // Called by goHash within localsite.js
         document.addEventListener('hashChangeEvent', function (elem) {
-            if (location.host.indexOf('localhost') >= 0) {
-                //alert('hashChangeEvent'); // Invoked twice by iogrid inflow-outflow chart
-            }
+            alert("inflow-outflow page detects URL hashChangeEvent.");
+            updateChart();
         }, false);
-                
-    });
 
+    });
+    loadMarkdown("README.md", "readmeDiv", "_parent");
 </script>
 
 <style>
@@ -148,6 +147,10 @@
 </head>
 
 <body>
+
+<div class="content contentpadding large-list">
+  <div id="readmeDiv"></div>
+</div>
 
 <div style="position:relative; width:100%">
     <!--  
@@ -315,7 +318,7 @@ function updateChart() {
         naics = ""; // TEMP. 
 
         // With transition to 73 Sectors the Naics are not in the models.
-        console.log("BETA BUG with transition to 73 Sectors.\r\r" + hash.state + " State model:\r" + endpoint + "/" + theModel);
+        alert("BETA BUG with transition to 73 Sectors.\r\r" + hash.state + " State model:\r" + endpoint + "/" + theModel);
     }
     var modelID = config.get().model || theModel;
     if (param.iomodel) {
@@ -338,11 +341,6 @@ function updateChart() {
     config.join(ioGrid);
 }
 updateChart();
-
-document.addEventListener('hashChangeEvent', function (elem) {
-    alert("inflow-outflow page detects URL hashChangeEvent");
-    updateChart();
-}, false);
 
 </script>
 <!-- /INFLOW OUTFLOW -->
