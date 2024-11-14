@@ -11,6 +11,8 @@ If you are collaborating through model.earth on updates, fork and clone [modelea
 <span style="background:red; padding:3px; color:#fff">NOTE:</span> The code in the useeio-widgets repo currently causes a runaway processor in the browser when used with the "localsite" repo. To avoid, the "localsite/build" folder contains the recent code from [Recent build 2](https://thetisiboth.github.io/useeio-widget-builds/).
 -->
 
+The stand-alone [inflow-outflow page](../../charts/inflow-outflow/) can be used to test with.
+
 #### Node and Node Version Manager (NVM)
 
 You'll need a current version of [Node.js](https://nodejs.org) installed. View our [node and python install notes](/io/coders/python/)
