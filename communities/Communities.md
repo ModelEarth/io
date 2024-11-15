@@ -1,20 +1,24 @@
-# For Local Communities
+# Government Automation Tools
 
 <!--
 Innovative Web Applications for&nbsp;States&nbsp;and&nbsp;Communities 
 -->
 
-The U.S. Environmental Protection Agency (EPA) and the Georgia Center of Innovation for Energy Technology have teamed up with DemocracyLab Volunteers to provide collaborative tools for visualizing [environmental and economic impacts](/localsite/info/) in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects and [global development goals](https://sdgs.un.org/goals). 
+ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects using an economy-wide input-output model of industries, households and the environment
 
 <!--
-Using an economy-wide input-output model of industries, households and the environment, the impact tools help communities identify opportunities for economic growth and environmental improvements.  
+and [global development goals](https://sdgs.un.org/goals) 
+
+The U.S. Environmental Protection Agency (EPA) and the Georgia Center of Innovation for Energy Technology have teamed up with DemocracyLab Volunteers to 
+
+, the impact tools help communities identify opportunities for economic growth and environmental improvements.  
 -->
 
 ## Community Pages
 
 <!-- Starting points for updating your website with lifecycle tools.-->
 
-Samples of tools you can add to your website:
+Samples of reporting tools you can add to your website:
 
 <!--
 [Carbon Cycle](carbon/) - Combining Wikipedia, Bloomberg and EPA data  
@@ -23,7 +27,7 @@ Samples of tools you can add to your website:
 [Lifecycle Tools 3.0](smm/) - Concepts for upcoming USEEIO widgets
 -->
 
-- [Community Start Pages](../../apps/)
+- [Supply Chain Inflow-Outflow](../../apps/)
 - [Michigan Farmers Markets](../../localsite/map/#state=MI&show=farmfresh)  
 - [Georgia Recycling Directories](../../recycling/georgia/)  
 - [Robertson County Texas Land Use](../../localsite/info/#state=TX&geoview=state&geo=US48395&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
