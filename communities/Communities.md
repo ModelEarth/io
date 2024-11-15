@@ -4,7 +4,7 @@
 Innovative Web Applications for&nbsp;States&nbsp;and&nbsp;Communities 
 -->
 
-ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects using an economy-wide input-output model of industries, households and the environment
+ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects using an economy-wide input-output model of industries, households and the environment.
 
 <!--
 and [global development goals](https://sdgs.un.org/goals) 
@@ -14,7 +14,7 @@ The U.S. Environmental Protection Agency (EPA) and the Georgia Center of Innovat
 , the impact tools help communities identify opportunities for economic growth and environmental improvements.  
 -->
 
-## Community Pages
+## Reporting Tools and Directories
 
 <!-- Starting points for updating your website with lifecycle tools.-->
 
