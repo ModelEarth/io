@@ -11,7 +11,6 @@
 
 <link type="text/css" href="../../../localsite/css/base.css" rel="stylesheet" />
 <script type="text/javascript" src="../../../localsite/js/d3.v5.min.js"></script>
-<!--script type="text/javascript" src="../../../localsite/js/showdown.min.js"></script-->
 <script type="text/javascript" src="../../../localsite/js/jquery.min.js"></script>
 <script type="text/javascript" src="../../../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
 <!--
@@ -28,18 +27,16 @@
     
     $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
 
-
-    // Not used yet
-    $(document).ready(function() {
+    //$(document).ready(function() {
 
         // `hashChangeEvent` event resides in multiple widgets. 
         // Called by goHash within localsite.js
         document.addEventListener('hashChangeEvent', function (elem) {
-            alert("inflow-outflow page detects URL hashChangeEvent.");
+            console.log("inflow-outflow page detects URL hashChangeEvent.");
             updateChart();
         }, false);
 
-    });
+    //});
     loadMarkdown("README.md", "readmeDiv", "_parent");
 </script>
 
@@ -319,6 +316,10 @@ if (hash.beta == "true") {
 }
 
 function updateChart() {
+
+    // Attempts to clear prior state are not working for hash change.
+    //document.getElementById('iogrid').innerHTML = ''; // Clear prior - didn't work
+    //config = useeio.urlConfig(); // Didn't work for clearing each time hash changes
 
     let theModel = 'USEEIOv2.0.1-411';
     if (hash.state) { // Prior to 2024 states were GA, ME, MN, OR, WA
