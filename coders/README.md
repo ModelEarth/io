@@ -64,25 +64,27 @@ Collaborate on open source modeling tools.
 <!--
 **<span class="blinking">NOTICE</span>** This week (May 9, 2024) our Thursday meeting will 10 AM EDT
 -->
-View our [Active Projects](../../projects/) and find your areas of interest.  
-Join us in our 3 weekly [Google Meetups](https://meet.google.com/pcv-xrdh-bat) (Eastern Time, NY and Atlanta)
+
+Join in any of our 3 weekly [Google Meetups](https://meet.google.com/pcv-xrdh-bat) (Eastern Time, NY and Atlanta)
 <!-- Moonshot Mondays, 10 PM EDT - [UN Goals](/data-commons/dist/), [Lunar Olympics AI](/projects/)-->
 
-**Wednesday @ 11 AM EDT** - before noon
-**Friday @ 6 PM EDT** - evening
-**Sunday @ 11 PM EDT** - night
+**Wednesday @ Noon ET** - AI and Flask
+**Friday @ 6 PM ET** - SQL and Trade Flow
+**Sunday @ 10 PM ET** - React and Discord API
+**RealityStream ML Updates** - All meetings
 
 **Topics include**
-[Active Projects](/projects/)  
-[US EPA Javascript & SQL](/useeio.js/footprint/)  
+[Active Projects](/projects/) - Add your name, send PRs  
+[State Footprints Javascript](/useeio.js/footprint/)  
 [International Trade SQL](/OpenFootprint/trade/)  
 [React FeedPlayer](/feed/)  
 [RealityStream ML](/RealityStream/)  
-[Python Pipeline](/data-pipeline/timelines/)  
-[Open WebUI Install](/projects/location/)  
-[EarthScape NextJS](/earthscape/app/)  
+[Open WebUI for Locations - Install](/projects/location/)  
+<!-- [Python Pipeline](/data-pipeline/timelines/)
+[EarthScape NextJS](/earthscape/app/)  -->
 
 [Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all meetings.
+You can also use it other times to collaborate with teammates.
 
 ---
 
