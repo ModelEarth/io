@@ -316,7 +316,7 @@ if (hash.beta == "true") {
 }
 
 function updateChart() {
-
+    let hash = getHash();
     // Attempts to clear prior state are not working for hash change.
     //document.getElementById('iogrid').innerHTML = ''; // Clear prior - didn't work
     //config = useeio.urlConfig(); // Didn't work for clearing each time hash changes
