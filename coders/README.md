@@ -70,7 +70,7 @@ Join in any of our 3 weekly [Google Meetups](https://meet.google.com/pcv-xrdh-ba
 
 **Wednesday @ Noon ET** - AI and Flask
 **Friday @ 6 PM ET** - SQL and Trade Flow
-**Sunday @ 10 PM ET** - React and Discord API
+**Sunday @ 10 PM ET** - React and Discord API (RealityStream)
 **RealityStream ML Updates** - All meetings
 
 **Topics include**

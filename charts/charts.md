@@ -6,6 +6,7 @@
 **Priority - Volunteer Project**
 Modify the [React useeio-widgets matrix code](https://github.com/modelearth/useeio-widgets/) to support 50 states: [inflow-outflow/#state=ME](inflow-outflow/#state=ME)
 
+And/or contribute to [vanilla javascript which already works with all 50 states](https://model.earth/useeio.js/footprint).  
 
 Our [Local Industry Evaluator](../../localsite/info/) contains widgets using JQuery, Leaflet and React. 
 <!-- 

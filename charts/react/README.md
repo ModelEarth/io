@@ -46,7 +46,15 @@ Then these should work too:
 [http://localhost:8887/localsite](http://localhost:8887/localsite)
 [http://localhost:8887/useeio-widgets/build](http://localhost:8887/useeio-widgets/build)
 
-Detailed steps...
+## Add Navigation
+
+Run our [add-nav python script](../../scripts/add-nav) to append localsite.js state navigation onto the build folder samples. Pull a copy of the [localsite repo](https://github.com/modelearth/localsite/) into your webroot.
+
+<br>
+
+# Detailed Steps
+
+More detailed version of the Build steps above.
 
 ## Open Terminal or VS Code
 
@@ -149,10 +157,11 @@ nvm install 12.22.6
 nvm use 12.22.6
 -->
 
-<br>
-<h1>API Key (not needed)</h1>
+## API Key (not needed)
+
 You won't need to run the API since the API is already output as [json files](https://github.com/ModelEarth/io/tree/main/build/api).  
-The US EPA API requires an API key which we store in a [private Google Doc](https://docs.google.com/document/d/1FsIATg3XS-ZlyrNabZBIR9mdhSTWv22-yp0ZCyF80rg/edit?pli=1) to generate the json files annually.<br>
+The US EPA API requires an API key which we store in a [private Google Doc](https://docs.google.com/document/d/1FsIATg3XS-ZlyrNabZBIR9mdhSTWv22-yp0ZCyF80rg/edit?pli=1) to generate the json files annually.  
+The US EPA is preparing to discontinue the use of an API to save money by only outputting the model matrix data as [json files for all states](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020).  
 
 <!--
 You can skip this step. We've already populated the **io/build/api folder** for you.
@@ -179,10 +188,12 @@ npm run download -- --endpoint https://api.edap-cluster.com/useeio/api --apikey 
 Replace USEEIOv2.0.1-411 in the "io" repo if a newer version is generated.
 
 Learn more about [using the USEEIO API](https://github.com/USEPA/USEEIO_API/wiki/Use-the-API)
--->
-<br>
+--> 
 
-**Data for all 50 states**
-You can develop with [USEEIO data from all 50 states](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020).   
-Changes to the data structure may require modifying the chart React code.
+
+## Add Navigation
+
+[Add Navigation](../../scripts/add-nav) pulled from an adjacent clone of the [localsite repo](https://github.com/modelearth/localsite/) 
+
+You can contribute to [vanilla javascript which work with all 50 states](https://model.earth/useeio.js/footprint).  
 
