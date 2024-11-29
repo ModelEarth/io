@@ -5,7 +5,7 @@
 
 IN PROGRESS: [Our USSEEIO to DuckDB Python](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/useeio/python) (by Satya) generates state DuckDB files. We pull international [DuckDB files](/OpenFootprint/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020/USEEIOv2.0.1-411) data. 
 
-Note that our our [International trade flow pull](/OpenFootprint/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
+Note that our [International trade flow pull](/OpenFootprint/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
 
 View US data in [Supply Chain Inflow-Outflow](../../localsite/info/)  
 [Lifecyle Tools Overview](../../community/tools/)<!--
