@@ -49,20 +49,18 @@ Here are [old model files](https://www.dropbox.com/sh/af48m0jsusgr3jg/AACzBSJwuj
 -->
 
 Read our [Lifecycle Tools Overview](https://model.earth//community/tools/) and contribute to our  
-[SQL State Model setup](/io/about/) and [International Trade Flow SQL](/useeio.js/footprint/)
+[SQL State Model setup](/io/about/) and [International Trade Flow SQL](/OpenFootprint/trade/)
 
 [How to Build USEEIO-Widgets locally (React)](react) - Contribute code updates
 
 
 ## JQuery Widgets 
 
+- [USEEIO 50 State Javascript](/useeio.js/footprint/) - Upcoming, get involved coding  
 - [NAICS Industry List](../../localsite/info/#state=ME) and [Stand-alone](../../localsite/info/naics/) - JQuery
 - [Impact Bubble Chart](bubble/) - D3 and JQuery  
 - [Sankey Chart](sankey/) - D3 with Python prep  
-<!--
-- [Chord Chart](chord/) - Upcoming
-- [OpenFootprint](/useeio.js/footprint/)
--->
+- [Chord Chart](chord/) - Upcoming, get involved coding  
 
 <!--
 If your local widgets reference the "useeio" folder, they may need to be updated occasionally as parameters change. For stability, point your local widgets at one of the [numbered backups](https://model.earth/eeio/build.2020.002) or copy the useeio folder into your project.
