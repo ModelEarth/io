@@ -103,7 +103,14 @@ The io repo includes additional code for integrating widgets.
 
 ## React TO DOs
 
-Also see our [Javascript with API TO DOs](/useeio.js/footprint/#reports) (at the bottom of that page)
+Also see our [useeio.js fork for Javascript TO DOs](/useeio.js/footprint/#reports)
+
+### TO DO (PRIORITY): Retain #hash values in EPA widgets
+
+[In our model.earth useeio-widgets fork](https://github.com/modelEarth/useeio-widgets), comment-out the process that removes URL hash values.  
+For example, prevent the [useeio-widgets](/io/charts/react/) React code from removing state=ME from this URL:  
+[http://localhost:8887/io/build/sector_list.html?view=mosaic#state=ME](http://localhost:8887/io/build/sector_list.html?view=mosaic#state=ME)  
+We'll submit an issue to the EPA parent useeio-widgets repo.
 
 ### TO DO: Widget fix for EPA state model v1.0
 
@@ -136,7 +143,7 @@ http://localhost:8887/useeio-widgets/build/sector_list.html?view=mosaic#indicato
 BUG: The link above should not encode the commas when loading the page.
 BUG: Sometimes the arrows appear using the link above, but not always.
 
-**TO DO** - Pallavi is working on the following
+**TO DO** - Coordinate with Loren to check which Pallavi implemented.
 
 1.) Move the checkbox directly above the column (Then they won't have a 315 degree pivot.)
 
