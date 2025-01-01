@@ -108,7 +108,7 @@ Also see our [useeio.js fork for Javascript TO DOs](/useeio.js/footprint/#report
 ### TO DO (PRIORITY): Retain #hash values in EPA widgets
 
 [In our model.earth useeio-widgets fork](https://github.com/modelEarth/useeio-widgets), comment-out the process that removes URL hash values.  
-For example, prevent the [useeio-widgets](/io/charts/react/) React code from removing state=ME from this URL:  
+Modify React to prevent the built [useeio-widgets](/io/charts/react/) code from removing state=ME from this URL:  
 [http://localhost:8887/io/build/sector_list.html?view=mosaic#state=ME](http://localhost:8887/io/build/sector_list.html?view=mosaic#state=ME)  
 We'll submit an issue to the EPA parent useeio-widgets repo.
 
