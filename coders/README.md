@@ -38,7 +38,7 @@ For use during a future Web Challenge
 Collaborate on open source modeling tools.
 -->
 
-<h1>For Coders & Designers</h1>
+<h1>Coding Meetups</h1>
 
 
 <style>
@@ -65,17 +65,21 @@ Collaborate on open source modeling tools.
 **<span class="blinking">NOTICE</span>** This week (May 9, 2024) our Thursday meeting will 10 AM EDT
 -->
 
-Join in any of our 3 weekly [Google Meetups](https://meet.google.com/pcv-xrdh-bat) (Eastern Time, NY and Atlanta)
+<span style="font-size: 18px;">Wednesdays @ 8pm ET</span> (Eastern Time, NY and Atlanta)
 <!-- Moonshot Mondays, 10 PM EDT - [UN Goals](/data-commons/dist/), [Lunar Olympics AI](/projects/)-->
 
-**Wednesday @ Noon ET** - AI and Flask
+[Join our Wednesday 8pm ET Google Meetup](https://meet.google.com/pcv-xrdh-bat) 
+
+<!--
+** - AI and Flask
 **Friday @ 6 PM ET** - SQL and Trade Flow
 **Sunday @ 10 PM ET** - React and Discord API (RealityStream)
 **RealityStream ML Updates** - All meetings
+-->
 
 **Topics include**
 [Active Projects](/projects/) - Add your name, send PRs  
-[State Footprints Javascript](/useeio.js/footprint/)  
+[Open Footprint Javascript](/useeio.js/footprint/)  
 [International Trade SQL](/OpenFootprint/trade/)  
 [React FeedPlayer](/feed/)  
 [RealityStream ML](/RealityStream/)  
@@ -83,8 +87,8 @@ Join in any of our 3 weekly [Google Meetups](https://meet.google.com/pcv-xrdh-ba
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
-[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all meetings.
-You can also use it other times to collaborate with teammates.
+[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Wednesday at 8pm ET (Eastern Time).
+We also use the same Google Meetup link for focused collaboration meetups at other times.
 
 ---
 

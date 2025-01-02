@@ -4,7 +4,7 @@
 Innovative Web Applications for&nbsp;States&nbsp;and&nbsp;Communities 
 -->
 
-ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators &ndash; including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects using an economy-wide input-output model of industries, households and the environment.
+ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators &ndash; including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
 
 <!--
 and [global development goals](https://sdgs.un.org/goals) 
