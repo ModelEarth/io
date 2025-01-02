@@ -41,12 +41,6 @@ Join in our upcoming work sessions for an overview of the web challenge and to s
   </div>
 </div>
 
-<!--
-<b>Work Sessions</b><br>
-<a href="../../community/challenge/meetups/">Wednesday, September 29, 2021 from 7PM to 9PM EST</a><br>
-<br>
--->
-
 <b>Annual Web Challenge Event<!--Final Event--></b><br>
 <a href="../../community/challenge/">Saturday, October 2, 2021 from 10AM to 6PM EST</a><br><br>
 

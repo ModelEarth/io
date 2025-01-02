@@ -7,23 +7,8 @@
     <a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
  </div>
 
-<!--
-ClimateTech Handbook - actions to take to address climate change
--->
 
-<!--
-
-# Earthathon
-### Online with DemocracyLab
-#### Saturday, April , 202
-**Noon to 8 PM EDT East Coast<br>9 AM to 5 PM PDT West Coast**
-
-[Join our Google Meetup](https://meet.google.com/pcv-xrdh-bat) - We'll touchbase every two hours for 30+ minutes at Noon, 2pm, 4pm, 6pm, and then wrap-up with other teams from 7pm to 8pm EDT.
-
-We'll be creating visual food nutrition labels and environmental impact biodiversity storyboards with our new generative AI tools for images and video using python and Open WebUI.
--->
-
-<!--We'll use our Earthscape Chatbot UI fork to combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.-->
+<!--Our Earthscape Chatbot UI fork might someday combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.-->
 
 
 <!--
@@ -38,7 +23,7 @@ For use during a future Web Challenge
 Collaborate on open source modeling tools.
 -->
 
-<h1>Coding Meetup</h1>
+<h1>Coding Meetups</h1>
 
 
 <style>
@@ -65,10 +50,10 @@ Collaborate on open source modeling tools.
 **<span class="blinking">NOTICE</span>** This week (May 9, 2024) our Thursday meeting will 10 AM EDT
 -->
 
-<span style="font-size: 18px;">Wednesdays @ 8pm ET</span> (Eastern Time, NY and Atlanta)
+<span style="font-size: 18px;">Thursdays @ 7pm ET</span> (Eastern Time, NY and Atlanta)
 <!-- Moonshot Mondays, 10 PM EDT - [UN Goals](/data-commons/dist/), [Lunar Olympics AI](/projects/)-->
 
-[Join our Wednesday 8pm ET Google Meetup](https://meet.google.com/pcv-xrdh-bat) 
+[Join in our weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
 <!--
 ** - AI and Flask
@@ -78,17 +63,19 @@ Collaborate on open source modeling tools.
 -->
 
 **Topics include**
-[Active Projects](/projects/) - Add your name, send PRs  
+[Active Projects](/projects/)  
 [Open Footprint Javascript](/useeio.js/footprint/)  
 [International Trade SQL](/OpenFootprint/trade/)  
 [React FeedPlayer](/feed/)  
 [RealityStream ML](/RealityStream/)  
-[Open WebUI for Locations - Install](/projects/location/)  
+[Open WebUI for Locations](/projects/location/)  
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
-[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Wednesday at 8pm ET (Eastern Time).
+[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Thursday at 7pm ET (Eastern Time).
 We also use the same Google Meetup link for focused collaboration meetups at other times.
+
+<a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Meetup</a>
 
 ---
 
