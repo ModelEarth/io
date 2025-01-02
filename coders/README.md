@@ -73,7 +73,7 @@ Collaborate on open source modeling tools.
 [EarthScape NextJS](/earthscape/app/)  -->
 
 [Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Thursday at 7pm ET (Eastern Time).
-We also use the same Google Meetup link for focused collaboration meetups at other times.
+We use the same Google Meetup link for focused collaboration meetups at other times.
 
 <a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Meetup</a>
 

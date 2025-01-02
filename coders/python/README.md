@@ -1,4 +1,4 @@
-# Node, Python, pyenv and Conda Notes
+# Node, Python, pyenv, Conda and Docker notes
 
 ## Start a Virtual Environment 
 
