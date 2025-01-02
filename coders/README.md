@@ -38,7 +38,7 @@ For use during a future Web Challenge
 Collaborate on open source modeling tools.
 -->
 
-<h1>Coding Meetups</h1>
+<h1>Coding Meetup</h1>
 
 
 <style>
