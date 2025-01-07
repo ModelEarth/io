@@ -62,7 +62,7 @@ Collaborate on open source modeling tools.
 **RealityStream ML Updates** - All meetings
 -->
 
-**Topics include**
+**Project Teams**
 [Active Projects](/projects/)  
 [Open Footprint Javascript](/useeio.js/footprint/)  
 [International Trade SQL](/OpenFootprint/trade/)  
@@ -74,8 +74,9 @@ Collaborate on open source modeling tools.
 
 [Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Thursday at 7pm ET (Eastern Time).
 We use the same Google Meetup link for focused collaboration meetups at other times.
+We're creating [Discord MemberSense Team Interfaces](../../feed/) - Discord invite provided during meetups.
 
-<a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Meetup</a>
+<a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Google Meetup</a>
 
 ---
 
