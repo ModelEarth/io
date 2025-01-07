@@ -1,10 +1,10 @@
-# Government Automation Tools
+# Government Optimization Tools
 
 <!--
 Innovative Web Applications for&nbsp;States&nbsp;and&nbsp;Communities 
 -->
 
-ModelEarth provides collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators &ndash; including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
+ModelEarth provides open collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators, including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
 
 <!--
 and [global development goals](https://sdgs.un.org/goals) 
