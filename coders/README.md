@@ -62,12 +62,14 @@ Collaborate on open source modeling tools.
 **RealityStream ML Updates** - All meetings
 -->
 
-**Project Teams**
-[Active Projects](/projects/)  
-[Open Footprint Javascript](/useeio.js/footprint/)  
-[International Trade SQL](/OpenFootprint/trade/)  
-[React FeedPlayer (MemberSense)](/feed/)  
-[RealityStream ML](/RealityStream/)  
+**Project Team** [Active Projects](/projects/)  
+[1. Javascript Data Visualization (Google Data Commons)](/data-commons/docs/data/)  
+[2. Ai Javascript (LangchainJS)](/projects/) - Lead: DJ 
+[3. RealityStream ML](/RealityStream/) - Lead: Ivy 
+[4. International Trade Javascript, Python](/OpenFootprint/trade/) - Lead: Satwick / SQL Lead: Gary  
+[5. BuildingTransparency - Open Footprint API](/useeio.js/footprint/)  
+[6. React FeedPlayer (MemberSense)](/feed/)  
+[7. Moonshots](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
@@ -76,6 +78,8 @@ We use the same Google Meetup link for focused collaboration meetups at other ti
 We're creating [Discord MemberSense Team Interfaces](../../feed/) - Discord invite provided during meetups.
 
 <a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Google Meetup</a>
+
+We have new [OPT opportunities](https://www.democracylab.org/projects/834) for Javascript and React developers.
 
 ---
 
