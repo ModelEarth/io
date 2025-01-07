@@ -66,7 +66,7 @@ Collaborate on open source modeling tools.
 [Active Projects](/projects/)  
 [Open Footprint Javascript](/useeio.js/footprint/)  
 [International Trade SQL](/OpenFootprint/trade/)  
-[React FeedPlayer](/feed/)  
+[React FeedPlayer (MemberSense)](/feed/)  
 [RealityStream ML](/RealityStream/)  
 [Open WebUI for Locations](/projects/location/)  
 <!-- [Python Pipeline](/data-pipeline/timelines/)
