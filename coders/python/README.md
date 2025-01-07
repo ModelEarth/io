@@ -1,5 +1,7 @@
 # Node, Python, pyenv, Conda and Docker notes
 
+To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
+
 ## Start a Virtual Environment 
 
 See the [pyenv](#pyenv) steps below if you need to run a different version of python.

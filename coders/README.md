@@ -68,7 +68,6 @@ Collaborate on open source modeling tools.
 [International Trade SQL](/OpenFootprint/trade/)  
 [React FeedPlayer (MemberSense)](/feed/)  
 [RealityStream ML](/RealityStream/)  
-[Open WebUI for Locations](/projects/location/)  
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
