@@ -68,7 +68,7 @@ Collaborate on open source modeling tools.
 [3. RealityStream ML](/RealityStream/) - Lead: Ivy 
 [4. International Trade Javascript, Python](/OpenFootprint/trade/) - Lead: Satwick / SQL Lead: Gary  
 [5. BuildingTransparency - Open Footprint API](/useeio.js/footprint/)  
-[6. React FeedPlayer (MemberSense)](/feed/)  
+[6. React FeedPlayer](/feed/) - Leads: Shreyas and Chethan / MemberSense Team: Open  
 [7. Moonshots](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
