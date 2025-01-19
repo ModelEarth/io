@@ -83,18 +83,6 @@ We have new [OPT opportunities](https://www.democracylab.org/projects/834) for J
 
 ---
 
-### Join in the EPA Consumption-Based State Emissions Review
-
-**When:** Monday, January 13, 2025 2 PM to 3:00 PM Eastern Time
-
-[Register for the zoom call](https://usepa.zoomgov.com/webinar/register/WN_8OKTKueiS2uQYmHneGEYIw)
-
-Join EPA, NEWMOA, and the State of Maine for a free webinar presenting the results and some related outcomes from our recent collaboration to develop consumption-based emission inventories for states in the Northeastern U.S.
-
-U.S. states are seeking ways to identify sources of greenhouse gas (GHG) emissions associated with their activities in order to guide strategies to further reduce and prevent GHG emissions. A consumption-based GHG inventory (CBEI) for a state can provide insight into sources of emissions associated with goods and services that are consumed within a state. They offer insight beyond what traditional, state-level territorial GHG inventory or product-level life cycle assessments can provide. The Northeast Waste Management Officials Association (NEWMOA) workgroup on Climate Change and Materials reached out to EPA for assistance in performing CBEIs for their states.  EPA agreed to help and recently published the results of CBEIs for eight northeastern states (CT, MA, ME, NH, NJ, NY, RI, VT). EPA has further developed simplified CBEIs for all other U.S. states. In this meeting we will hear from the NEWMOA Climate Change and Materials workgroup about state motivations for CBEIs in relation to their missions, from EPA on the results of northeastern state CBEIs and how to get access to CBEIs for other states, and from Maine for an example of how the CBEIs might be used by a state government to inform policy.
-
----
-
 ### Data Visualization Projects
 
 We're combining [Exiobase Trade Flow data](../../openfootprint/trade) with [US EPA Inflow-Outflow reports](../../useeio.js/footprint/).
