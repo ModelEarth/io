@@ -73,9 +73,10 @@ Collaborate on open source modeling tools.
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
-[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same every Thursday at 7pm ET (Eastern Time).
-We use the same Google Meetup link for focused collaboration meetups at other times.
-We're creating [Discord MemberSense Team Interfaces](../../feed/) - Discord invite provided during meetups.
+<span style="font-size: 18px;">RealityStream ML meetups Saturdays @ 11am ET</span>
+
+[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
+We're creating [Discord MemberSense Team Interfaces](../../feed/) - Our Discord invite is provided during meetups.
 
 <a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Google Meetup</a>
 
