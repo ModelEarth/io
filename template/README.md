@@ -1,9 +1,9 @@
 <h1 class="h1-home">Open Footprint Builder</h1>
 #### Environmental Impact Profiles for Communities, Companies and Individuals
 
-[API YAML to JSON and HTML](parser/) and [Product Label Sample](parser/sample.html)
+[Product Comparisons](/OpenFootprint/products/) using the [Building Transparency API](/io/template/feed/)  
+[API YAML to JSON and HTML](parser/) and [Product Profile Label Javascript](/food/)<!-- /io/template/parser/sample.html -->
 [Select states and counties](#geoview=country) to explore local industry impacts
-[Product Comparisons](/OpenFootprint/products/) and [Building Transparency API](/io/template/feed/)
 
 [Why strict YAML instead of TOML](https://hitchdev.com/strictyaml/why-not/toml/) and our [TOML parse to json](toml)
 
@@ -61,8 +61,8 @@ concrete:
 JSON is well suited for data interchange since the structure is rigid, however  
 YAML (based on JSON standards) has the added advantage of being slim and easier to read/edit.  
 
-- Machine-Readable - A significant advantage of both JSON and YAML over PDF files  
-- Human-Editable - Fewer errors likely when editing YAML compared to JSON scenario files   
+- Machine-Readable - A significant advantage over using PDF files as the sole source  
+- Human-Editable - Fewer errors are likely when editing YAML compared to JSON scenario files   
 - Modular for CI/CD settings - Stand-alone files are not dependant on an API for transfer   
 - Equitable - Allows for static file comparisons without database access requirements
 - Inclusive - Universally accessible to developers, designers and machine learning   
