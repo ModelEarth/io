@@ -1,8 +1,9 @@
 # Government Optimization Tools
 
-<!--
-Innovative Web Applications for&nbsp;States&nbsp;and&nbsp;Communities 
--->
+Innovative Input-Output Reporting for US and International [Digital Services](https://www.usds.gov/)
+
+Trade Flow impacts using [MARIO Input-Output Analysis](https://mario-suite.readthedocs.io/en/latest/intro.html)
+
 
 ModelEarth provides open collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators, including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
 
@@ -27,11 +28,11 @@ Samples of reporting tools you can add to your website:
 [Lifecycle Tools 3.0](smm/) - Concepts for upcoming USEEIO widgets
 -->
 
-- [Supply Chain Inflow-Outflow](../../apps/)
-- [Michigan Farmers Markets](../../localsite/map/#state=MI&show=farmfresh)  
-- [Georgia Recycling Directories](../../recycling/georgia/)  
-- [Robertson County Texas Land Use](../../localsite/info/#state=TX&geoview=state&geo=US48395&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
-- [Colorado Industry Impact Comparison](../../localsite/info/#state=CO)  
+- [Supply Chain Inflow-Outflow](../apps/)
+- [Michigan Farmers Markets](../localsite/map/#state=MI&show=farmfresh)  
+- [Georgia Recycling Directories](../recycling/georgia/)  
+- [Robertson County Texas Land Use](../localsite/info/#state=TX&geoview=state&geo=US48395&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
+- [Colorado Industry Impact Comparison](../localsite/info/#state=CO)  
 <!--
 - [Georgia B2B Recyclers](../localsite/map/#show=recyclers&state=GA)  
 - [Georgia Wastewater Facilities](../localsite/map/#show=wastewater&state=GA)  
@@ -57,16 +58,16 @@ Samples of reporting tools you can add to your website:
 
 ## Other Resources Include
 
-- [Teaching Tools&nbsp;and&nbsp;Student Research Framework](../learn) - Use and create applications to learn about the connections between industries, households, and the environment in local communities.
+- [Teaching Tools&nbsp;and&nbsp;Student Research Framework](learn) - Use and create applications to learn about the connections between industries, households, and the environment in local communities.
 
 - [The Innovation Economy](https://hbr.org/podcast/2019/04/the-innovation-economy) - Economist Mariana Mazzucato talks about Entrepreneurial Ecosystems.
 
-- [Community Carbon Cycling](../../community/carbon-capture/) - How manufacturers and municipalities are reusing material to capture carbon and generate clean energy.  
+- [Community Carbon Cycling](../community/carbon-capture/) - How manufacturers and municipalities are reusing material to capture carbon and generate clean energy.  
 
 
 ## Impact Visualizations
 
-[Our lifecycle tools](../../community/tools/) explore topics of biodiversity, energy innovation, [farm fresh produce](../../localsite/info/#show=farmfresh&state=GA), waste-to-energy, bioproducts and local product footprints. Community participants include collaborations across organizations, including:
+[Our lifecycle tools](../community/tools/) explore topics of biodiversity, energy innovation, [farm fresh produce](../localsite/info/#show=farmfresh&state=GA), waste-to-energy, bioproducts and local product footprints. Community participants include collaborations across organizations, including:
 
 - local government
 - educational institutions
@@ -79,16 +80,16 @@ Samples of reporting tools you can add to your website:
 
 ## Community Focused Apps
 
-The [Location Apps Repo](../../apps/) contains starters for local topics including:
-- <a href="../../apps/carbon/">Carbon Cycle</a>
-- <a href="../../apps/coastal/">Coastal Recycling</a>
-- <a href="../../apps/ev/">EV Manufacturing</a>
-- <a href="../../recycling/">B2B Recycling</a>
+The [Location Apps Repo](../apps/) contains starters for local topics including:
+- <a href="../apps/carbon/">Carbon Cycle</a>
+- <a href="../apps/coastal/">Coastal Recycling</a>
+- <a href="../apps/ev/">EV Manufacturing</a>
+- <a href="../recycling/">B2B Recycling</a>
 <!--
-[West Central Georgia](../../localsite/info/#state=GA&regiontitle=West+Central+Georgia&geo=US13045,US13077,US13143,US13145,US13149,US13199,US13223,US13233,US13263,US13285,US01111,US01017&lat=33.0362&lon=-85.0322&show=parts) - Automotive Parts Industry -  Transformations for Electric Vehicle Production  
-[Coastal Georgia](../../localsite/info/#state=GA&regiontitle=Coastal+Georgia&show=bioeconomy) - Waste to Energy Bioeconomy  
-[Southeast Georgia](../../localsite/info/#state=GA&regiontitle=Southeast+Georgia&geo=US13001,US13005,US13127,US13161,US13229,US13305&lat=31.1891&lon=-81.4979&show=bioeconomy) (Brunswick 6 county region) - Waste to Energy Bioeconomy  
-[View industries by county](../../localsite/info/#state=GA&view=counties)  
+[West Central Georgia](../localsite/info/#state=GA&regiontitle=West+Central+Georgia&geo=US13045,US13077,US13143,US13145,US13149,US13199,US13223,US13233,US13263,US13285,US01111,US01017&lat=33.0362&lon=-85.0322&show=parts) - Automotive Parts Industry -  Transformations for Electric Vehicle Production  
+[Coastal Georgia](../localsite/info/#state=GA&regiontitle=Coastal+Georgia&show=bioeconomy) - Waste to Energy Bioeconomy  
+[Southeast Georgia](../localsite/info/#state=GA&regiontitle=Southeast+Georgia&geo=US13001,US13005,US13127,US13161,US13229,US13305&lat=31.1891&lon=-81.4979&show=bioeconomy) (Brunswick 6 county region) - Waste to Energy Bioeconomy  
+[View industries by county](../localsite/info/#state=GA&view=counties)  
 
 ## Participation Requirements
 - Communities must be interested in economic development and sustainability

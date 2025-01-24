@@ -1,64 +1,688 @@
-<html><head>
-<script type="text/javascript">
-  //if(location.host.indexOf('localsite') < 0 && location.host.indexOf('model.georgia') < 0) {
-    window.location="communities";
-  //}
-</script>
-
-
-<meta charset='UTF-8'>
-<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-<title>Input-Output Models for Community Planning</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Input-Output Optimization Models</title>
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/localsite/css/base.css" id="/localsite/css/base.css" />
-<script type="text/javascript" src="/localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
-<script type="text/javascript" src="/localsite/js/jquery.min.js" id="/localsite/js/jquery.min.js"></script>
-<script type="text/javascript" src="/localsite/js/showdown.min.js" io="/localsite/js/showdown.min.js"></script>
-<script type="text/javascript" src="/localsite/js/localsite.js?showheader=true&showsearch=true"></script>
 
-<!--
-USEEIO Teams (Use LH account)
-https://github.com/WesIngwersen/USEEIO_team
--->
+<link type="text/css" rel="stylesheet" href="../../localsite/css/base.css" id="/localsite/css/base.css" />
+<link rel="stylesheet" href="../../localsite/css/leaflet.css" id="/localsite/css/leaflet.css" />
+ <!-- Resides AFTER Leaflet's CSS -->
+<script src="../../localsite/js/leaflet.js" id="/localsite/js/leaflet.js"></script>
+<script type="text/javascript" src="../../localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
+<!-- https://github.com/ilyankou/Leaflet.IconMaterial -->
+
+<link href="../../localsite/css/leaflet.icon-material.css" rel="stylesheet">
+<script src="../../localsite/js/leaflet.icon-material.js" id="/localsite/js/leaflet.icon-material.js"></script>
+
+<script type="text/javascript" src="../../localsite/js/localsite.js?display=map&showheader=true&showsearch=true"></script>
+<script type="text/javascript" src="../../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
 
 <!-- For Facebook -->
-<meta property="og:title" content="Web Applications for Government" />
+<meta property="og:title" content="Sustainable Communities Input-Output Modeling Tools" />
 <meta property="og:type" content="article" />
-<meta property="og:image" content="https://model.earth/io/img/side/model-earth-impacts.jpg" />
-<meta property="og:url" content="https://model.earth/community/challenge/" />
-<meta property="og:description" content="Join us to work on Lifecycle Tools using US EPA data with Democracy Lab and Code for America projects." />
+<meta property="og:image" content="https://model.earth/community/img/logo/model-earth-globe.png" />
+<meta property="og:url" content="https://model.earth/community/tools/" />
+<meta property="og:description" content="Environmentally-extended analysis of supplier and production data across 389 industries." />
 
 <!-- For Twitter -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Web Applications for Government" />
-<meta name="twitter:description" content="Join us to work on Lifecycle Tools using US EPA data with Democracy Lab and Code for America projects." />
-<meta name="twitter:image" content="https://model.earth/io/img/side/model-earth-impacts.jpg" />
+<meta name="twitter:title" content="Sustainable Communities Input-Output Modeling Tools" />
+<meta name="twitter:description" content="Environmentally-extended analysis of supplier and production data across 389 industries." />
+<meta name="twitter:image" content="https://model.earth/community/img/logo/model-earth-globe.png" />
+
+<script type="text/javascript">
+loadMarkdown("tools.md", "topicsDiv", "_parent");
+</script>
+
+<script type="text/javascript">
+let theRandomNumber = Math.floor(Math.random() * 100) + 1; // 1 to 100
+if (theRandomNumber > 50) {
+  //$(".twitter-timeline").attr("href", "https://twitter.com/EPA");
+}
+</script>
+
+<style>
+.bioimage {
+  float:left;
+  margin-bottom: 10px;
+}
+.bioimage img {
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-right: 30px !important;
+    background-size: cover !important;
+    border-radius: 50% !important;
+    width: 180px !important;
+    height: 180px !important;
+    min-width: 180px !important;
+    min-height: 180px !important;
+}
+.biotext {
+  overflow: auto;
+}
+.biotext h2 {
+  margin-top: 0px;
+}
+
+@media print {
+  .bioimage img {
+      width: 140px !important;
+      height: 140px !important;
+      min-width: 140px !important;
+      min-height: 140px !important;
+  }
+  #toplogos {
+    margin-top: -40px;
+    padding-bottom: 20px;
+  }
+}
+</style>
 
 
+<style>
+h2 { font-size: 18px; }
 
-  <style>
-    body {
-      font-family: 'Nunito Sans', sans-serif;
+.padding-left {
+  padding-left:70px;
+}
+.headerLogo {
+  height:40px;
+  margin:28px 10px 4px 50px
+}
+.headerImage {
+  display:none;
+}
+#hublist-padding {
+  padding-right: 30px; /* Avoid including in map.css. Only used when fixed map resides to right of list. */
+}
+@media (max-width: 800px) {
+  .padding-left {
+    padding-left:0px;
+  }
+}
+.my-div-icon {
+  width: 24px !important;
+  height: 20px !important;
+  background-color: red;
+  position:relative;
+}
+.my-div-icon:after {
+  position: absolute;
+  /* content: " (" attr(href) ")"; */
+  content: "1";
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+</style>
+
+<link rel="stylesheet" href="../../localsite/css/map.css" id="/localsite/css/map.css" />
+
+<style>
+  #footerBox {
+    padding-top:20px;
+    padding-bottom:20px;
+    clear:both;
+    background: #eee;
+    z-index: 2000; overflow: auto
+  }
+  @media (max-width: 700px) {
+    #footerBox {
+      padding-left:40px; 
     }
-    li p { /* Not sure why this became necessary */
-      margin-top: 0px;
-      margin-bottom: 2px;
-    }
-  </style>
+  }
+  .dark #footerBox {
+    background: #292929;
+  }
+</style>
 
 </head>
 
 <body>
 
-<div class="content contentpadding toplinks" style="max-width:none;padding-bottom:0px">
-  <a href="../projects/">Active Projects</a>  | 
-  <a href="coders/" style="white-space:nowrap;">Coding Meetups</a> |
-  <a href="communities/">For Government</a> |
-  <span style="white-space:nowrap;"><a href="learn/">For Research Projects</a> | 
-  <a href="about/">About State Models</a></span>
+<div class="content contentpadding" style="overflow:auto; margin-bottom:0px; padding-bottom:0px;">
+
+  <div class="topLinks">
+    <span class="earth" style="display:none"><a href="../projects/">Active Projects</a> |</span>
+    <a href="coders/" style="white-space:nowrap;">Coding Meetups</a> | 
+    <b>For Government</b> | 
+    <span style="white-space:nowrap;"><a href="learn/">For Research & Teaching</a> | 
+    <a href="about/">About State Models</a></span>
+  </div>
+  <br>
+
+  <div class="floatright">
+  <div style="border:1px solid #ccc; margin-bottom:20px; max-height:350px; overflow: hidden; border-radius: 25px;">
+
+    <div style="padding:30px; padding-top:10px; padding-bottom:20px">
+
+      <div style="text-align: center;">
+        <br>
+        <img class="logoImg" src="../../community/img/logo/epa.png" style="width:180px;">
+        <br>
+      </div>
+
+      <div>
+        <!--
+        <div style="font-weight:800; margin-top:15px">How are states using Life Cycle Tools?</div>
+        -->
+        Data on local industry input-output levels helps inform <a href="../../localsite/map/#show=recyclers&state=GA">B2B recycling</a>, reductions in greenhouse gas&nbsp;<a href="/localsite/info/#indicators=GHG">emissions</a>, electric vehicle transitions, advanced <a href="/community/biotech/">biofuels</a> and more.
+      </div>
+
+    </div>
+
+      <!--
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Georgia earns Area Development&#39;s No. 1 State for Business for the 10th consecutive year, a national record. Additionally, Quick Start was named the nation’s top workforce development program for the 14th year in a row. Read more: <a href="https://t.co/DReO7Ncpyf">https://t.co/DReO7Ncpyf</a> <a href="https://t.co/Ti3Zen5mGf">pic.twitter.com/Ti3Zen5mGf</a></p>&mdash; Georgia, USA (@gdecd) <a href="https://twitter.com/gdecd/status/1709298825389539755?ref_src=twsrc%5Etfw">October 3, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      -->
+      
+      <!-- Twitter loads in an iFrame. CSS changes can not be applied.
+      In this case, images in hidden divs are not loaded until the divs are displayed.
+      -->
+
+      <!-- BUGBUG this is loading both.
+
+        To Do:
+        Create javascript to invoke only one. 
+        Exclude from localhost since no longer displays.
+        Avoid long space.
+      -->
+
+      <!--
+      <div style="display:none" class="georgia">
+        <a class="twitter-timeline" data-tweet-limit="3" href="https://twitter.com/gdecd"></a> 
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <div style="display:none" class="local earth">
+        <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/epa"></a> 
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      -->      
+  </div>
+
+  <div class="hideMobile"><br>
+
+    <a href="https://model.earth">Model.earth</a> grew from Georgia's collaborative tech community and innovative research partnerships.<br>
+    Plan your next ascent in <a href="https://www.exploregeorgia.org" style="white-space:nowrap;" target="travel">Georgia's majestic environs</a>.<br><br>
+
+    <a href="https://www.exploregeorgia.org"><img src="img/side/feature.jpg" style="width:100%;max-width:500px;border-radius: 25px;"></a><br>
+  </div>
+  </div>
+  
+
+  <!-- /floatRight -->
+
+  <div id="topicsDiv" style="min-width:300px;padding-right:10px"></div>
+
+  <h2>Add to Your Website</h2>
+
+  Embedding input-output maps and charts is easy. Here's a sample to try:
+
+  <pre><code>&lt;script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?display=everything&show=farmfresh&showheader=false&state=GA"&gt;&lt;/script&gt;</code></pre>
+
+  Samples of <a href="../charts/">Embeddable IO Widgets</a>
+  <br><br>
+
+
 </div>
 
+
+<!-- Twitter loads in an iFrame. CSS changes can not be applied.
+In this case, images in hidden divs are not loaded until the divs are displayed.
+-->
+<!--
+<div id="rightcolumn" class="hideMobileSooner" style="float:right; margin-left:40px; padding-right:30px; max-width: 500px; width:100%; max-height:1300px; overflow:scroll;">
+    
+    <div classX="georgia">
+      <a class="twitter-timeline" data-tweet-limit="3" href="https://twitter.com/gdecd"></a> 
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div style="display:none" class="local earth">
+      <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/epa"></a> 
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div style="display:none" class="dream">
+      <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/dreamstudiohq"></a> 
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    
+</div>
+-->
+
+<div class="reveal" style="clear:both">
+
+<div id="allsections" class="slides">
+
+
+  <section id="intro" class="litePanel scrollable-slide">
+    <div class="content contentpadding">
+
+        <!-- copied to /community -->
+
+        <h1>Community Apps for Life Cycle Assessment (LCA)</h1>
+        <a href="https://www.epa.gov/sciencematters/epa-researchers-working-improve-life-cycle-assessment-capabilities-communities" target="_blank">Working to Improve Life-Cycle Assessment Capabilities for Communities</a><br><br>
+        
+        Sustainable Materials Management (SMM) and <a href="https://www.ellenmacarthurfoundation.org/circular-examples/regenerative-material-production-to-allow-biodiversity-to-thrive">Regenerative Material Production (RMP)</a> provide a systemic approach to using and reusing materials more productively over their entire life cycle. It represents a change in how our society thinks about the use of natural resources and environmental protection. By looking at a product's entire life cycle, we can find new opportunities to reduce environmental impacts, conserve resources, reduce costs and attract new industries.<br><br>
+
+
+      <style>
+        .three {
+          margin-left: -20px;
+          margin-right: -30px;
+
+        }
+        .three div {
+          width:33%;
+          float:left;
+          padding-left: 20px;
+          padding-right: 20px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 700px) {
+          .three div {
+            width:100%;
+            float:none;
+            padding-right:40px;
+          }
+        }
+      </style>
+
+
+      <div class='three' style='overflow:auto; display:none'>
+        <!-- Also see 3-columns from Wes hidden in about/useeio -->
+        <div>
+          <!-- What? -->
+          <h2>Input-Output Modeling</h2>
+          <b>What</b> – Tools for analyzing economic and environmental impacts in 389&nbsp;industry sectors 
+          for community planning, business development and environmental education. 
+
+        </div>
+        <div>
+          <!-- Why? -->
+          <h2>Material Reuse/Recycling</h2>
+          <b>Why</b> – To foster informed decisions while&nbsp;creating connections that turn waste streams into revenue streams 
+          that lower the cost of material input during production.
+        </div>
+        <div>
+          <!-- How -->
+          <h2>Decentralized Market&nbsp;Data</h2>
+          <b>How</b> – By combining local, regional and national data feeds with new modules developed using USEEIO, the US EPA's Environmentally-Extended <span style='white-space: nowrap;'>Input-Output API.</span>
+        </div>
+      </div>
+
+      <div>
+          Companies like Amazon and General Motors are using the US Environmentally Extended Input-Output <a href="https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models">(USEEIO) Models</a> to analyze economic and environmental impacts across all economic sectors.   
+          The model is available for community planning, business development and environmental education through our new <a href="../../localsite/info/">Local Industry Comparison Tools</a> and the <a href="https://www.epa.gov/smm/sustainable-materials-management-prioritization-tools">Sustainable Materials Management Prioritization Tools</a>. 
+          <!--
+          The new online tools foster informed decisions while creating connections that turn waste streams into revenue streams to lower the cost of material input during production. -->
+          <br>
+
+          
+          
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section id="objectives">
+    <div class="content contentpadding" style="padding-bottom:0px;">
+
+      <div style="font-size:18px">
+        <a href="https://www.epa.gov/smm/epa-sustainable-materials-management-program-strategic-plan-fiscal-years-2017-2022">
+          <img src="../../community/img/overview/smmstratplan.jpg" style="width:100%; max-width:180px; float:right; margin:0 0 30px 40px" class="fullMobile"></a>
+
+        <h1>Sustainable Materials Management&nbsp;Objectives</h1>
+        <!-- US EPA's four primary SMM program objectives -->
+       
+        <ol>
+        <li>Decrease the disposal rate through source reduction, reuse and recycling;</li>
+        <li>Reduce the environmental impacts of materials across their entire life cycle;</li>
+        <li>Increase socio-economic benefits from product choices; and </li>
+        <li>Increase the capacity of state and local governments, communities and key stakeholders to adopt and implement Sustainable Materials Management policies, practices and incentives.</li>
+        </ol>
+        <br>
+
+        <!--
+        “We cannot avoid the shift away from fossil fuels, the question is the timing and how it is done. If people don’t trust in the future, if they cannot see themselves with security, see opportunity, they are going to fight it. We have to make sure people move out of those areas in a way that builds hope, with as little damage as possible.”<br><br>
+
+        - Sharan Burrow, head of the International Trade Union Confederation
+        -->
+      </div>
+
+    </div>
+
+    <!--
+    <div style="position:relative;">
+      <div id="map1XX"></div>
+      <div id="legendHolder" style="min-width: 270px">
+        <div id="allLegends"></div>
+      </div>
+    </div>
+    -->
+  </section>
+  <div style="clear:both"></div>
+
+  <section id="modeling">
+    <div class="content contentpadding" style="padding-top:0px;">
+      <h1>Statewide Input-Output Modeling</h1>
+
+      View our new embeddable <a href="../../io/charts/">US Environmentally-Extended Input-Output charts</a><br>
+
+     The EPA's ustainable Materials Management <a href="https://www.epa.gov/smm/sustainable-materials-management-prioritization-tools">Prioritization Tool Suite</a> also uses the USEEIO model.<br><br>
+
+      <a href="../../io/build/sector_list.html?view=mosaic&count=50"><img src="../../community/img/overview/heatmap.jpg" style="width:100%"></a>
+      <br>
+      
+      <a href="../../localsite/info/#geoview=country">Filter by Location (States and Counties)</a> | 
+      <a href="../../io/about/">About State Models</a> 
+      <!--
+      <a href="../../community/resources/useeio/">Python example with API (phasing out)</a> 
+      -->
+      <br><br><br><br>
+
+      <style>
+        .impacttable {
+          width:100%;
+        }
+        .impacttable th {
+          padding: 2px 20px 2px 30px;
+          text-align: left;
+        }
+        .impacttable th b {
+          font-weight: 600;
+          font-size: 18px;
+          border:0px;
+        }
+        .impacttable td {
+          padding: 20px 30px 0px 30px;
+          border:0px solid #ccc;
+          font-size: 15px;
+          background: #fff;
+          vertical-align: top;
+        }
+        .dark .impacttable td {
+          background: #555;
+        }
+        .impacttable td b {
+          font-weight: 300;
+          font-size: 14px;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 6px;
+          display: block;
+        }
+        @media (max-width: 800px) {
+          .impacttable td {
+            padding: 0px;
+          }
+        }
+      </style>
+
+      <table class="impacttable">
+      <tbody>
+        <tr>
+          <th style="background:#AFD0B7; color:#fff;">
+            <b>Positive Outcomes</b>
+          </th>
+          <th style="background:#DDA4A8; color:#fff">
+            <b>Adverse Environmental Impacts</b>
+          </th>
+        </tr>
+        <tr>
+
+          <td style="vertical-align: top;">
+            <div style="float:left; margin-right:35px; max-width: 380px;">
+
+              <!--
+              <b>Economic & Social</b>
+              Jobs (JOBS)<br>
+              Value Added (VADD)<br><br>
+              -->
+              1. <a href="../../localsite/info/#indicators=VADD">Value-Added</a><br>
+              2. <a href="../../localsite/info/#indicators=JOBS">Job Creation</a><br>
+              3. Clean Air<br>
+              4. Clean Water<br>
+              5. Clean Energy<br>
+              6. Local Suppliers<br>
+              7. <a href="https://buildingtransparency.org/ec3/epds" target="_blank">Green Materials</a> (EPDs)<br>
+              8. Inclusive Design<br>
+              9. Improves Health<br>
+              10. Creates Beauty<br><br>
+
+              These 10 positive outcomes encompass the 7 petals of the 
+              Living Community Challenge - 
+              <a href="https://living-future.org/lcc/" style="font-size:14px" target='_blank'>Learn&nbsp;More</a>.
+              <!--
+              <br>
+              Value-Added (VADD) and Jobs (JOBS) are the two positive impacts from the USEEIO Model.
+              -->
+              <!--
+              These&nbsp;have not yet been applied to USEEIO data.
+              -->
+              <br><br>
+
+            </div>
+
+            <!--
+            <div style="float:left; margin-right:10px">
+              <b>Living Community Challenge</b>
+              (Not yet applied to USEEIO data.)<br>
+              Place<br>
+              Water<br>
+              Energy<br>
+              Health+Happiness<br>
+              Materials<br>
+              Equity<br>
+              Beauty<br>
+              <a href="https://living-future.org/lcc/" style="font-size:14px" target='_blank'>Learn More</a><br>
+              <br>
+            </div>
+            -->
+
+          </td>
+
+          <td>
+
+            <div style="float:left; margin-right:30px">
+            <b>Environmental</b>
+            <a href="../../localsite/info/#indicators=ACID">Acid Rain (ACID)</a><br>
+            <a href="../../localsite/info/#indicators=ETOX">Freshwater Ecotoxicity (ETOX)</a><br>
+            <a href="../../localsite/info/#indicators=EUTR">Water Eutrophication (EUTR)</a><br>
+            <a href="../../localsite/info/#indicators=GCC">Global Climate Change (GCC)</a><br>
+            <a href="../../localsite/info/#indicators=HRSP">Respiratory Effects (HRSP)</a><br>
+            <a href="../../localsite/info/#indicators=HTOX">Toxic to Humans (HTOX)</a><br>
+            <a href="../../localsite/info/#indicators=OZON">Ozone Depletion (OZON)</a><br>
+            <a href="../../localsite/info/#indicators=SMOG">Smog Formation (SMOG)</a><br><br>
+            </div>
+
+            <div style="float:left; margin-right:10px">
+            <b>Resource Use</b>
+            <a href="../../localsite/info/#indicators=ENRG">Energy Use (ENRG)</a><br>
+            <a href="../../localsite/info/#indicators=LAND">Land Use (LAND)</a><br>
+            <a href="../../localsite/info/#indicators=METL">Minerals and Metals (METL)</a><br>
+            <a href="../../localsite/info/#indicators=WATR">Water Use (WATR)</a><br><br>
+            
+            <b>Waste Generated</b>
+            <a href="../../localsite/info/#indicators=FOOD">Food Waste (FOOD)</a><br>
+            <a href="../../localsite/info/#indicators=HAZW">Hazardous Waste (HAZW)</a><br>
+            <a href="../../localsite/info/#indicators=MSW">Municipal Solid Waste (MSW)</a><br><br>
+
+            </div>
+            <div style="clear:both">
+            </div>
+
+          </td>
+
+      </tr>
+      </tbody>
+      </table>
+
+    </div>
+  </section>
+
+
+  <section id="charts" class="litePanel contentTop padding">
+    <div class="content contentpadding">
+
+      <h1>Material Flow - Sankey Charts</h1>
+      <a href="../../community/start/charts">View Chart Starters</a><br><br>
+
+      <div style='float:left'>SUPPLIERS (Input)</div>
+      <div style='float:right;text-align:right'>BUYERS (Output)</div>
+      <div style='text-align:center'>LOCAL INDUSTRIES<br>
+      </div>
+
+      <div style="clear:both;margin-top:32px"></div>
+
+      <div id="observablehq-fe91f8f3"></div>
+      <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+      import define from "https://api.observablehq.com/@dralla666/d3-sankey-diagram.js?v=3";
+      const inspect = Inspector.into("#observablehq-fe91f8f3");
+      (new Runtime).module(define, name => (name === "chart") && inspect());
+      </script>
+
+      <!--
+      <img src="../img/overview/flow.png" style="width:100%">
+      -->
+
+      <!--
+      Source:
+      https://www.kenflerlage.com/2018/04/sankey-template.html
+      -->
+
+    </div>
+  </section>
+
+  <div style="clear:both"></div>
+
+  <section id="regional">
+    <div class="content contentpadding">
+      
+
+      <h1>State, Region and County</h1>
+
+
+
+
+      <iframe class="block-map-directory cf" id="map_directory" src="../../community/start/maps/counties/counties.html" style="width:100%;height:500px"></iframe>
+    </div>
+  </section>
+
+
+  <!-- LIST NOT APPEARING 
+  <section id="local" style="margin-top:0px" class="litePanel">
+    <div class="content contentpadding" style="margin-top:0px">
+      <div>
+        <h1 style="margin-bottom:0px">Recycling Processors (B2B)</h1>
+        <a href="../../localsite/map/recycling/ga/" target="_parent">Additional Maps</a> - Landfills, Inert Waste, Transfer Stations
+      </div><br><br>
+
+      <iframe class="block-map-directory cf" id="map_directory" src="https://map.georgia.org/explore/site/widget.html#processors" style="width:100%;height:800px"></iframe>
+    </div>
+  </section>
+  -->
+
+  <!--
+  <section id="projects">
+    <div class="content contentpadding">
+      <br><br>
+      <div id="projectsDiv" class="rootdoc"></div>
+    </div>
+  </section>
+  -->
+
+  <section id="places" class="litePanel">
+    <div class="content contentpadding">
+
+      <h1>All The Places API</h1>
+
+      <div style="padding:20px;background-color:#fff; float:right; margin:0 0 0px 30px;">
+        <img src="../../community/img/overview/places-us.gif" style="width:100%; max-width:300px;">
+      </div>
+
+      <!--
+      Location and product data harvested from existing websites and databases using the techniques developed for 
+      -->
+      <a href="https://www.alltheplaces.xyz/" style="white-space: nowrap;">All The Places</a> - Over 650 spiders and scrapers pull data nightly from sites that post their locations online. 
+
+      Using similar data harvesting techniques and APIs like Google Places, Google Knowledge Graph and DiffBot, 
+      material input-output requests could be shared using CSV files, HTML posts and API feeds.<br><br>
+
+      <b>Example:</b> Your construction contract has a requirement to use 50% reclaimed lumber. 
+      Share a spreadsheet documenting how much lumber you need and when you need it.  Groups like 
+      the <a href="https://www.lifecyclebuildingcenter.org/">Lifecycle Building Center</a> retrieve lumber after film productions and can 
+      watch for teardown dates that fit your schedule.
+      <br><br>
+
+      In addition, census data from <a href="https://uszipcode.readthedocs.io/01-Tutorial/index.html">uszipcode datasets</a> is combined with establishment and employment counts from <a href="../../data-pipeline/industries/naics/">zip code industry data</a> to visualize impacts using <a href="../../io/charts/">Embeddable IO widgets</a>.<br><br>
+
+    </div>
+  </section>
+
+
+<section id="upcoming-events">
+    <div class="content contentpadding">
+    <h1>What's New</h1>
+          <!--
+          <a href="../coders/">Join one of our Upcoming Coding Meetups</a><br><br>
+          -->
+          <a href="https://www.epa.gov/sciencematters/epa-researchers-working-improve-life-cycle-assessment-capabilities-communities">EPA Researchers Working to Improve Life-Cycle Assessment Capabilities for Communities</a><br>
+
+          Amazon is using USEEIO to reduce their carbon footprint to net zero by 2040. - 
+          <a href="https://sustainability.aboutamazon.com/carbon-footprint" target="_blank">Overview</a> / 
+          <a href="https://d39w7f4ix9f5s9.cloudfront.net/a4/ad/b9eca67e4578b35e8f995c8b4f9c/amazon-carbon-methodology-september-2019.pdf" target="_blank">Details</a><br>
+
+          Microsoft's goal is 2030, followed by removing all their carbon emissions since 1975 by 2050. - <a href="https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/" target="_blank">Learn More</a>
+          <br><br>
+
+          <a href="../../community/about/useeio">More about who's using the USEEIO modeling tool</a><br>
+          <a href="https://model.earth/open-sustainable-technology/">Directory of open resources focused on sustainability</a>
+          <br><br>
+
+    </div>
+  </section>
+
+</div><!-- /allsections -->
+</div><!-- /reveal -->
+
+<div id="footerBox" class="padding" style="">
+  <div class="content contentpadding" style="padding-top:0px;">
+    <h2>Get Involved</h2>
+
+    <div style="float:left;">
+
+      <div style="line-height:2">
+        <a href="https://www.democracylab.org/projects/834">Democracy Lab</a> &ndash; Join our ModelEarth coding team.<br>
+
+        <!--
+        <a href="https://www.meetup.com/codeforatlanta/">Code for Atlanta</a> &ndash; Join our virtual meetings every two weeks.<br>
+        -->
+        <a href="https://GitHub.com/modelearth/localsite/">GitHub Repos</a> &ndash; Contribute to community tools and datasets.<br>
+
+        <a href="../../io/team/">Meet Our Core Team</a> &ndash; Contributors from US EPA, GDEcD, and the Model.Earth Grad Student team.<br>
+
+        <!--
+        <a href="https://waze.com/carpool" target="waze_carpool">Waze Carpool</a> - Find carpool riders and drivers near you.<br>
+        -->
+      </div>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+
+<div id='footer' class='hideprint'></div>
+
+<!--
+<link rel="stylesheet" href="/localsite/css/fonts/materialicons/icon.css" id="/localsite/css/fonts/materialicons/icon.css" />
+-->
 </body>
 </html>
