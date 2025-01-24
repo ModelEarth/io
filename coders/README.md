@@ -62,14 +62,14 @@ Collaborate on open source modeling tools.
 **RealityStream ML Updates** - All meetings
 -->
 
-**Project Team** [Active Projects](/projects/)  
-[1. Javascript Data Visualization (Google Data Commons)](/data-commons/docs/data/)  
-[2. Ai Javascript (LangchainJS)](/projects/) - Lead: DJ 
-[3. RealityStream ML](/RealityStream/) - Lead: Ivy 
-[4. International Trade Javascript, Python](/OpenFootprint/trade/) - Lead: Satwick / SQL Lead: Gary  
-[5. BuildingTransparency - Open Footprint API](/useeio.js/footprint/)  
-[6. React FeedPlayer](/feed/) - Leads: Shreyas and Chethan / MemberSense Team: Open  
-[7. Moonshots](/community/projects/)
+**Project Teams** - [Active Projects](/projects/)  
+[1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
+[2. Ai Javascript with Langchain (AI)](/projects/) - Leads: Kelly and DJ 
+[3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy 
+[4. International Trade Javascript, Python (IO)](/OpenFootprint/trade/) - Leads: Gary and Satwick 
+[5. BuildingTransparency - Open Footprint API (BT)](/useeio.js/footprint/)  
+[6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Chethan
+[7. MoonShots Challenges](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
