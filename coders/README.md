@@ -55,6 +55,8 @@ Collaborate on open source modeling tools.
 
 [Join in our weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
+[Connect with us in Democracy Lab](https://www.democracylab.org/projects/834) and get started by [setting up your localsite](../../localsite/start/steps/) to contribute to [our repos](https://github.com/ModelEarth?tab=repositories), [timelines](/data-commons/docs/data/) and [colabs](../../RealityStream/). 
+
 <!--
 ** - AI and Flask
 **Friday @ 6 PM ET** - SQL and Trade Flow
