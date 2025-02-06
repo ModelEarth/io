@@ -94,7 +94,11 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 [We're creating an API Feed Player](/feed/) for local [supply chains and job levels](/localsite/info/), [industry timelines](/data-pipeline/timelines/), [food labels](/data-commons/docs/food/) and [product profiles](../../io/template/).  
 
-We have a new "[home](/home)" repo for our javascript data visualizations. If you'd like more granular reporting, here's a [speadsheet for weekly logs](https://docs.google.com/spreadsheets/d/1wvw_xsFWnYE9z8nDQqmu1m2LB5TJEfy5VLkaFuEaCfk/edit?usp=sharing).
+You can generate [images and video](../../data-pipeline/research/stream/) from our [Requests Storyboard](/requests/) using [.csv file prompts](https://github.com/modelearth/requests).
+
+We use email threads to track involvement.  Some volunteers also like to enter [weekly logs in a speadsheet](https://docs.google.com/spreadsheets/d/1wvw_xsFWnYE9z8nDQqmu1m2LB5TJEfy5VLkaFuEaCfk/edit?usp=sharing).  
+
+Our "[home](/home)" repo features our latest javascript data visualizations. 
 
 <!--
 We're using [Open WebUI](../../projects/src/) and [Earthscape](../../earthscape/app/) to intereact with data from
