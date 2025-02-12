@@ -71,7 +71,7 @@ Collaborate on open source modeling tools.
 [4. International Trade Javascript, Python (IO)](/OpenFootprint/trade/) - Leads: Gary and Satwick 
 [5. Open Footprint - BuildingTransparency API (Open)](/io/template/)  
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Chethan
-[7. MoonShots Challenges](/community/projects/)
+[7. MoonShot Challenges](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
