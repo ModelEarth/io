@@ -3,11 +3,16 @@
 
 [Our state model data](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020) uses the US Environmentally-Extended Input Output (USEEIO) model of goods and services with Bureau of Labor Statistics (BLS) [data](https://model.earth/data-pipeline/). The data is freely available to use by industry, academia, nonprofits, and government agencies.  <!--In 2019, -->The US EPA awarded a [Regional Sustainability and Environmental Sciences Research Program (RESES)](https://www.epa.gov/research/regional-sustainability-and-environmental-sciences-research-program-reses) grant <!--(Community-driven Application Development Using USEEIO Models) to support EPA and the Georgia Center of Innovation for Energy --> to work with local communities in Georgia to build open-source interfaces for the model. The tools developed are now broadly available to other organizations, states and countries.  
 
-IN PROGRESS: [Our USSEEIO to DuckDB Python](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/useeio/python) (by Satya) generates state DuckDB files. We pull international [DuckDB files](/OpenFootprint/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020/USEEIOv2.0.1-411) data. 
+IN PROGRESS:
+[Our USEEIO to DuckDB Python](/OpenFootprint/impacts/useeio/parquet) for state DuckDB files. 
+
+<!--
+We pull international [DuckDB files](/OpenFootprint/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020/USEEIOv2.0.1-411) data. 
 
 Note that our [International trade flow pull](/OpenFootprint/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
+-->
 
-View US data in [Supply Chain Inflow-Outflow](../../localsite/info/)  
+[Supply Chain Inflow-Outflow](../../localsite/info/)  
 [Lifecyle Tools Overview](../../community/tools/)<!--
 [Webinar Video](https://youtu.be/GRJSvyUx0t4) 
 and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files/Smarter_Together_Webinar_Industry-Comparison-Tools_10-15-2020.pdf) --> 
