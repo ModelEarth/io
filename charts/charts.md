@@ -88,9 +88,10 @@ The io repo includes additional code for integrating widgets.
 
 - [Inflow-Outflow Chart](inflow-outflow/#set=prosperity&indicators=VADD,JOBS) - [Tires](inflow-outflow/#sectors=326210&set=prosperity&indicators=JOBS,VADD) - (<a href="../build/iochart.html#indicators=ENRG,GHG,VADD&sectors=113000,327310,327400,333613,335912,336111,562111,562212">Widget only</a>)<!-- &page=1&count=10 --><!-- [imfast.io](https://useeiowidgets.imfast.io/iochart.html#sectors=322130,325520,327910,541200)-->  
 - [Sector List - Mosaic](../build/sector_list.html?view=mosaic&count=50)  
-- [Sector List - Mosaic Limit Sectors](../build/sector_list.html?naics=333613,335912,336111&view=mosaic&count=50)  
+- [Sector List - Mosaic with hash](../build/sector_list.html?view=mosaic&count=50#state=GA)  <!--Hash was getting removed by useeio-widgets.js prior to removal of line. -->
+- [Sector List - Mosaic Limit Sectors](../build/sector_list.html?naics=333613,335912,336111&view=mosaic&count=50) - Broken. TODO: State models (introduced in 2024) need to be updated for NAICS. 
 - [Sector List - Display Values](../build/sector_list.html?view=mosaic&showvalues=true)  
-- [Sector List - Two positive indicators](../build/sector_list.html#view=mosaic&view_indicators=JOBS,VADD&showvalues=true)
+- [Sector List - Two positive indicators](../build/sector_list.html#view=mosaic&view_indicators=JOBS,VADD&showvalues=true) <!-- Changed ? back to # now that hash works again. -->
 - [Industry Impact Bars with Configuration](../build/impact_chart_config.html)    
 <!--
 - [Sector List IO - Tire manufacturing (older version)](../build/iotables.html#sectors=326210&page=5)  
