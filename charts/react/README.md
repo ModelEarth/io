@@ -41,6 +41,12 @@ Optionally run this command in your webroot (the folder containing useeio-widget
 
 	python -m http.server 8887
 
+**Important:** After building, remove the following line in useeio-widgets.js
+
+    window.location.hash = params.toString().replace(/%2C/g, ',');
+    
+The line above causes the URL hash to be deleted when the page loads.
+
 Then these should work too:
 
 [http://localhost:8887/localsite](http://localhost:8887/localsite)
@@ -48,7 +54,7 @@ Then these should work too:
 
 ## Add Navigation
 
-Run our [add-nav python script](../../scripts/add-nav) to append localsite.js state navigation onto the build folder samples. Pull a copy of the [localsite repo](https://github.com/modelearth/localsite/) into your webroot.
+Optional: Run our [add-nav python script](../../scripts/add-nav) to append localsite.js state navigation onto the build folder samples. Pull a copy of the [localsite repo](https://github.com/modelearth/localsite/) into your webroot.
 
 <br>
 
