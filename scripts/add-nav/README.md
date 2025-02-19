@@ -1,6 +1,6 @@
 [IO Charts](../../charts)
 
-# Add Nav to US EPA build samples
+# Add localsite nav to US EPA build pages
 
 Start a virtual environment:
 
@@ -14,11 +14,11 @@ Run in the root of your website to add localsite.js navigation to US EPA samples
 
 	python io/scripts/add-nav/add_nav_wrapper.py useeio-widgets/build
 
-TO DO: Dhananjay is making updates so the script updates all the .html files in the build folder.
-
-Also apply the following around the content within the body tag:
+Applies the following around the content within the body tag:
 
 	<div class="content contentpadding">
 	</div>
+
+Developed by Dhananjay, fall 2024.
 
 View [resulting navigation](/useeio-widgets/build/)
