@@ -1,3 +1,3 @@
 # Samples
 
-Samples of loading MD files containing code for [Open Footprint Panels](/OpenFootprint/).
+Samples of loading MD files containing code for [Profile Panels](/profile/).

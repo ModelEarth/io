@@ -27,7 +27,7 @@ npm ci (clean install) is similar to `npm install`, but doesn't modify the packa
 	npm ci
 
 Copy json files from [io repo](https://github.com/ModelEarth/io/tree/main/build/api) and place in useeio-widgets/build/api. (More info below)  
-Or copy from [OpenFootprint/impacts](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020)
+Or copy from [profile/impacts](https://github.com/ModelEarth/profile/tree/main/impacts/2020)
 
 Then start a new terminal, also in the useeio-widgets folder and run: (Takes 30 seconds)
 
@@ -124,7 +124,7 @@ You can also view in your webroot with other repos if you use our [server setup 
 
 The JSON files have been pre-generated for you using the JSON dump cmd in the [useeio.js repo](https://github.com/modelearth/useeio.js/). The JSON dump cmd requires requesting an API key from the US EPA, but you won't need to if you've copied the io/build/api folder.
 
-Data for all 50 states - You can also develop with [USEEIO data from all 50 states](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020).  
+Data for all 50 states - You can also develop with [USEEIO data from all 50 states](https://github.com/ModelEarth/profile/tree/main/impacts/2020).  
 Changes to the data structure may require modifying the widget React code.
 
 ## Run npm build to view your edits
@@ -167,7 +167,7 @@ nvm use 12.22.6
 
 You won't need to run the API since the API is already output as [json files](https://github.com/ModelEarth/io/tree/main/build/api).  
 The US EPA API requires an API key which we store in a [private Google Doc](https://docs.google.com/document/d/1FsIATg3XS-ZlyrNabZBIR9mdhSTWv22-yp0ZCyF80rg/edit?pli=1) to generate the json files annually.  
-The US EPA is preparing to discontinue the use of an API to save money by only outputting the model matrix data as [json files for all states](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020).  
+The US EPA is preparing to discontinue the use of an API to save money by only outputting the model matrix data as [json files for all states](https://github.com/ModelEarth/profile/tree/main/impacts/2020).  
 
 <!--
 You can skip this step. We've already populated the **io/build/api folder** for you.

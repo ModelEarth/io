@@ -68,7 +68,7 @@ Collaborate on open source modeling tools.
 [1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
 [2. Ai Javascript with Langchain (AI)](/projects/) - Leads: Kelly and DJ 
 [3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy 
-[4. International Trade Javascript, Python (IO)](/OpenFootprint/trade/) - Leads: Gary and Satwick 
+[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary and Satwick 
 [5. Open Footprint - BuildingTransparency API (Open)](/io/template/)  
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Chethan
 [7. MoonShot Challenges](/community/projects/)
@@ -88,9 +88,9 @@ We have new [OPT opportunities](https://www.democracylab.org/projects/834) for J
 
 ### Data Visualization Projects
 
-We're combining [Exiobase Trade Flow data](../../openfootprint/trade) with [US EPA Inflow-Outflow reports](../../useeio.js/footprint/).
+We're combining [Exiobase Trade Flow data](../../profile/trade) with [US EPA Inflow-Outflow reports](../../useeio.js/footprint/).
 
-We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../../data-commons/docs/data/) and [Open Data Panels](/OpenFootprint).
+We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../../data-commons/docs/data/) and [Open Data Panels](/profile).
 
 [We're creating an API Feed Player](/feed/) for local [supply chains and job levels](/localsite/info/), [industry timelines](/data-pipeline/timelines/), [food labels](/data-commons/docs/food/) and [product profiles](../../io/template/).  
 
@@ -107,5 +107,5 @@ We're using [Open WebUI](../../projects/src/) and [Earthscape](../../earthscape/
 <!--
 - [Connect with us at Democracy Lab if you haven't already](https://www.democracylab.org/projects/834)
 - [Get Started by installing our Localsite repos (with one cmd)](../../localsite/start/steps/)
-- [OpenFootprint OC](https://opencollective.com/openfootprint) - [ModelEarth OC](https://opencollective.com/modelearth)
+- [profile OC](https://opencollective.com/profile) - [ModelEarth OC](https://opencollective.com/modelearth)
 --><!-- [Join our Democracy Lab Slack Group](https://democracylab-org.slack.com/archives/C06F73YKEQN)-->

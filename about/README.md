@@ -1,15 +1,15 @@
 ## Background
 [USEEIO Javascript Reports (useeio.js)](/useeio.js/footprint) - Same javascript used in [React](../../io/charts) widgets (but faster to use without 30 second React build time.)
 
-[Our state model data](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020) uses the US Environmentally-Extended Input Output (USEEIO) model of goods and services with Bureau of Labor Statistics (BLS) [data](https://model.earth/data-pipeline/). The data is freely available to use by industry, academia, nonprofits, and government agencies.  <!--In 2019, -->The US EPA awarded a [Regional Sustainability and Environmental Sciences Research Program (RESES)](https://www.epa.gov/research/regional-sustainability-and-environmental-sciences-research-program-reses) grant <!--(Community-driven Application Development Using USEEIO Models) to support EPA and the Georgia Center of Innovation for Energy --> to work with local communities in Georgia to build open-source interfaces for the model. The tools developed are now broadly available to other organizations, states and countries.  
+[Our state model data](https://github.com/ModelEarth/profile/tree/main/impacts/2020) uses the US Environmentally-Extended Input Output (USEEIO) model of goods and services with Bureau of Labor Statistics (BLS) [data](https://model.earth/data-pipeline/). The data is freely available to use by industry, academia, nonprofits, and government agencies.  <!--In 2019, -->The US EPA awarded a [Regional Sustainability and Environmental Sciences Research Program (RESES)](https://www.epa.gov/research/regional-sustainability-and-environmental-sciences-research-program-reses) grant <!--(Community-driven Application Development Using USEEIO Models) to support EPA and the Georgia Center of Innovation for Energy --> to work with local communities in Georgia to build open-source interfaces for the model. The tools developed are now broadly available to other organizations, states and countries.  
 
 IN PROGRESS:
-[Our USEEIO to DuckDB Python](/OpenFootprint/impacts/useeio/parquet) for state DuckDB files. 
+[Our USEEIO to DuckDB Python](/profile/impacts/useeio/parquet) for state DuckDB files. 
 
 <!--
-We pull international [DuckDB files](/OpenFootprint/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020/USEEIOv2.0.1-411) data. 
+We pull international [DuckDB files](/profile/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/profile/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/profile/tree/main/impacts/2020/USEEIOv2.0.1-411) data. 
 
-Note that our [International trade flow pull](/OpenFootprint/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
+Note that our [International trade flow pull](/profile/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
 -->
 
 [Supply Chain Inflow-Outflow](../../localsite/info/)  
@@ -33,7 +33,7 @@ We're working toward pushing impact data into Google Data Commons using easy-to-
 - Fall 2022: [B2B Recycling Directory](../../localsite/map/#show=recyclers&state=GA)
 - Winter 2023: Updates to [Data Pipeline for Counties](https://model.earth/data-pipeline/)
 - Spring 2024: Additions to [Community Data for Timelines](https://model.earth/community-data/)
-- Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/OpenFootprint/trade/)
+- Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/profile/trade/)
 - Fall 2024: Feed Player, RealityStream [Active Projects](https://model.earth/projects/)
 - Winter 2024: Langchain JS, Google Data Commons UN Timelines
 - Spring 2025: MARIO trade flow with DuckDB Parquet files

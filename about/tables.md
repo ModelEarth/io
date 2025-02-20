@@ -2,17 +2,17 @@
 
 Our .json files are generated from [USEEIOR model objects](https://github.com/USEPA/useeior/blob/master/format_specs/Model.md)
 Upcoming table names are Row\_Column from [matrix tables](matrix/).
-Upcoming source json data: [2020 US States](https://github.com/ModelEarth/OpenFootprint/tree/main/impacts/2020) - [CoLab](https://colab.research.google.com/drive/1CYKNTnLiZ_PbP5WS_dMVtYyYDIAFwzq8?usp=sharing)
-Also see our [International Trade Supabase SQL](/OpenFootprint/prep/sql/supabase/)
+Upcoming source json data: [2020 US States](https://github.com/ModelEarth/profile/tree/main/impacts/2020) - [CoLab](https://colab.research.google.com/drive/1CYKNTnLiZ_PbP5WS_dMVtYyYDIAFwzq8?usp=sharing)
+Also see our [International Trade Supabase SQL](/profile/prep/sql/supabase/)
 
 | Table Name | Source |
 | ----------- | ----------- |
-| [Sector](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/2020/AKEEIOv1.0-s-20/sectors.json) - Commodity (6-char Detail) at US level | [sectors.json](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/2020/AKEEIOv1.0-s-20/) |
-| [Factor](https://github.com/USEPA/useeior/blob/master/inst/extdata/Crosswalk_USEEIO_FlowMapping.csv) - FactorID is FlowUUID in [flow feed](/feed/view/#feed=flow) | [Flow List](https://github.com/USEPA/fedelemflowlist/blob/master/format%20specs/FlowList.md) - [json](https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/2020/AKEEIOv1.0-s-20/) |
+| [Sector](https://github.com/ModelEarth/profile/blob/main/impacts/2020/AKEEIOv1.0-s-20/sectors.json) - Commodity (6-char Detail) at US level | [sectors.json](https://github.com/ModelEarth/profile/blob/main/impacts/2020/AKEEIOv1.0-s-20/) |
+| [Factor](https://github.com/USEPA/useeior/blob/master/inst/extdata/Crosswalk_USEEIO_FlowMapping.csv) - FactorID is FlowUUID in [flow feed](/feed/view/#feed=flow) | [Flow List](https://github.com/USEPA/fedelemflowlist/blob/master/format%20specs/FlowList.md) - [json](https://github.com/ModelEarth/profile/blob/main/impacts/2020/AKEEIOv1.0-s-20/) |
 | [Indicator](https://github.com/USEPA/useeior/blob/master/inst/extdata/USEEIO_LCIA_Indicators.csv) - Includes SimpleUnit | [Indicators](https://github.com/USEPA/useeior/blob/master/format_specs/Model.md#indicators) |
 | [Demand](https://github.com/USEPA/useeior/blob/master/format_specs/ModelSpecification.md#demand-vector-specifications) - type and year | Demands |
 | [DataSources](https://github.com/USEPA/useeior/blob/master/format_specs/ModelSpecification.md#demand-vector-specifications) (yml) | DataSources |
-| SectorCrosswalk<!--(where are titles by year?)--> | <a href="https://github.com/ModelEarth/OpenFootprint/blob/main/impacts/2020/sectorcrosswalk.csv">SectorCrosswalk</a> |
+| SectorCrosswalk<!--(where are titles by year?)--> | <a href="https://github.com/ModelEarth/profile/blob/main/impacts/2020/sectorcrosswalk.csv">SectorCrosswalk</a> |
 | CommodityCommodityPerDollar | [A matrix](matrix/) |
 | FactorSector (Impact Sector) | B matrix |
 | CharacteristicImpact | C matrix |

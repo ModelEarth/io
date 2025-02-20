@@ -39,7 +39,7 @@ Rstudio has devtools intalled already, so maybe just library(devtools) to call i
 
 [The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline. 
 It's not necessary to interact with the USEEIO API directy.
-Upcoming data for all states resides at [OpenFootprint/impacts](/openfootprint/impacts).
+Upcoming data for all states resides at [profile/impacts](/profile/impacts).
 
 
 <!--(It replaces the use of [IOMB](https://github.com/USEPA/USEEIO_API/wiki/Build))-->
@@ -49,7 +49,7 @@ Here are [old model files](https://www.dropbox.com/sh/af48m0jsusgr3jg/AACzBSJwuj
 -->
 
 Read our [Lifecycle Tools Overview](https://model.earth//community/tools/) and contribute to our  
-[SQL State Model setup](/io/about/) and [International Trade Flow SQL](/OpenFootprint/trade/)
+[SQL State Model setup](/io/about/) and [International Trade Flow SQL](/profile/trade/)
 
 [How to Build USEEIO-Widgets locally (React)](react) - Contribute code updates
 

@@ -1,7 +1,7 @@
-<h1 class="h1-home">Open Footprint Builder</h1>
+<h1 class="h1-home">IO Template</h1>
 #### Environmental Impact Profiles for Communities, Companies and Individuals
 
-[Product Comparisons](/OpenFootprint/products/) using the [Building Transparency API](/io/template/feed/)  
+[Product Comparisons](/profile/products/) using the [Building Transparency API](/io/template/feed/)  
 [API YAML to JSON and HTML](parser/) and [Product Profile Label Javascript](/food/)<!-- /io/template/parser/sample.html -->
 [Select states and counties](#geoview=country) to explore local industry impacts
 

@@ -5,5 +5,5 @@ See the [Nutritionix Label](/data-commons/docs/food/) and our upcoming [Profile 
 [YAML to HTML parser](../parser/)
 <!--
 Both are generated from YAML - [View source](https://github.com/ModelEarth/io/blob/main/template/product/product-nodashes.yaml)
-Data from [Building Transparency](/OpenFootprint/products/)
+Data from [Building Transparency](/profile/products/)
 -->
