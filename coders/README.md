@@ -66,10 +66,10 @@ Collaborate on open source modeling tools.
 
 **Project Teams** - [Active Projects](/projects/)  
 [1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
-[2. Ai Javascript with Langchain (AI)](/projects/) - Leads: Kelly and DJ 
-[3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy 
-[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary and Satwick 
-[5. Open Footprint - BuildingTransparency API (Open)](/io/template/)  
+[2. Ai Javascript with Langchain (AI)](/projects/) - Leads: Kelly and DJ
+[3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy
+[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary and Satwick
+[5. BuildingTransparency API (BT)](/io/template/)
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Chethan
 [7. MoonShot Challenges](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
