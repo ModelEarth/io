@@ -32,6 +32,11 @@ for html_file_path in Path(args.folder_path).rglob("*.html"):
     with open(html_file_path, 'r', encoding='utf-8') as file:
         html_content = file.read()
 
+    # Check if localsite.js already present in the page
+    if "localsite/js/localsite.js" in html_content:
+        print(f"Skipping {html_file_path} - localsite.js already present")
+        continue
+
     # Insert the script tag content before the closing </head> tag
     updated_html_content = html_content.replace('</head>', script_tag_content + '\n</head>')
 
@@ -39,7 +44,10 @@ for html_file_path in Path(args.folder_path).rglob("*.html"):
     start_body_idx = updated_html_content.find('<body>')
     end_body_idx = updated_html_content.find('</body>')
 
-    if start_body_idx != -1 and end_body_idx != -1:
+    # Check if content div wrapper is already present
+    has_content_div = '<div class="content contentpadding">' in html_content
+
+    if start_body_idx != -1 and end_body_idx != -1 and not has_content_div:
         start_body_idx += len('<body>')
         # Extract content within <body> tags
         body_content = updated_html_content[start_body_idx:end_body_idx]
