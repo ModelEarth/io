@@ -24,7 +24,7 @@ Also see our [International Trade Supabase SQL](/profile/prep/sql/supabase/)
 | CommodityIndustry<br>Value Added to FinalDemand | [U matrix](https://github.com/USEPA/useeior/blob/master/format_specs/Model.md#indicators) |
 | IndustryCommodity (Make) | [V matrix](https://github.com/USEPA/useeior/blob/master/format_specs/Model.md#indicators) |
 | Industry (total output) | [x matrix](matrix/) |
-| SectorSectorPerDollarDataQuality | A_d |
+| CommodityCommodityPerDollarDataQuality | A_d |
 | FactorSectorDataQuality | B_d |
 | SectorSectorDataQuality | L_d |
 | ImportCommodityDataQuality | M_d |
