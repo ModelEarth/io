@@ -70,7 +70,7 @@ Collaborate on open source modeling tools.
 [3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy
 [4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary and Satwick
 [5. BuildingTransparency API (BT)](/io/template/)
-[6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Chethan
+[6. FeedPlayer and Discord API (React)](/feed/) - Lead: Shreyas
 [7. MoonShot Challenges](/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
