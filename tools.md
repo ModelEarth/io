@@ -1,11 +1,10 @@
 # Government Optimization Tools
 
-Innovative Input-Output Reporting for US and International [Digital Services](https://www.usds.gov/)
-
+Innovative Input-Output Reporting for US and International Trade.
 Trade Flow impacts using [MARIO Input-Output Analysis](https://mario-suite.readthedocs.io/en/latest/intro.html)
 
 
-ModelEarth provides open collaborative tools for visualizing [economic impacts](/localsite/info/) using 24 indicators, including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
+Our collaborative tools visualize [economic inflow-outflow](/localsite/info/) using 24 indicators, including job growth, value-added, air quality, energy use, water use, land use and biodiversity using economy-wide input-output models of industries, households and local environments.
 
 <!--
 and [global development goals](https://sdgs.un.org/goals) 
