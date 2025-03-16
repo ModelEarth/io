@@ -184,6 +184,12 @@ Total Amounts will be displayed with a toggle to Per-Dollar Spent.
 
 Add total amounts to the [Inflow-Outflow Chart](/io/charts/inflow-outflow/#set=prosperity&indicators=VADD,JOBS) and show total amounts by default. See [total amounts examples](/localsite/info/data/totals/) and our display of easy to read totals using [commodity data procesed with python](/data-pipeline/research/economy/).  Update values displayed when the hash value changes from vtype=total to vtype=perdollar and back. Use the formatCellEasy() function in localsite.js or the python version formatCell() in the data-pipeline repo.
 
+<!--
+Reminder for Loren
+TO DO: build/api/USEEIOv2.0 can be deleted.
+It was replaced by USEEIOv2.0.1-411
+-->
+
 <hr><br>
 
 
