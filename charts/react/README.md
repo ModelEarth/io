@@ -45,12 +45,14 @@ Optionally run this command in your webroot (the folder containing useeio-widget
 
     window.location.hash = params.toString().replace(/%2C/g, ',');
     
-The line above causes the URL hash to be deleted when the page loads.
+The line above causes the URL hash to be deleted when the page loads.  
 
 Then these should work too:
 
 [http://localhost:8887/localsite](http://localhost:8887/localsite)
 [http://localhost:8887/useeio-widgets/build](http://localhost:8887/useeio-widgets/build)
+
+Here's [info about hiddenhash](https://github.com/USEPA/useeio-widgets/issues/33) from a 2021 issue that we closed 2024.
 
 ## Add Navigation
 
