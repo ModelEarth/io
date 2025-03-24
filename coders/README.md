@@ -4,7 +4,11 @@
 }
 </style>
 <div class="floatright" style="margin-bottom:20px">
-    <a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
+  <a href="/community/tools/"><img src="/io/img/side/dreamstudio-ocean.jpg" style="width:100%;max-width:500px"></a><br>
+
+<!--
+<a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
+-->
  </div>
 
 
@@ -75,7 +79,7 @@ Collaborate on open source modeling tools.
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
-<span style="font-size: 18px;">RealityStream ML meetups Saturdays @ 11am ET</span>
+<span style="font-size: 18px;">RealityStream ML meetups Tuesdays @ 6pm ET</span>
 
 [Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
 We're creating [Discord MemberSense Team Interfaces](../../feed/) - Our Discord invite is provided during meetups.
