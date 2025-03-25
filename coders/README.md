@@ -98,8 +98,6 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 You can generate location-based prompts by updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
-We use email threads to track involvement.  Some volunteers also like to enter [weekly logs in a speadsheet](https://docs.google.com/spreadsheets/d/1wvw_xsFWnYE9z8nDQqmu1m2LB5TJEfy5VLkaFuEaCfk/edit?usp=sharing).  
-
 Our "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data. 
 
 <!--
