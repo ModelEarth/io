@@ -3,14 +3,12 @@
     border-radius: 25px;
 }
 </style>
-<div class="floatright" style="margin-bottom:20px">
+<div class="floatright dreamstudio" style="display: none; margin-bottom:20px">
   <a href="/community/tools/"><img src="/io/img/side/dreamstudio-ocean.jpg" style="width:100%;max-width:500px"></a><br>
-
-<!--
-<a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
--->
  </div>
-
+<div class="floatright dreamstudio-hide" style="margin-bottom:20px">
+  <a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
+</div>
 
 <!--Our Earthscape Chatbot UI fork might someday combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.-->
 
