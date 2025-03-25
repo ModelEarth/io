@@ -70,9 +70,9 @@ Collaborate on open source modeling tools.
 
 **Project Teams** - [Active Projects](/projects/)  
 [1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
-[2. Ai Javascript with Langchain (AI)](/projects/) - Leads: Kelly and DJ
+[2. Ai Javascript with Langchain (AI)](/projects/) - Lead: DJ
 [3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy
-[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary and Satwick
+[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary
 [5. BuildingTransparency API (BT)](/io/template/)
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Sravan
 [7. MoonShot Challenges](/community/projects/)
@@ -98,7 +98,7 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 [We're creating an API Feed Player](/feed/) for local [supply chains and job levels](/localsite/info/), [industry timelines](/data-pipeline/timelines/), [food labels](/data-commons/docs/food/) and [product profiles](../../io/template/).  
 
-You can generate [images and video](../../data-pipeline/research/stream/) from our [Requests Storyboard](/requests/) using [.csv file prompts](https://github.com/modelearth/requests).
+You can generate location-based prompts bu updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
 We use email threads to track involvement.  Some volunteers also like to enter [weekly logs in a speadsheet](https://docs.google.com/spreadsheets/d/1wvw_xsFWnYE9z8nDQqmu1m2LB5TJEfy5VLkaFuEaCfk/edit?usp=sharing).  
 
