@@ -35,11 +35,11 @@ We're working toward pushing impact data into Google Data Commons using easy-to-
 - Spring 2024: Additions to [Community Data for Timelines](https://model.earth/community-data/)
 - Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/profile/trade/)
 - Fall 2024: Feed Player, RealityStream [Active Projects](https://model.earth/projects/)
-- Winter 2024: Langchain JS, Google Data Commons UN Timelines
-- Spring 2025: MARIO trade flow with DuckDB Parquet files
+- Winter 2024: Langchain JS, Google Data Commons [UN Timelines](https://dreamstudio.com/data-commons/docs/data/)
+- Spring 2025: MARIO [Trade Flow](../../profile/trade/) with JSON and Parquet files
 <br>
 
-[USEEIO Versions](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-technical-content) - [Volunteer Projects](../../io/projects/) - [Starter Samples](../../localsite/start/)  
+[USEEIO Versions](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-technical-content) - [Volunteer Contributions](../../io/projects/) - [Starter Samples](../../localsite/start/)  
 
 
 <!--
