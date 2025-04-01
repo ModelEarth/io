@@ -34,9 +34,17 @@ Samples of reporting tools you can add to your website:
 [Lifecycle Tools 3.0](smm/) - Concepts for upcoming USEEIO widgets
 -->
 
-- [Wyoming Supply Chain Inflow-Outflow](../apps/#state=WY)
-- [Michigan Farmers Markets](../localsite/map/#state=MI&show=farmfresh)  
+- [Georgia Farmers Markets](../localsite/map/#state=GA&show=farmfresh)  
 - [Georgia Recycling Directories](../recycling/georgia/)  
+- [Georgia Supply Chain Inflow-Outflow](../apps/#state=GA)
+- [Georgia County Selection](../localsite/info/#state=GA&geoview=state)
+- [Georgia Industry Annual Payrolls](../localsite/info/#state=GA)  
+- [Georgia Land Use Inflow-Outflow](../localsite/info/#state=GA&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
+- [US State Selection, CO2 Emissions](../localsite/info/#geoview=country)
+
+Customize for your state:
+
+- [Wyoming Supply Chain Inflow-Outflow](../apps/#state=WY)
 - [Robertson County Texas Land Use](../localsite/info/#state=TX&geoview=state&geo=US48395&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
 - [Colorado Industry Impact Comparison](../localsite/info/#state=CO)  
 <!--
