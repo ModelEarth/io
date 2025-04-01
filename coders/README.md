@@ -55,7 +55,7 @@ Collaborate on open source modeling tools.
 <span style="font-size: 18px;">Thursdays @ 7pm ET</span> (Eastern Time, NY and Atlanta)
 <!-- Moonshot Mondays, 10 PM EDT - [UN Goals](/data-commons/dist/), [Lunar Olympics AI](/projects/)-->
 
-[Join in our weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
+[Join in our weekly DreamStudio Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
 [Connect with us in Democracy Lab](https://www.democracylab.org/projects/834) and get started by [setting up your localsite](../../localsite/start/steps/) to contribute to [our repos](https://github.com/ModelEarth?tab=repositories), [timelines](/data-commons/docs/data/) and [colabs](../../RealityStream/). 
 
@@ -79,7 +79,7 @@ Collaborate on open source modeling tools.
 
 <span style="font-size: 18px;">RealityStream ML meetups are Tuesdays @ 6pm ET</span>
 
-[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
+[Our DreamStudio Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
 We're creating [Discord MemberSense Team Interfaces](../../feed/) - Our Discord invite is provided during meetups.
 
 <a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Google Meetup</a>
@@ -98,7 +98,7 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 You can generate location-based prompts by updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
-Our "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data. 
+Our DreamStudio "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data. 
 
 <!--
 We're using [Open WebUI](../../projects/src/) and [Earthscape](../../earthscape/app/) to intereact with data from
