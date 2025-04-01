@@ -70,7 +70,7 @@ Collaborate on open source modeling tools.
 [1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
 [2. Ai Javascript with Langchain (AI)](/projects/) - Lead: DJ
 [3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy
-[4. International Trade Javascript, Python (IO)](/profile/trade/) - Leads: Gary
+[4. International Trade Javascript, Python (IO)](/profile/trade/) - Lead: Gary
 [5. BuildingTransparency API (BT)](/io/template/)
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Sravan
 [7. MoonShot Challenges](/community/projects/)

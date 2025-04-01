@@ -3,12 +3,13 @@
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
 
-**Priority - Volunteer Project**
-Modify the [React useeio-widgets matrix code](https://github.com/modelearth/useeio-widgets/) to support 50 states: [inflow-outflow/#state=ME](inflow-outflow/#state=ME)
+[Our Local Industry Evaluator](../../localsite/info/) contains the JQuery, Leaflet and React widgets below. 
 
-And/or contribute to [vanilla javascript which already works with all 50 states](https://model.earth/useeio.js/footprint).  
+[Our new State Impact javascript reports work with all 50 states](/useeio.js/footprint)
 
-Our [Local Industry Evaluator](../../localsite/info/) contains widgets using JQuery, Leaflet and React. 
+[The React useeio-widgets matrix code](https://github.com/modelearth/useeio-widgets/) runs json for 50 states: [inflow-outflow/#state=ME](inflow-outflow/#state=ME)
+
+
 <!-- 
 Check out more [App Samples](../../io/) and [get started creating a site](https://model.earth/localsite/start/).  
 Add a page to the [apps repo](../../apps/)
@@ -38,8 +39,11 @@ Rstudio has devtools intalled already, so maybe just library(devtools) to call i
 -->
 
 [The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline. 
+
+<!--
 It's not necessary to interact with the USEEIO API directy.
 Upcoming data for all states resides at [profile/impacts](/profile/impacts).
+-->
 
 
 <!--(It replaces the use of [IOMB](https://github.com/USEPA/USEEIO_API/wiki/Build))-->
@@ -48,11 +52,7 @@ Upcoming data for all states resides at [profile/impacts](/profile/impacts).
 Here are [old model files](https://www.dropbox.com/sh/af48m0jsusgr3jg/AACzBSJwujR6LU0jZBhAzys6a?dl=0) for testing. (Better to use the newer data in the [static JSON files](https://github.com/modelearth/io/tree/main/build/api)) - [Build locally](../../charts/#build)
 -->
 
-Read our [Lifecycle Tools Overview](https://model.earth//community/tools/) and contribute to our  
-[SQL State Model setup](/io/about/) and [International Trade Flow SQL](/profile/trade/)
-
-[How to Build USEEIO-Widgets locally (React)](react) - Contribute code updates
-
+[How to Build USEEIO-Widgets locally (React)](react)
 
 ## JQuery Widgets 
 
@@ -69,7 +69,7 @@ If your local widgets reference the "useeio" folder, they may need to be updated
 ([old version](https://model.earth/eeio/build.2020.001), [pre-React](https://model.earth/eeio/build.2020.003) and [new version](useeio)) 
 -->
 
-## Embedable Map Widgets
+## Embedable Leaflet Map Widgets
 
 - [Simple embedded map sample](/localsite/info/embed.html#state=NY) - Leaflet and JQuery
 - [Farm Fresh Produce Map (from CSV files on GitHub)](../../localsite/map/#show=farmfresh) - Leaflet and JQuery
