@@ -3,11 +3,14 @@
     border-radius: 25px;
 }
 </style>
-<div class="floatright dreamstudio" style="display: none; margin-bottom:20px">
-  <a href="/community/tools/"><img src="/io/img/side/dreamstudio-ocean.jpg" style="width:100%;max-width:500px"></a><br>
- </div>
-<div class="floatright dreamstudio-hide" style="margin-bottom:20px">
-  <a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
+
+<div class="floatright">
+  <div class="dreamstudio" style="display: none; margin-bottom:20px">
+    <a href="/community/tools/"><img src="/io/img/side/dreamstudio-ocean.jpg" style="width:100%;max-width:500px"></a><br>
+   </div>
+  <div class="dreamstudio-hide" style="margin-bottom:20px">
+    <a href="/community/tools/"><img src="/io/img/side/model-earth-impacts.jpg" style="width:100%;max-width:500px"></a><br>
+  </div>
 </div>
 
 <!--Our Earthscape Chatbot UI fork might someday combine over 100 LLMs with Data Science visualizations. Real-time Natural language processing (NLP) processing of chats will pull locations, impact areas and UN goals for our chart output within cinematic page headers.-->
@@ -55,9 +58,9 @@ Collaborate on open source modeling tools.
 <span style="font-size: 18px;">Thursdays @ 7pm ET</span> (Eastern Time, NY and Atlanta)
 <!-- Moonshot Mondays, 10 PM EDT - [UN Goals](/data-commons/dist/), [Lunar Olympics AI](/projects/)-->
 
-[Join in our weekly DreamStudio Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
+Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
-[Connect with us in Democracy Lab](https://www.democracylab.org/projects/834) and get started by [setting up your localsite](../../localsite/start/steps/) to contribute to [our repos](https://github.com/ModelEarth?tab=repositories), [timelines](/data-commons/docs/data/) and [colabs](../../RealityStream/). 
+[Register as a Coding Volunteer](../../community/members/) and get started by [setting up your localsite](../../localsite/start/steps/) to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../RealityStream/). 
 
 <!--
 ** - AI and Flask
