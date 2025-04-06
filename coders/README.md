@@ -82,7 +82,7 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 
 <span style="font-size: 18px;">RealityStream ML meetups are Tuesdays @ 6pm ET</span>
 
-[Our DreamStudio Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
+[Our Google Meetup link](https://meet.google.com/pcv-xrdh-bat)  is the same for all our meetings.  
 We're creating [Discord MemberSense Team Interfaces](../../feed/) - Our Discord invite is provided during meetups.
 
 <a href="https://meet.google.com/pcv-xrdh-bat" class="btn btn-success">Join Google Meetup</a>
