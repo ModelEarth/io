@@ -1,4 +1,4 @@
-# Inflow-Outflow Modeling
+# Inflow-Outflow Models
 
 <span class="georgia" style="display:none">The U.S. Environmental Protection Agency (EPA) and the Georgia Center of Innovation for Energy Technology have teamed up with DemocracyLab Volunteers to provide collaborative tools for visualizing <a href="/localsite/info/">environmental and economic impacts</a> in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects and <a href="https://sdgs.un.org/goals">sustainable development goals</a>.</span>
 
