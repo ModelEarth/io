@@ -1,25 +1,12 @@
 ## Background
-[USEEIO Javascript Reports (useeio.js)](/useeio.js/footprint) - Same javascript used in [React](../../io/charts) widgets (but faster to use without 30 second React build time.)
+[USEEIO Javascript Reports (useeio.js)](/useeio.js/footprint/) - Our javascript [state&nbsp;economic footprint](/useeio.js/footprint/states.html) reports use the same javascript library as the [React](../../io/charts) widgets - without the 30 second React build time.
 
-[Our state model data](https://github.com/ModelEarth/useeio-json/tree/main/models/2020) uses the US Environmentally-Extended Input Output (USEEIO) model of goods and services with Bureau of Labor Statistics (BLS) [data](https://model.earth/data-pipeline/). The data is freely available to use by industry, academia, nonprofits, and government agencies.  <!--In 2019, -->The US EPA awarded a [Regional Sustainability and Environmental Sciences Research Program (RESES)](https://www.epa.gov/research/regional-sustainability-and-environmental-sciences-research-program-reses) grant <!--(Community-driven Application Development Using USEEIO Models) to support EPA and the Georgia Center of Innovation for Energy --> to work with local communities in Georgia to build open-source interfaces for the model. The tools developed are now broadly available to other organizations, states and countries.  
-
-IN PROGRESS:
-[Our USEEIO to DuckDB Python](/profile/impacts/useeio/parquet) for state DuckDB files. 
-
-<!--
-We pull international [DuckDB files](/profile/prep/sql/duckdb/) and Supabase SQL from the Exiobase API. See [python by Satyabrat](https://gist.github.com/Satyabrat35/c8324f4efa26d1e82cb48e18eced35cd) using [create-database-useeio.yaml](https://github.com/ModelEarth/profile/blob/main/impacts/useeio/create-database-useeio.yaml) with [US 2020](https://github.com/ModelEarth/useeio-json/tree/main/models/2020/USEEIOv2.0.1-411) data. 
-
-Note that our [International trade flow pull](/profile/trade/) might avoid using create-database yaml since we're using Pymrio to pull from Exiobase directly.
--->
+[State model json data](https://github.com/ModelEarth/useeio-json/tree/main/models/2020) is generated from the US Environmentally-Extended Input Output (USEEIO) model of goods and services which uses Bureau of Labor Statistics (BLS) [data](https://model.earth/data-pipeline/). The data is freely available to use by industry, academia, nonprofits, and government agencies.  <!--In 2019, -->The US EPA awarded a [Regional Sustainability and Environmental Sciences Research Program (RESES)](https://www.epa.gov/research/regional-sustainability-and-environmental-sciences-research-program-reses) grant <!--(Community-driven Application Development Using USEEIO Models) to support EPA and the Georgia Center of Innovation for Energy --> to work with local communities in Georgia to build open-source interfaces for the model. The tools developed are now broadly available to other organizations, states and countries.
 
 [Supply Chain Inflow-Outflow](../../localsite/info/)  
 [Lifecyle Tools Overview](../../community/tools/)<!--
 [Webinar Video](https://youtu.be/GRJSvyUx0t4) 
-and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files/Smarter_Together_Webinar_Industry-Comparison-Tools_10-15-2020.pdf) --> 
-<!--Learn about [USEEIO](/community/about/useeio/)  
-Learn about [the USEEIO API](api/)-->
-
-We're working toward pushing impact data into Google Data Commons using easy-to-understand table naming conventions. More [moonshots](/community/projects/).
+and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files/Smarter_Together_Webinar_Industry-Comparison-Tools_10-15-2020.pdf) -->
 
 ## Timeline
 
@@ -36,10 +23,10 @@ We're working toward pushing impact data into Google Data Commons using easy-to-
 - Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/profile/trade/)
 - Fall 2024: Feed Player, RealityStream [Active Projects](https://model.earth/projects/)
 - Winter 2024: Langchain JS, Google Data Commons [UN Timelines](https://dreamstudio.com/data-commons/docs/data/)
-- Spring 2025: MARIO [Trade Flow](../../profile/trade/) with JSON and Parquet files
+- Spring 2025: [Trade Flow](../../profile/trade/) with JSON and Parquet files
 <br>
 
-[USEEIO Versions](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-technical-content) - [Volunteer Contributions](../../io/projects/) - [Starter Samples](../../localsite/start/)  
+[Volunteer Data Science](../../io/projects/) - [Starter Samples](../../localsite/start/)  
 
 
 <!--
