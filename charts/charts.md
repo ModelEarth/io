@@ -1,4 +1,4 @@
-# Embeddable Input-Output Widgets
+# Embeddable Inflow-Outflow Widgets
 <div class="floatright">
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
