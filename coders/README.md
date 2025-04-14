@@ -60,7 +60,7 @@ Collaborate on open source modeling tools.
 
 Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
-[Register as a Coding Volunteer](../../community/members/) and get started by [setting up your localsite](../../localsite/start/steps/) to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../RealityStream/). 
+[Register as a Coding Volunteer](../../community/members/) and get started by [setting up your localsite](../../localsite/start/steps/) to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../realitystream/). 
 
 <!--
 ** - AI and Flask
@@ -72,7 +72,7 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 **Project Teams** - [Active Projects](/projects/)  
 [1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
 [2. Ai Javascript with Langchain (AI)](/projects/) - Lead: DJ
-[3. RealityStream Machine Learning (ML)](/RealityStream/) - Lead: Ivy
+[3. RealityStream Machine Learning (ML)](/realitystream/) - Lead: Ivy
 [4. International Trade Javascript, Python (IO)](/profile/trade/) - Lead: Gary
 [5. BuildingTransparency API (BT)](/io/template/)
 [6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Sravan
