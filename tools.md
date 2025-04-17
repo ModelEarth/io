@@ -40,7 +40,6 @@ Samples of reporting tools you can add to your website:
 - [Georgia County Selection](../localsite/info/#state=GA&geoview=state)
 - [Georgia Industry Annual Payrolls](../localsite/info/#state=GA)  
 - [Georgia Land Use Inflow-Outflow](../localsite/info/#state=GA&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
-- [US State Selection, CO2 Emissions](../localsite/info/#geoview=country)
 
 Customize for your state:
 
@@ -52,6 +51,7 @@ Customize for your state:
 - [Georgia Wastewater Facilities](../localsite/map/#show=wastewater&state=GA)  
 - [Georgia Solid Waste Map](../localsite/map/#show=solidwaste&state=GA&cat=Operating)  
 - [Georgia Vehicle Parts Manufacturing](../apps/ev/)  
+- [US State Selection, CO2 Emissions](../localsite/info/#geoview=country)
 -->
 
 
