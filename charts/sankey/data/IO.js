@@ -1,4 +1,4 @@
-var iojson = {
+var chartData = {
     "nodes": [
         {
             "name": "Automobiles"

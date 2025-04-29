@@ -168,7 +168,7 @@ def BUILD_JSON_FOR_IO_SANKEY(input_mat,  output_mat, topn = 10):
     js = {'nodes':node_list, 'links':link_list}
 
     with open('data/IO.js', 'w') as f:
-        f.write('var iojson = ')
+        f.write('var chartData = ')
         json.dump(js, f, indent=4)
 
     return(js)
