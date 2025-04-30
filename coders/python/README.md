@@ -2,6 +2,12 @@
 
 To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
 
+## JAM and Yarn
+
+We generally focus on [JAM Stack](https://www.cloudflare.com/learning/performance/what-is-jamstack/) development without builds.
+When we do build, we'll do so with [Yarn](https://yarnpkg.com/) if the project isn't already using npm.
+Yarn syntax is easier and the builds are faster. 
+
 ## Start a Virtual Environment 
 
 See the [pyenv](#pyenv) steps below if you need to run a different version of python.
