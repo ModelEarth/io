@@ -3,11 +3,11 @@
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
 
-[Our Local Industry Evaluator](../../localsite/info/) contains the JQuery, Leaflet and React widgets below. 
+[Our new State Impact reports ](/useeio.js/footprint) work with all 50 states.
 
-[Our new State Impact javascript reports work with all 50 states](/useeio.js/footprint)
+[Our Industry Comparison Tools](../../localsite/info/) use the widgets below with 24 impact areas.
 
-[The React useeio-widgets matrix code](https://github.com/modelearth/useeio-widgets/) runs json for 50 states: [inflow-outflow/#state=ME](inflow-outflow/#state=ME)
+
 
 
 <!-- 
@@ -38,7 +38,7 @@ library(devtools)
 Rstudio has devtools intalled already, so maybe just library(devtools) to call in the package
 -->
 
-[The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline. 
+[The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline and [USEEIO WIdgets](https://github.com/modelearth/useeio-widgets/) for [State&nbsp;Inflow-Outflow&nbsp;Reports](inflow-outflow/#state=ME)
 
 <!--
 It's not necessary to interact with the USEEIO API directy.

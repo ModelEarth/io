@@ -1,6 +1,6 @@
 # For Research & Teaching
 
-Our research and teaching tools use dynamic charts to present over 10 million data points from a fully transparent, open and freely available US Environmentally-Extended Input-Output ([USEEIO](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models)) life cycle model created by the US EPA. Interactive [data](/data-pipeline/) visualizations provide insights across more than 20 environmental, social and economic indicators for 389 categories of goods and services in the United States.  The current work can be expanded both internationally, and increasingly local by adding zip code and product datasets.
+Our research and teaching tools use dynamic charts to present over 10 million data points from a fully transparent, open and freely available US Environmentally-Extended Input-Output ([USEEIO](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models)) life cycle model created by the US EPA. Interactive [data](/data-pipeline/) visualizations provide insights across more than 20 environmental, social and economic indicators for 389 categories of goods and services in the United States.  The current volunteer work is focusing both internationally and locally by adding [company](https://OpenCorporates.com) and [product](/profile/products) zip code datasets.
 
 <!--
 [USEEIO embeddable charts](../charts/) can be a great starting point when developing sustainability initiatives.  
