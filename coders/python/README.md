@@ -1,4 +1,4 @@
-# Node, Python, pyenv, Conda and Docker notes
+# Yarn, Node, Python, pyenv, Conda and Docker notes
 
 To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
 
@@ -205,6 +205,10 @@ On a Mac, if the `docker` cmd is not recognized, go to your **Users\\[username]*
 	export PATH="/usr/local/bin:$PATH"
 	export PATH="$HOME/.docker/bin:$PATH"
 -->
+
+**Don't install Docker using Homebrew.**  
+Docker for Mac (Docker Desktop) provides better performance and integration with the operating system. 
+
 
 If you're transitioning from an old instance of [Docker](https://www.docker.com), you may need to reinstall or do a Docker reboot.
 
