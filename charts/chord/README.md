@@ -1,7 +1,10 @@
 [Chart Starters](/community/start/charts/) | [Our IO Charts](../)
 # Chord Chart
 
-TO DO: See to-do's on our [D Matrix Chord Chart page](/profile/charts/d3/chord-diagram/) that pulls from state [inflow-outflow data](https://github.com/ModelEarth/useeio-json/tree/main/models/2020). 
+TO DO: We've loaded json for a chord diagram in [Sector Supply Impacts](../../../useeio.js/footprint/sector_supply_impacts.html).  
+Add the Stretched Chord Starter javascript which resides in [useeio.js/footprint/chord](../../../useeio.js/footprint/chord)
+
+See to-do's on our [D Matrix Chord Chart page](/profile/charts/d3/chord-diagram/) that pulls from state [inflow-outflow data](https://github.com/ModelEarth/useeio-json/tree/main/models/2020). 
 
 More examples of using javascript to pull input-output data on our [USEEIO.js Footprint page](https://model.earth/useeio.js/footprint/).
 
