@@ -193,7 +193,7 @@ Use a pyenv virtual environment to resolve.
 
 ## Docker
 
-[Docker download](https://www.docker.com) - Install and you'll see an elephant icon
+[Docker Desktop download](https://www.docker.com) - Install and you'll see an elephant icon. Don't install Docker using Homebrew. Docker for Mac (Docker Desktop) provides better performance and integration with the operating system. 
 
 If the docker cmd is not recognized after installing Docker on a Mac, Create a symbolic link. Then confirm with `docker --version`
 
@@ -205,10 +205,6 @@ On a Mac, if the `docker` cmd is not recognized, go to your **Users\\[username]*
 	export PATH="/usr/local/bin:$PATH"
 	export PATH="$HOME/.docker/bin:$PATH"
 -->
-
-**Don't install Docker using Homebrew.**  
-Docker for Mac (Docker Desktop) provides better performance and integration with the operating system. 
-
 
 If you're transitioning from an old instance of [Docker](https://www.docker.com), you may need to reinstall or do a Docker reboot.
 
