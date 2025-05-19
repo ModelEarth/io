@@ -302,3 +302,7 @@ To start postgresql@14 now and restart at login:
 Or, if you don't want/need a background service you can just run:
   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
  -->
+
+## More
+
+[Github token steps](https://github.com/ModelEarth/localsite/blob/main/start/steps/github-push.md) - Push files from colab/python to GitHub
