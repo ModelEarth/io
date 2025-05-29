@@ -1,8 +1,8 @@
 <h1 class="h1-home">IO Template</h1>
 #### Environmental Impact Profiles for Communities, Companies and Individuals
 
-[Product Comparisons](/profile/products/) using the [Building Transparency API](/io/template/feed/)  
-[API YAML to JSON and HTML](parser/) and [Product Profile Label Javascript](/food/)<!-- /io/template/parser/sample.html -->
+[Our Item Labels](/profile/item/) for [Product Comparisons](/products/) using the [BT API](/io/template/feed/)  
+[YAML-to-JSON-to-HTML Parser](parser/) and [Food Nutrition Labels](/profile/item/#layout=nutrition)<!-- /io/template/parser/sample.html -->
 [Select states and counties](#geoview=country) to explore local industry impacts
 
 [Why strict YAML instead of TOML](https://hitchdev.com/strictyaml/why-not/toml/) and our [TOML parse to json](toml)
