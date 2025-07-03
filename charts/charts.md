@@ -38,7 +38,7 @@ library(devtools)
 Rstudio has devtools intalled already, so maybe just library(devtools) to call in the package
 -->
 
-[The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline and [USEEIO WIdgets](https://github.com/modelearth/useeio-widgets/) for [State&nbsp;Inflow-Outflow&nbsp;Reports](inflow-outflow/#state=ME)
+[The JSON API](https://github.com/ModelEarth/io/tree/main/build/api) used here is generated from the [USEEIO API](https://github.com/USEPA/USEEIO_API) which uses the [USEEIOR](https://github.com/USEPA/USEEIOR) pipeline and [USEEIO Widgets](https://github.com/modelearth/useeio-widgets/) for [State&nbsp;Inflow-Outflow&nbsp;Reports](inflow-outflow/#state=ME)
 
 <!--
 It's not necessary to interact with the USEEIO API directy.

@@ -29,6 +29,25 @@ If pip install doesn't run, and you see (base), then deactivate the conda base e
 	conda deactivate
 -->
 
+## Coding CLI setup
+
+These run locally via a command prompt to use with entire repos.
+
+### Claude
+
+[Claude Code CLI](https://www.anthropic.com/claude-code) ($20/month) - Recommended
+
+### Gemini
+
+Get your API key using your individual gmail account.
+
+https://aistudio.google.com
+
+We add the following to a .env file (in [localsite/membercommons](https://github.com/localsite/membercommons) - dev connection in our [restricted colab](https://colab.research.google.com/drive/1TgA9FJzhhue74Bgf-MJoOAKSBrzpiyss?usp=sharing)) using this syntax:
+
+GEMINI_API_KEY=
+DATABASE_URL=
+
 ## Node and npm
 
 Check your versions. nvm optional.
