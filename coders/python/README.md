@@ -8,6 +8,10 @@ We generally focus on [JAM Stack](https://www.cloudflare.com/learning/performanc
 When we do build, we'll do so with [Yarn](https://yarnpkg.com/) if the project isn't already using npm.
 Yarn syntax is easier and the builds are faster. 
 
+## Use a GitHub token to push files
+
+[Github token steps](../../../localsite/start/steps/github-token) - Push files from python or Rust.
+
 ## Start a Virtual Environment 
 
 See the [pyenv](#pyenv) steps below if you need to run a different version of python.
@@ -36,6 +40,11 @@ These run locally via a command prompt to use with entire repos.
 ### Claude
 
 [Claude Code CLI](https://www.anthropic.com/claude-code) ($20/month) - Recommended
+
+Run /init to create a CLAUDE.md file with instructions for Claude
+
+<!-- try this next time -->
+Run /terminal-setup to set up terminal integration
 
 ### Gemini
 
@@ -321,7 +330,3 @@ To start postgresql@14 now and restart at login:
 Or, if you don't want/need a background service you can just run:
   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
  -->
-
-## More
-
-[Github token steps](https://github.com/ModelEarth/localsite/blob/main/start/steps/github-push.md) - Push files from colab/python to GitHub
