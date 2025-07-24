@@ -35,7 +35,11 @@ If pip install doesn't run, and you see (base), then deactivate the conda base e
 
 ## Coding CLI setup
 
-These run locally via a command prompt to use with entire repos.
+Vide code with entire repos. 
+
+**Lock your screen without stopping terminal if you step away:**
+On macOS, Command-Control-Q (⌘-⌃-Q)
+On Windows, Windows Key + L
 
 ### Claude
 
