@@ -41,6 +41,17 @@ Vide code with entire repos.
 On macOS, Command-Control-Q (⌘-⌃-Q)
 On Windows, Windows Key + L
 
+**Closeups during meetups**
+
+Zoom in on PC - Ctrl shift plus
+
+Zoom in on Mac - scroll wheel after setting a Modifier Key: 
+System Settings > Accessibility > Zoom and choose Control or other.
+
+**Prompt shortcuts**
+Arrows to return to prior promots
+Ctrl C - Clear prompt
+
 ### Claude
 
 [Claude Code CLI](https://www.anthropic.com/claude-code) ($20/month) - Recommended
