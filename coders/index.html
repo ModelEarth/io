@@ -32,7 +32,27 @@ if (location.host.indexOf('model') >= 0 && location.host.indexOf('earth') < 0) {
 </script>
 
 <script type="text/javascript">
-loadMarkdown("README.md", "readmeDiv", "_parent");
+function updateCoderReadme() {
+    // Find the webroot cloning link by its ID
+    const webrootLink = document.getElementById('webroot-cloning-link');
+    
+    if (webrootLink) {
+        // Check if we're on localhost and the path contains "webroot"
+        if (window.location.hostname === 'localhost' && 
+            !window.location.pathname.includes('webroot')) {
+            // Modify the href to remove /webroot since we're already in webroot
+            // Change from ../../webroot/ to ../../
+            const currentHref = webrootLink.getAttribute('href');
+            if (currentHref === '../../webroot/') {
+                webrootLink.setAttribute('href', '../../');
+                console.log('Updated webroot cloning link for localhost webroot path');
+            }
+        }
+    }
+}
+
+// Load markdown and execute callback when complete
+loadMarkdown("README.md", "readmeDiv", "_parent", undefined, updateCoderReadme);
 </script>
 
 </head>
