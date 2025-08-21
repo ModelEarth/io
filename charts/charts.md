@@ -213,9 +213,7 @@ The [io folder](https://github.com/modelearth/io/) contains a built copy of the 
 	git clone https://github.com/ModelEarth/localsite localsite &&  
 	git clone https://github.com/ModelEarth/io io
 
-You can install additional model.earth repos with our [install cmd](/localsite/start/steps)
-
-If you'll be contributing changes, fork first the repo you're editing and clone from your fork. [Turn on GitHub Pages](/localsite/start/steps/#github-pages) so we can review your changes.
+You can contribute to model.earth repos with our [webroot](/webroot).
 
 Run the following occasionally to refresh your local clones, or pull in Github Desktop:
 

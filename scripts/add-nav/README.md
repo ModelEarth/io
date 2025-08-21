@@ -8,7 +8,7 @@ Start a virtual environment:
 	source env/bin/activate
 On Windows the second command is: `.\env\Scripts\activate`
 
-Fork and clone these 3 repos: [localsite, io, useeio-widgets](/localsite/start/steps/)
+Clone extra repos (trade, io, etc) into our [webroot](/webroot/) with the Industry command.
 
 Run in the root of your website to add localsite.js navigation to US EPA samples.
 

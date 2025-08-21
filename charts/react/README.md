@@ -113,9 +113,9 @@ Then view the site at [http://localhost:8080](http://localhost:8080)
 
 Note that the standard "npm run dev" doesn't seem to launch a server. It runs webpack.config.js and might be used initially for apexcharts.
 
-#### Optionally view in your Webroot - via port 8887
+#### Optionally fork and view in webroot - via port 8887
 
-You can also view in your webroot with other repos if you use our [server setup cmd](../../../localsite/start/steps)  
+You can also view in our webroot with other repos - [server setup cmd](../../../webroot/)  
 [http://localhost:8887/useeio-widgets/build](http://localhost:8887/useeio-widgets/build)  
 
 

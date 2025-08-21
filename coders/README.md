@@ -60,7 +60,7 @@ Collaborate on open source modeling tools.
 
 Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
-[Register as a Coding Volunteer](../../community/members/) and get started by [setting up your localsite](../../localsite/start/steps/) to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../realitystream/). 
+[Register as a Coding Volunteer](../../community/members/) and get started by [cloning the webroot repo](../../webroot/) to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../realitystream/). 
 
 <!--
 ** - AI and Flask
@@ -103,14 +103,4 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 You can generate location-based prompts by updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
-Our DreamStudio "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data. 
-
-<!--
-We're using [Open WebUI](../../projects/src/) and [Earthscape](../../earthscape/app/) to intereact with data from
--->
-
-<!--
-- [Connect with us at Democracy Lab if you haven't already](https://www.democracylab.org/projects/834)
-- [Get Started by installing our Localsite repos (with one cmd)](../../localsite/start/steps/)
-- [profile OC](https://opencollective.com/profile) - [ModelEarth OC](https://opencollective.com/modelearth)
---><!-- [Join our Democracy Lab Slack Group](https://democracylab-org.slack.com/archives/C06F73YKEQN)-->
+Our DreamStudio "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data.
