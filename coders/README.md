@@ -69,14 +69,14 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 **RealityStream ML Updates** - All meetings
 -->
 
-**Project Teams** - [Active Projects](/projects/)  
-[1. Javascript Data Visualizations with Google Data Commons (JS)](/data-commons/docs/data/)  
-[2. Ai Javascript with Langchain (AI)](/projects/) - Lead: DJ
-[3. RealityStream Machine Learning (ML)](/realitystream/) - Lead: Ivy
-[4. International Trade Javascript, Python (IO)](/profile/trade/) - Lead: Gary
-[5. BuildingTransparency API (BT)](/io/template/)
-[6. FeedPlayer and Discord API (React)](/feed/) - Leads: Shreyas and Sravan
-[7. MoonShot Challenges](/community/projects/)
+**Project Teams** - [Active Projects](../../projects/)  
+[1. Javascript Data Visualizations with Google Data Commons (JS)](../../data-commons/docs/data/)  
+[2. CodeChat - RAG Interface for LLMs (AI)](https://model.earth/codechat/) - Lead Engineer: Lokesh
+[3. RealityStream Machine Learning (ML)](../../realitystream/) with [Cloud Run](../../cloud/run)
+[4. International Trade Javascript, Python (IO)](../../profile/trade/) - Lead Engineer: Gary
+[5. Geo Profiles (GP)](../../io/template/) - BuildingTransparency.org API
+[6. FeedPlayer and Discord API (React)](../../feed/) <!-- Shreyas and Sravan -->
+[7. MoonShot Challenges](https://model.earth/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
