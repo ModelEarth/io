@@ -1,7 +1,8 @@
-<h1 class="h1-home">IO Template</h1>
-#### Environmental Impact Profiles for Communities, Companies and Individuals
+<h1 class="h1-home">Geo Profiles</h1>
+#### Environmental IO Menus for Communities, Companies and Individuals
 
-[Our Item Labels](/profile/item/) for [Product Comparisons](/products/) using the [BT API](/io/template/feed/)  
+[Our Item Labels](/profile/item/) for [Product Comparisons](/products/) using the [BT API](/io/template/feed/).
+<!--New: [Feed Player Food Nutrition Labels](../../feed/#list=food)  -->
 [YAML-to-JSON-to-HTML Parser](parser/) and [Food Nutrition Labels](/profile/item/#layout=nutrition)<!-- /io/template/parser/sample.html -->
 [Select states and counties](#geoview=country) to explore local industry impacts
 

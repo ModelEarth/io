@@ -74,9 +74,9 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 [2. CodeChat - RAG Interface for LLMs (AI)](https://model.earth/codechat/) - Lead Engineer: Lokesh
 [3. RealityStream Machine Learning (ML)](../../realitystream/) with [Cloud Run](../../cloud/run)
 [4. International Trade Javascript, Python (IO)](../../profile/trade/) - Lead Engineer: Gary
-[5. Geo Profiles (GP)](../../io/template/) - BuildingTransparency.org API
+[5. Geo Profiles (Geo)](../../io/template/) - BuildingTransparency.org API
 [6. FeedPlayer and Discord API (React)](../../feed/) <!-- Shreyas and Sravan -->
-[7. MoonShot Challenges](https://model.earth/community/projects/)
+[7. MoonShot Challenges (Mars)](https://model.earth/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
