@@ -3,7 +3,7 @@
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
 
-[Our new State Impact reports ](/useeio.js/footprint) work with all 50 states.
+[Our new US State Reports ](/useeio.js/footprint) work with all 50 states.
 
 [Our Industry Comparison Tools](../../localsite/info/) use the widgets below with 24 impact areas.
 
