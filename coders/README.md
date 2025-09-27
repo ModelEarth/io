@@ -60,7 +60,7 @@ Collaborate on open source modeling tools.
 
 Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
-[Register as a Coding Volunteer](../../community/members/) and get started by <a href="../../webroot/" id="webroot-cloning-link">cloning the webroot repo</a> to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/data-commons/docs/data/) and [RealityStream&nbsp;colab](../../realitystream/). 
+[Register as a Coding Volunteer](../../community/members/) and get started by <a href="../../webroot/" id="webroot-cloning-link">cloning the webroot repo</a> to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/localsite/timeline/) and [RealityStream&nbsp;colab](../../realitystream/). 
 
 <!--
 ** - AI and Flask
@@ -70,7 +70,7 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 -->
 
 **Project Teams** - [Active Projects](../../projects/)  
-[1. Javascript Data Visualizations with Google Data Commons (JS)](../../data-commons/docs/data/)  
+[1. Javascript Data Visualizations with Google Data Commons (JS)](../../localsite/timeline/)  
 [2. CodeChat - RAG Interface for LLMs (AI)](https://model.earth/codechat/) - Lead Engineer: Lokesh
 [3. RealityStream Machine Learning (ML)](../../realitystream/) with [Cloud Run](../../cloud/run)
 [4. International Trade Javascript, Python (IO)](../../profile/trade/) - Lead Engineer: Gary
@@ -97,7 +97,7 @@ We have new [OPT opportunities](https://www.democracylab.org/projects/834) for J
 
 We're combining [Exiobase Trade Flow data](../../profile/trade) with [US EPA Inflow-Outflow reports](../../useeio.js/footprint/).
 
-We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../../data-commons/docs/data/) and [Open Data Panels](/profile).
+We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../../localsite/timeline/) and [Open Data Panels](/profile).
 
 [We're creating an API Feed Player](/feed/) for local [supply chains and job levels](/localsite/info/), [industry timelines](/data-pipeline/timelines/), [food labels](/data-commons/docs/food/) and [product profiles](../../io/template/).  
 

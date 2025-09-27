@@ -22,7 +22,7 @@ and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files
 - Spring 2024: Additions to [Community Data for Timelines](https://model.earth/community-data/)
 - Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/profile/trade/)
 - Fall 2024: Feed Player, RealityStream [Active Projects](https://model.earth/projects/)
-- Winter 2024: Langchain JS, Google Data Commons [UN Timelines](https://dreamstudio.com/data-commons/docs/data/)
+- Winter 2024: Langchain JS, Google Data Commons [UN Timelines](https://dreamstudio.com/localsite/timeline/)
 - Spring 2025: [Trade Flow](../../profile/trade/) with JSON and Parquet files
 <br>
 
