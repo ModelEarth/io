@@ -349,7 +349,7 @@ Or, if you don't want/need a background service you can just run:
   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
  -->
 
-# Github CLI
+## Github CLI
 
 ### Install Chocolatey package manager
 For anyone unable to install the Github CLI on their Windows PC using winget, Chocolatey works smoothly. When opening Powershell first, right click Powershell and run as Administrator then run this:
