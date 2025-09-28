@@ -288,26 +288,6 @@ export PATH="$HOME/.docker/bin:$PATH"
 export PATH="$HOME/.docker/bin:$PATH"
 -->
 
-<!--
-My machine has four found:
-
-/Users/X/opt/anaconda3
-/Users/X/opt/anaconda3/envs/myenv
-base  *  /opt/anaconda3
-myenv    /opt/anaconda3/envs/myenv
-
-
-
-I ran the new install script in the root of the projects folder with no addition venv
-bash location/setup/script/start.sh
-
-After about 8 minutes, it got to the backend install and returned a line 20 error:
-
-/etc/profile.d/conda.sh: No such file or directory
-
--->
-
-
 
 <!--
 Probably not needed:
