@@ -1,4 +1,5 @@
-# Yarn, Node, Python, pyenv, Conda and Docker notes
+Install steps for:
+<h1>pyenv (python and pip)<br>nvm (node and npm)<br>conda and docker notes</h1>
 
 To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
 
@@ -35,21 +36,21 @@ If pip install doesn't run, and you see (base), then deactivate the conda base e
 
 ## Coding CLI setup
 
-Vide code with entire repos. 
+If you're on a new computer, start below with pyenv (python and pip) and nvm (node and npm).
+
+Vide code with numerous repos and submodules, like in our [webroot](/).
 
 **Lock your screen without stopping terminal if you step away:**
 On macOS, Command-Control-Q (⌘-⌃-Q)
 On Windows, Windows Key + L
 
-**Closeups during meetups**
-
-Zoom in on PC - Ctrl shift plus
-
+**Closeups during meetups**  
+Zoom in on PC - Ctrl shift plus  
 Zoom in on Mac - scroll wheel after setting a Modifier Key: 
 System Settings > Accessibility > Zoom and choose Control or other.
 
 **Prompt shortcuts**
-Arrows to return to prior promots
+Arrows to return to prior prompts
 Ctrl C - Clear prompt
 
 ### Claude
@@ -58,86 +59,52 @@ Ctrl C - Clear prompt
 
 Run /init to create a CLAUDE.md file with instructions for Claude
 
-<!-- try this next time -->
+<!-- try this next time 
+
 Run /terminal-setup to set up terminal integration
-
-### Gemini
-
-Get your API key using your individual gmail account.
-
-https://aistudio.google.com
-
-We add the following to a .env file (in [localsite/membercommons](https://github.com/localsite/membercommons) - dev connection in our [restricted colab](https://colab.research.google.com/drive/1TgA9FJzhhue74Bgf-MJoOAKSBrzpiyss?usp=sharing)) using this syntax:
-
-GEMINI_API_KEY=
-DATABASE_URL=
-
-## Node and npm
-
-Check your versions. nvm optional.
-
-	node -v
-	npm -v
-
-[npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) recommends installing the Node Version Manager [nvm](https://github.com/nvm-sh/nvm) to avoid permission errors when you run npm packages globally.  
-Run `nvm ls` to see all the node versions you have installed. Update nvm to set your version of node:
-
-**To install nvm** Use the [curl command to install nvm](https://github.com/nvm-sh/nvm).  Then run the export command below it. Restart your terminal.  
-One a Mac since OS X 10.9, first run `touch ~/.zshrc`.
-
-**Set your node version to v20**
-
-	nvm install 20.14.0
-	nvm use 20.14.0
-
-We're avoiding node v22 because it has a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.  Run the above BEFORE invoking a virtual environment.
-
-<!--
-To installing node if the version commands find nothing:
-
-	nvm install --lts --reinstall-packages-from=current
-	nvm install node
-	nvm alias default node
 -->
 
-**If you're not using Node Version Manager (nvm)** (above)
-You can [install node/npm directly](https://nodejs.org/en/download). The installer includes the Node.js package manager (npm) within it, so you won't need to install npm separately.  
-Skip this if you are using nvm (above). This directly updates your machine to the latest stable version of NodeJS.
-<!-- https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version-->
+<br>
 
-	npm install -g n &&
-	sudo n stable
-
-
-## Python
-
-Check python version (may differ in your virtual environments)
-Only python3 was available after running `brew install python` after upgrading to Mac Sonoma OS.
-
-	python --version
-	python3 --version
-
-
-If your python version is older, you may want to upgrade Python to 3.10 or 3.11.  
-3.10 is needed for the Nature journal Exiobase download for Sankey.  
-3.11 is currently used for the OpenWebUI build as of as of Jul 22, 2024.
-3.12 does not work for the two above, use pyenv.
-
-If you don't have brew yet, [download the .pkg installer](https://brew.sh).
-You might also get a dialog to install xcode.
-
-	brew install python
 
 ## pyenv - for multiple versions of python
 
-Check if you have pyenv installed: `pyenv --version`
-If not, you can [install pyenv with homebrew](https://mac.install.guide/python/install-pyenv) or [with pip on Windows](https://github.com/pyenv-win/pyenv-win?tab=readme-ov-file#installation)
+Install before python (and pip)
+Each Python version pyenv installs comes with its own pip
 
-List the Python versions installed on your machine:
+Check if you have pyenv installed:
+
+	pyenv --version
+
+List the Python versions installed on your machine.  
+If it's python 2 or older, best to upgrade your machine's OS.
 
 	ls -l /usr/local/bin/python*
 
-If your newest python version is python 2 or older, upgrade your machine's OS. 
+
+### For WindowsOS - Run PowerShell as Administrator
+
+	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
+
+IMPORTANT: After these installs, you'll need to revert back to more secure settings with:
+
+	Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope LocalMachine -Force
+
+
+### Install on Windows (pyenv-win)
+
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+
+
+Download a python version and set it as your machine's global default:
+
+	pyenv install 3.12.2
+	pyenv global 3.12.2
+
+
+### Install on MacOS
+
+If pyenv is not installed, you can [install pyenv with homebrew](https://mac.install.guide/python/install-pyenv) or [with pip on Windows](https://github.com/pyenv-win/pyenv-win?tab=readme-ov-file#installation)
 
 
 Sample of running python 3.10 for [Exiobase sankey trade data](https://github.com/ModelEarth/Mapping-global-ghg-emissions):
@@ -154,12 +121,6 @@ Even in a virtual environment, "pyenv global" will update your machine.
 [For OpenWebUI projects](/projects/location/setup) you can use the technique above to use Python 3.11.
 Python 3.12 was not compatible with the OpenWebUI build as of Jul 22, 2024.
 
-To move your entire machine default forward, run `pyenv global 3.12.2`
-
-	pyenv install 3.12.2
-	pyenv global 3.12.2
-
-
 If you need to use a prior version of Python,  
 view what's installed `pyenv virtualenvs`
 Here's an alternative to `-m venv env`
@@ -171,7 +132,10 @@ Here's an alternative to `-m venv env`
 
 To delete the current pyenv environment use `pyenv deactivate` since you won't have a myenv folder.
 
+
 ## pip
+
+pip is installed automatically with Python (including with pyenv above)
 
 How to stop your virtual environment and update pip.  
 Once in a virtual environment, avoid appending 3 (as in pip3 or python3) .
@@ -195,6 +159,65 @@ Replace with the actual path where your python pip scripts are located.
 Close the current and open a new terminal window for the updated configuration.
 Type `echo $PATH` to verify.
 -->
+
+## nvm for node and npm
+
+	nvm -v
+
+**To install nvm**  
+[MacOS/Linux - curl command with bash to install nvm](https://github.com/nvm-sh/nvm). On a Mac since OS X 10.9, first run `touch ~/.zshrc`.  
+[WindowsOS](https://github.com/coreybutler/nvm-windows/releases) - In the .exe installer, first choose C:\Program Files\nvm, then leave syslink default as C:\nvm4w\nodejs to avoid errors from permissions and space in "Program Files". Restart your PowerShell terminal.  
+
+Check your versions. nvm optional.
+
+	node -v
+	npm -v
+
+
+Note: [npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) recommends installing the Node Version Manager [nvm](https://github.com/nvm-sh/nvm) to avoid permission errors when you run npm packages globally.  
+Run `nvm ls` to see all the node versions you have installed. 
+
+Update nvm to set your version of node:
+
+**Set your node version to v20**
+
+	nvm install 22.20.0
+	nvm use 22.20.0
+
+We're avoiding node v22 because it has a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.  Run the above BEFORE invoking a virtual environment.
+
+**If you're not using Node Version Manager (nvm)** (above)
+You can [install node/npm directly](https://nodejs.org/en/download). The installer includes the Node.js package manager (npm) within it, so you won't need to install npm separately.  
+
+Skip this if you are using nvm (above). This directly updates your machine to the latest stable version of NodeJS.
+<!-- https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version-->
+
+	npm install -g n &&
+	sudo n stable
+
+
+
+## Python
+
+Check python version (may differ in your virtual environments)
+Only python3 was available after running `brew install python` after upgrading to Mac Sonoma OS.
+
+	python --version
+	python3 --version
+
+
+If your python version is older, you may want to upgrade Python to 3.10 or 3.11.  
+3.10 is needed for the Nature journal Exiobase download for Sankey.  
+3.11 is currently used for the OpenWebUI build as of as of Jul 22, 2024.
+3.12 does not work for the two above, use pyenv.
+
+If you don't have brew yet, [download the .pkg installer](https://brew.sh).
+You might also get a dialog to install xcode.
+
+	brew install python
+
+
+
 
 ## Conda
 
@@ -345,3 +368,15 @@ To start postgresql@14 now and restart at login:
 Or, if you don't want/need a background service you can just run:
   /usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
  -->
+
+# Github CLI
+
+### Install Chocolatey package manager
+For anyone unable to install the Github CLI on their Windows PC using winget, Chocolatey works smoothly. When opening Powershell first, right click Powershell and run as Administrator then run this:
+
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+### Install GitHub CLI via Chocolatey
+choco install gh -y
