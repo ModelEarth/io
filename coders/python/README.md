@@ -352,11 +352,13 @@ Or, if you don't want/need a background service you can just run:
 ## Github CLI
 
 ### Install Chocolatey package manager
+
 For anyone unable to install the Github CLI on their Windows PC using winget, Chocolatey works smoothly. When opening Powershell first, right click Powershell and run as Administrator then run this:
 
-Set-ExecutionPolicy Bypass -Scope Process -Force
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+	Set-ExecutionPolicy Bypass -Scope Process -Force
+	[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+	iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 ### Install GitHub CLI via Chocolatey
-choco install gh -y
+
+	choco install gh -y
