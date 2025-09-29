@@ -57,11 +57,10 @@ Ctrl C - Clear prompt
 
 [Claude Code CLI](https://www.anthropic.com/claude-code) ($20/month) - Recommended
 
-Run /init to create a CLAUDE.md file with instructions for Claude
+<!-- 
+Run /init to create a CLAUDE.md file with instructions for Claude.
 
-<!-- try this next time 
-
-Run /terminal-setup to set up terminal integration
+Or /terminal-setup which also adds .claude/settings.json for key commands.
 -->
 
 <br>
