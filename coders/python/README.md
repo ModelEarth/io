@@ -167,7 +167,7 @@ Type `echo $PATH` to verify.
 [MacOS/Linux - curl command with bash to install nvm](https://github.com/nvm-sh/nvm). On a Mac since OS X 10.9, first run `touch ~/.zshrc`.  
 [WindowsOS](https://github.com/coreybutler/nvm-windows/releases) - In the .exe installer, first choose C:\Program Files\nvm, then leave syslink default as C:\nvm4w\nodejs to avoid errors from permissions and space in "Program Files". Restart your PowerShell terminal.  
 
-Check your versions. nvm optional.
+Check if you already have node and npm. If so, it's easiest to AVOID installing nvm, unless you are encountering permission errors.
 
 	node -v
 	npm -v
@@ -176,14 +176,14 @@ Check your versions. nvm optional.
 Note: [npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) recommends installing the Node Version Manager [nvm](https://github.com/nvm-sh/nvm) to avoid permission errors when you run npm packages globally.  
 Run `nvm ls` to see all the node versions you have installed. 
 
-Update nvm to set your version of node:
-
-**Set your node version to v20**
+**Update nvm to set your version of node**
 
 	nvm install 22.20.0
 	nvm use 22.20.0
 
-We're avoiding node v22 because it has a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.  Run the above BEFORE invoking a virtual environment.
+Run the above BEFORE invoking a virtual environment.
+
+Note that prior to 2025 we avoided node v22 because there was a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.
 
 **If you're not using Node Version Manager (nvm)** (above)
 You can [install node/npm directly](https://nodejs.org/en/download). The installer includes the Node.js package manager (npm) within it, so you won't need to install npm separately.  
