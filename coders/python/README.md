@@ -38,7 +38,7 @@ If pip install doesn't run, and you see (base), then deactivate the conda base e
 
 If you're on a new computer, start below with pyenv (python and pip) and nvm (node and npm).
 
-Vibe code with numerous repos and submodules, like in our [webroot](/).
+Vibe code with numerous repos and submodules, like in our [webroot](../../../).
 
 **Lock your screen without stopping terminal if you step away:**
 On macOS, Command-Control-Q (⌘-⌃-Q)
