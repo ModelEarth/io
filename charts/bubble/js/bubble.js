@@ -489,10 +489,6 @@ function displayImpactBubbles(attempts) {
 
     let sectorCSV = community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv";
     
-    //alert("sectorCSV " + sectorCSV);
-    // Not working with the new file Wes provided
-    //let sectorCSV = local_app.localsite_root() + "../io/charts/bubble/data/indicators_sectors"+model+".csv";
-    
     console.log("Bubble.js Load model for US or GA: " + sectorCSV);
     d3.csv(sectorCSV ).then(function(data){
       data.forEach(d => indicators.forEach(indicator => d[indicator] = +d[indicator]));
