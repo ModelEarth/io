@@ -6,18 +6,12 @@
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin="" id="/localsite/js/leaflet.js"></script>
+  
 <link type="text/css" rel="stylesheet" href="../../localsite/css/base.css" id="/localsite/css/base.css" />
-<link rel="stylesheet" href="../../localsite/css/leaflet.css" id="/localsite/css/leaflet.css" />
- <!-- Resides AFTER Leaflet's CSS -->
-<script src="../../localsite/js/leaflet.js" id="/localsite/js/leaflet.js"></script>
-<script type="text/javascript" src="../../localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
-<!-- https://github.com/ilyankou/Leaflet.IconMaterial -->
-
-<link href="../../localsite/css/leaflet.icon-material.css" rel="stylesheet">
-<script src="../../localsite/js/leaflet.icon-material.js" id="/localsite/js/leaflet.icon-material.js"></script>
-
 <script type="text/javascript" src="../../localsite/js/localsite.js?display=map&showheader=true&showsearch=true"></script>
-<script type="text/javascript" src="../../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
 
 <!-- For Facebook -->
 <meta property="og:title" content="Sustainable Communities Input-Output Modeling Tools" />
@@ -34,13 +28,6 @@
 
 <script type="text/javascript">
 loadMarkdown("tools.md", "topicsDiv", "_parent");
-</script>
-
-<script type="text/javascript">
-let theRandomNumber = Math.floor(Math.random() * 100) + 1; // 1 to 100
-if (theRandomNumber > 50) {
-  //$(".twitter-timeline").attr("href", "https://twitter.com/EPA");
-}
 </script>
 
 <style>
@@ -147,6 +134,42 @@ h2 { font-size: 18px; }
   .dark #footerBox {
     background: #292929;
   }
+
+
+  .impacttable {
+    width:100%;
+  }
+  .impacttable th {
+    padding: 2px 20px 2px 30px;
+    text-align: left;
+  }
+  .impacttable th b {
+    font-weight: 600;
+    font-size: 18px;
+    border:0px;
+  }
+  .impacttable td {
+    padding: 20px 30px 0px 30px;
+    border:0px solid #ccc;
+    font-size: 15px;
+    background: #fff;
+    vertical-align: top;
+  }
+  .dark .impacttable td {
+    background: #555;
+  }
+  .impacttable td b {
+    font-weight: 300;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 6px;
+    display: block;
+  }
+  @media (max-width: 800px) {
+    .impacttable td {
+      padding: 0px;
+    }
+  }
 </style>
 
 </head>
@@ -190,36 +213,8 @@ h2 { font-size: 18px; }
         Data on local industry <a href="../../localsite/info/">inflow-outflow levels</a> helps inform <a href="../../localsite/map/#show=recyclers&state=GA">B2B recycling</a>, reductions in greenhouse gas&nbsp;<a href="/localsite/info/#indicators=GHG">emissions</a>, electric vehicle transitions, advanced <a href="/community/biotech/">biofuels</a> and more.
       </div>
 
-    </div>
-
-      <!--
-      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Georgia earns Area Development&#39;s No. 1 State for Business for the 10th consecutive year, a national record. Additionally, Quick Start was named the nation’s top workforce development program for the 14th year in a row. Read more: <a href="https://t.co/DReO7Ncpyf">https://t.co/DReO7Ncpyf</a> <a href="https://t.co/Ti3Zen5mGf">pic.twitter.com/Ti3Zen5mGf</a></p>&mdash; Georgia, USA (@gdecd) <a href="https://twitter.com/gdecd/status/1709298825389539755?ref_src=twsrc%5Etfw">October 3, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      -->
-      
-      <!-- Twitter loads in an iFrame. CSS changes can not be applied.
-      In this case, images in hidden divs are not loaded until the divs are displayed.
-      -->
-
-      <!-- BUGBUG this is loading both.
-
-        To Do:
-        Create javascript to invoke only one. 
-        Exclude from localhost since no longer displays.
-        Avoid long space.
-      -->
-
-      <!--
-      <div style="display:none" class="georgia">
-        <a class="twitter-timeline" data-tweet-limit="3" href="https://twitter.com/gdecd"></a> 
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      <div style="display:none" class="local earth">
-        <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/epa"></a> 
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      -->      
+    </div>    
   </div>
-
   <div><br>
 
     <a href="../apps">Our Location Models</a> grew from Georgia's collaborative tech community and innovative industry partnerships.<br>
@@ -254,27 +249,10 @@ h2 { font-size: 18px; }
 </div>
 
 
-<!-- Twitter loads in an iFrame. CSS changes can not be applied.
-In this case, images in hidden divs are not loaded until the divs are displayed.
--->
-<!--
-<div id="rightcolumn" class="hideMobileSooner" style="float:right; margin-left:40px; padding-right:30px; max-width: 500px; width:100%; max-height:1300px; overflow:scroll;">
-    
-    <div classX="georgia">
-      <a class="twitter-timeline" data-tweet-limit="3" href="https://twitter.com/gdecd"></a> 
-      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-    <div style="display:none" class="local earth">
-      <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/epa"></a> 
-      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-    <div style="display:none" class="dream">
-      <a class="twitter-timeline" data-tweet-limit="4" href="https://twitter.com/dreamstudiohq"></a> 
-      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-    
-</div>
--->
+
+
+
+
 
 <div class="reveal" style="clear:both">
 
@@ -407,42 +385,7 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
       -->
       <br><br><br><br>
 
-      <style>
-        .impacttable {
-          width:100%;
-        }
-        .impacttable th {
-          padding: 2px 20px 2px 30px;
-          text-align: left;
-        }
-        .impacttable th b {
-          font-weight: 600;
-          font-size: 18px;
-          border:0px;
-        }
-        .impacttable td {
-          padding: 20px 30px 0px 30px;
-          border:0px solid #ccc;
-          font-size: 15px;
-          background: #fff;
-          vertical-align: top;
-        }
-        .dark .impacttable td {
-          background: #555;
-        }
-        .impacttable td b {
-          font-weight: 300;
-          font-size: 14px;
-          border-bottom: 1px solid #ddd;
-          margin-bottom: 6px;
-          display: block;
-        }
-        @media (max-width: 800px) {
-          .impacttable td {
-            padding: 0px;
-          }
-        }
-      </style>
+
 
       <table class="impacttable">
       <tbody>
@@ -550,6 +493,7 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
 
       <div style="clear:both;margin-top:32px"></div>
 
+      <!-- ERROR: BREAKS NAVIGATION ABOVE - PREVENTS LOADING OF TOPOJSON AND TABULATOR
       <div id="observablehq-fe91f8f3"></div>
       <script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -557,14 +501,6 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
       const inspect = Inspector.into("#observablehq-fe91f8f3");
       (new Runtime).module(define, name => (name === "chart") && inspect());
       </script>
-
-      <!--
-      <img src="../img/overview/flow.png" style="width:100%">
-      -->
-
-      <!--
-      Source:
-      https://www.kenflerlage.com/2018/04/sankey-template.html
       -->
 
     </div>
@@ -576,33 +512,10 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
     <div class="content contentpadding">
       
       <h1>State, Region and County</h1>
-
       <iframe class="block-map-directory cf" id="map_directory" src="../../community/start/maps/counties/counties.html" style="width:100%;height:500px"></iframe>
     </div>
   </section>
 
-
-  <!-- LIST NOT APPEARING 
-  <section id="local" style="margin-top:0px" class="litePanel">
-    <div class="content contentpadding" style="margin-top:0px">
-      <div>
-        <h1 style="margin-bottom:0px">Recycling Processors (B2B)</h1>
-        <a href="../../localsite/map/recycling/ga/" target="_parent">Additional Maps</a> - Landfills, Inert Waste, Transfer Stations
-      </div><br><br>
-
-      <iframe class="block-map-directory cf" id="map_directory" src="https://map.georgia.org/explore/site/widget.html#processors" style="width:100%;height:800px"></iframe>
-    </div>
-  </section>
-  -->
-
-  <!--
-  <section id="projects">
-    <div class="content contentpadding">
-      <br><br>
-      <div id="projectsDiv" class="rootdoc"></div>
-    </div>
-  </section>
-  -->
 
   <section id="places" class="litePanel">
     <div class="content contentpadding">
@@ -633,7 +546,7 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
   </section>
 
 
-<section id="upcoming-events">
+  <section id="upcoming-events">
     <div class="content contentpadding">
     <h1>Manufactuing Product Life-Cycle Assessment</h1>
           <!--
@@ -650,6 +563,7 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
           <div class="localX" style="display:none;">
             <br><br>
             <a href="../../community/about/useeio">More about who's using the USEEIO modeling tool</a>
+          </div>
     </div>
   </section>
 
@@ -665,16 +579,9 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
       <div style="line-height:2">
         <a href="https://www.democracylab.org/projects/834">Democracy Lab</a> &ndash; Join DreamStudio's Model.Earth coding team<br>
 
-        <!--
-        <a href="https://www.meetup.com/codeforatlanta/">Code for Atlanta</a> &ndash; Join our virtual meetings every two weeks.<br>
-        -->
         <a href="https://GitHub.com/modelearth/localsite/">GitHub Repos</a> &ndash; Contribute to our community tools and datasets<br>
 
         <a href="../../io/team/">Meet Our Contributors</a> &ndash; US EPA, GDEcD and Data Science Grads<br>
-
-        <!--
-        <a href="https://waze.com/carpool" target="waze_carpool">Waze Carpool</a> - Find carpool riders and drivers near you.<br>
-        -->
       </div>
       <br>
 
@@ -682,12 +589,9 @@ In this case, images in hidden divs are not loaded until the divs are displayed.
   </div>
 </div>
 
-<div id="disqus_thread"></div>
+<!--div id="disqus_thread"></div-->
 
-<div id='footer' class='hideprint'></div>
+<!--div id='footer' class='hideprint'></div-->
 
-<!--
-<link rel="stylesheet" href="/localsite/css/fonts/materialicons/icon.css" id="/localsite/css/fonts/materialicons/icon.css" />
--->
 </body>
 </html>
