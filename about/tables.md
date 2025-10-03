@@ -17,7 +17,7 @@ Also see our [International Trade Supabase SQL](/profile/prep/sql/supabase/)
 | FactorSector (Impact Sector) | B matrix |
 | CharacteristicImpact | C matrix |
 | Impact (IndicatorSectorDirect) | [D matrix](matrix/)  |
-| Commodity | [q matrix](/useeio.js/footprint/tabulator.html) |
+| Commodity | [q matrix](/profile/footprint/commodities.html) |
 | SectorSector (Leontief) | [L matrix](https://github.com/USEPA/useeior/blob/master/format_specs/Model.md#indicators) |
 | FactorCommodityImport (Import Commodity derived from EXIOBASE) | [M matrix](matrix/) |
 | IndicatorSectorIndirect (Impact Totals) | [N matrix](matrix/) |

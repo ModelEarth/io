@@ -95,7 +95,7 @@ We have new [OPT opportunities](https://www.democracylab.org/projects/834) for J
 
 ### Data Visualization Projects
 
-We're combining [Exiobase Trade Flow data](../../profile/trade) with [US EPA Inflow-Outflow reports](../../useeio.js/footprint/).
+We're combining [Exiobase Trade Flow data](../../profile/trade) with [US EPA Inflow-Outflow reports](../../profile/footprint/).
 
 We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../../localsite/timeline/) and [Open Data Panels](/profile).
 

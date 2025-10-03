@@ -3,7 +3,7 @@
 <span class="georgiaX" style="display:none">The U.S. Environmental Protection Agency (EPA) and the Georgia Center of Innovation for Energy Technology have teamed up with DemocracyLab Volunteers to provide collaborative tools for visualizing <a href="/localsite/info/">environmental and economic impacts</a> in local communities, states and countries using 24 indicators - including job growth, value-added, air quality, energy use, water use, land use, biodiversity, local conservation projects and <a href="https://sdgs.un.org/goals">sustainable development goals</a>.</span>
 
 [Supply Chain Inflow-Outflow](../localsite/info/)  
-[State Commodity and Job Totals](../useeio.js/footprint/states.html)
+[State Commodity and Job Totals](../profile/footprint/states.html)
 
 <span class="georgia-hide">Innovative Input-Output Reporting for US and [International Trade](../profile/trade).
 Trade Flow impacts using [Pymrio](https://pymrio.readthedocs.io) and [MARIO Input-Output Analysis](https://mario-suite.readthedocs.io/en/latest/intro.html)

@@ -3,7 +3,7 @@
 <img src="../img/logo/epa.png" style="width:100%; max-width:200px; margin-left:30px">
 </div>
 
-[Our new US State Reports ](/useeio.js/footprint) work with all 50 states.
+[Our new US State Reports ](/profile/footprint) work with all 50 states.
 
 [Our Industry Comparison Tools](../../localsite/info/) use the widgets below with 24 impact areas.
 
@@ -56,7 +56,7 @@ Here are [old model files](https://www.dropbox.com/sh/af48m0jsusgr3jg/AACzBSJwuj
 
 ## JQuery Widgets 
 
-- [USEEIO 50 State Javascript](/useeio.js/footprint/) - Upcoming, get involved coding  
+- [USEEIO 50 State Javascript](/profile/footprint/) - Upcoming, get involved coding  
 - [NAICS Industry List](../../localsite/info/#state=ME) and [Stand-alone](../../localsite/info/naics/) - JQuery
 - [Impact Bubble Chart](bubble/) - D3 and JQuery  
 - [Sankey Chart](sankey/) - D3 with Python prep  
@@ -76,7 +76,7 @@ If your local widgets reference the "useeio" folder, they may need to be updated
 
 ## React Widgets
 
-The React widgets extend the [USEEIO Javascript (useeio.js)](/useeio.js/footprint) where you can edit javascript reports directly.
+The React widgets extend the [USEEIO Javascript (useeio.js)](/profile/footprint) where you can edit javascript reports directly.
 
 [View documentation and functions](https://msrocka.github.io/useeio-widget-builds/apidoc/) generated using [TypeDoc](https://typedoc.org/).  
 The React widgets in the [io repo](https://github.com/modelearth/io/) originate from the EPA's [USEEIO-widgets repo](https://github.com/USEPA/useeio-widgets/).   
@@ -105,7 +105,7 @@ TODO: State models (introduced in 2024) need to be updated for NAICS.
 
 ## React TO DOs
 
-Also see our [useeio.js fork for Javascript TO DOs](/useeio.js/footprint/#reports)
+Also see our [useeio.js fork for Javascript TO DOs](/profile/footprint/#reports)
 
 ### TO DO (PRIORITY): Retain #hash values in EPA widgets
 

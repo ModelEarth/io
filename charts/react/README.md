@@ -203,5 +203,5 @@ Learn more about [using the USEEIO API](https://github.com/USEPA/USEEIO_API/wiki
 
 [Add Navigation](../../scripts/add-nav) pulled from an adjacent clone of the [localsite repo](https://github.com/modelearth/localsite/) 
 
-You can contribute to [vanilla javascript which work with all 50 states](https://model.earth/useeio.js/footprint).  
+You can contribute to [vanilla javascript which work with all 50 states](https://model.earth/profile/footprint).  
 
