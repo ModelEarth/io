@@ -12,7 +12,7 @@ and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files
 
 - Spring 2020: [Developed app concepts](../../io/projects/), [on-boarded communities](../../io/communities/)
 - Summer 2020: [Modeling and component development](../../localsite/info/)
-- Fall 2020: [Develop prototype applications](../../apps/)
+- Fall 2020: [Developed prototype location modeling applications](https://model.earth/apps/)
 - Spring 2021: [Electric Vehicle Ecosystem](../../community/projects/mobility/), [Coastal Recycling](../../apps/coastal/)<!-- Activated Carbon Feedstocks -->
 - Summer 2021: [Machine Learning for Industry Imputation](../../localsite/info/data/)
 - Fall 2021: [Sustainable Communities Web Challenge](../../community/challenge/)
@@ -20,10 +20,12 @@ and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files
 - Fall 2022: [B2B Recycling Directory](../../localsite/map/#show=recyclers&state=GA)
 - Winter 2023: Updates to [Data Pipeline for Counties](https://model.earth/data-pipeline/)
 - Spring 2024: Additions to [Community Data for Timelines](https://model.earth/community-data/)
-- Summer 2024: Exiobase [International Trade SQL tables](https://model.earth/profile/trade/)
-- Fall 2024: Feed Player, RealityStream [Active Projects](https://model.earth/projects/)
-- Winter 2024: Langchain JS, Google Data Commons [UN Timelines](https://dreamstudio.com/localsite/timeline/)
+- Summer 2024: Exiobase [International Trade SQL tables](../../profile/trade/)
+- Fall 2024: Feed Player, RealityStream [Active Projects](../../projects/)
+- Winter 2024: Chart.js Google Data Commons [UN Timelines](../../localsite/timeline/)
 - Spring 2025: [Trade Flow](../../profile/trade/) with JSON and Parquet files
+- Summer 2025: [Tools for Teams](../../team/) - Rust with Claude automation
+- Fall 2025: [CodeChat Vector Database](../../codechat) - Trained with Repo content
 <br>
 
 [Volunteer Data Science](../../io/projects/) - [Starter Samples](../../localsite/start/)  
