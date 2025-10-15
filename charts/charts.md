@@ -107,7 +107,7 @@ TODO: State models (introduced in 2024) need to be updated for NAICS.
 
 Also see our [useeio.js fork for Javascript TO DOs](/profile/footprint/#reports)
 
-### TO DO (PRIORITY): Retain #hash values in EPA widgets
+### DONE (Saalim): Retain #hash values in EPA widgets
 
 [In our model.earth useeio-widgets fork](https://github.com/modelEarth/useeio-widgets), comment-out the process that removes URL hash values.  
 Modify React to prevent the built [useeio-widgets](/io/charts/react/) code from removing state=ME from this URL:  
