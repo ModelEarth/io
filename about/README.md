@@ -16,7 +16,7 @@ and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files
 - Spring 2021: [Electric Vehicle Ecosystem](../../community/projects/mobility/), [Coastal Recycling](../../apps/coastal/)<!-- Activated Carbon Feedstocks -->
 - Summer 2021: [Machine Learning for Industry Imputation](../../localsite/info/data/)
 - Fall 2021: [Sustainable Communities Web Challenge](../../community/challenge/)
-- Spring 2022: [Environmental Impact Profiles](../../io/template/)
+- Spring 2022: [Environmental Impact Geo Profiles](../../io/template/)
 - Fall 2022: [B2B Recycling Directory](../../localsite/map/#show=recyclers&state=GA)
 - Winter 2023: Updates to [Data Pipeline for Counties](https://model.earth/data-pipeline/)
 - Spring 2024: Additions to [Community Data for Timelines](https://model.earth/community-data/)
