@@ -92,9 +92,21 @@ var observer = new MutationObserver(function(mutations) {
 
 let priorHash_bubble = {};
 //refreshBubbleWidget();
+
+// Listen for custom hashChangeEvent from localsite.js
 document.addEventListener('hashChangeEvent', function (elem) {
+  console.log("Custom hashChangeEvent detected");
   refreshBubbleWidget();
 }, false);
+
+// ALSO listen for native browser hashchange event (for manual URL changes)
+window.addEventListener('hashchange', function() {
+  console.log("Native hashchange event detected - hash is now:", window.location.hash);
+  refreshBubbleWidget();
+}, false);
+
+console.log("Bubble.js: Event listeners registered for hashchange");
+
 document.addEventListener('hiddenhashChangeEvent', function (elem) {
   //alert("refreshBubbleWidget 2")
   //refreshBubbleWidget();
@@ -149,8 +161,12 @@ function refreshBubbleWidget() {
     }
     */
 
+    // If state changed, reload indicators first, then display bubbles
     if (priorHash_bubble.state != hash.state) {
-        displayImpactBubbles(1); // Occurs on INIT
+        console.log("State changed from", priorHash_bubble.state, "to", hash.state, "- reloading indicators");
+        loadIndicatorDropdowns(hash.state, function() {
+          displayImpactBubbles(1);
+        });
     } else if (priorHash_bubble.geo != hash.geo) {
         displayImpactBubbles(1);
     } else if (priorHash_bubble.naics != hash.naics) {
@@ -166,25 +182,62 @@ function refreshBubbleWidget() {
     priorHash_bubble = getHash();
 }
 
-const indicatorsUrl = "/io/build/api/USEEIOv2.0.1-411/indicators.json";
+// Function to get model name based on state parameter
+function getModelName(stateCode) {
+  if (!stateCode) {
+    return "USEEIOv2.0.1-411"; // Default to national model
+  }
+  // Convert state code to model name (e.g., IL -> ILEEIOv1.0-s-20)
+  return stateCode.toUpperCase() + "EEIOv1.0-s-20";
+}
+
 let indicators = new Set();
 let dropdownX = $("#graph-picklist-x");
 let dropdownY = $("#graph-picklist-y");
 let dropdownZ = $("#graph-picklist-z");
+let currentModelName = null; // Track the currently loaded model
 
-/** Main entry point to load the bubble chart. Loads refreshBubbleWidget() */
-$(document).ready(function () {
+/**
+ * Loads indicator dropdowns for a specific state model
+ * This function is called both on initial load and when state changes
+ */
+function loadIndicatorDropdowns(state, callback) {
   let {x, y, z} = getHash();
+  
+  // Set default indicator codes if not provided in hash
+  // Using indicators confirmed to exist in v2 state models
+  if (!x) x = "WATR"; // Freshwater withdrawals (default X-axis)
+  if (!y) y = "GHG";  // Greenhouse Gases (default Y-axis)
+  if (!z) z = "VADD"; // Value Added (default bubble size)
+  
+  console.log("loadIndicatorDropdowns - Using indicators - x:", x, "y:", y, "z:", z);
+  
+  const modelName = getModelName(state);
+  
+  // Skip reloading if same model (optimization)
+  if (modelName === currentModelName && dropdownX.children().length > 0) {
+    console.log("Indicators already loaded for model:", modelName);
+    if (callback) callback();
+    return;
+  }
+  
+  currentModelName = modelName;
+  const indicatorsUrl = "/io/build/api/" + modelName + "/indicators.json";
+  
+  console.log("Loading indicators from model: " + modelName);
+  
   dropdownX.empty();
   dropdownY.empty();
   dropdownZ.empty();
+  indicators.clear();
 
   fetch(indicatorsUrl)
     .then(response => response.json())
     .then(data => {
       data.forEach(d => {
-        // BUGBUG - Try removing this line once 2023 data is added. Omitted impacts, perhaps some data is blank.
-        if (d.code != "HCAN" && d.code != "HNCN" && d.code != "GHG" && d.code != "CRHW" && d.code != "CCDD") { // Try removing in 2023 when new USEEIO data is available.
+        // Filter out indicators with incomplete data (HCAN, HNCN had issues in older versions)
+        // Keeping GHG now since we have v2 data with complete values
+        if (d.code != "HCAN" && d.code != "HNCN" && d.code != "CRHW" && d.code != "CCDD") {
           dropdownX.append($("<option></option>").attr("value", d.code).text(d.name));
           dropdownY.append($("<option></option>").attr("value", d.code).text(d.name));
           dropdownZ.append($("<option></option>").attr("value", d.code).text(d.name));
@@ -192,11 +245,45 @@ $(document).ready(function () {
         }
       });
 
-      dropdownX.val(x ? x : "ENRG");
-      dropdownY.val(y ? y : "WATR");
-      dropdownZ.val(z ? z : "JOBS");
+      // Set dropdown values to match the hash (or defaults if not in hash)
+      console.log("Attempting to set dropdowns to - X:", x, "Y:", y, "Z:", z);
+      console.log("Available indicator options:", Array.from(indicators));
+      
+      dropdownX.val(x);
+      dropdownY.val(y);
+      dropdownZ.val(z);
+      
+      console.log("Dropdown values after setting - X:", dropdownX.val(), "Y:", dropdownY.val(), "Z:", dropdownZ.val());
+      
+      // Verify the dropdowns have the selected options and fallback to first available if invalid
+      if (!dropdownX.val()) {
+        console.warn("WARNING: X-axis dropdown value is empty! Tried to set:", x, "- Falling back to WATR");
+        dropdownX.val("WATR");
+      }
+      if (!dropdownY.val()) {
+        console.warn("WARNING: Y-axis dropdown value is empty! Tried to set:", y, "- Falling back to GHG");
+        dropdownY.val("GHG");
+      }
+      if (!dropdownZ.val()) {
+        console.warn("WARNING: Z-axis dropdown value is empty! Tried to set:", z, "- Falling back to VADD");
+        dropdownZ.val("VADD");
+      }
+      
+      if (callback) callback();
     })
-    .then(refreshBubbleWidget);
+    .catch(error => {
+      console.error("Error loading indicators:", error);
+      if (callback) callback();
+    });
+}
+
+/** Main entry point to load the bubble chart. Loads refreshBubbleWidget() */
+$(document).ready(function () {
+  let {state} = getHash();
+  console.log("Document ready - initial state:", state);
+  
+  // Load indicators and then refresh bubble widget
+  loadIndicatorDropdowns(state, refreshBubbleWidget);
 });
 
 //initialising variables for bubble chart
@@ -325,15 +412,20 @@ $(document).on("click", "#mySelect", function(event) {
 // Called from localsite naics.js
 function toggleBubbleHighlights(hash) {
   //alert("toggleBubbleHighlights")
+  // Get x, y, z from dropdowns, or use defaults if dropdowns not populated yet
+  let xVal = dropdownX.val() || hash.x || "WATR";
+  let yVal = dropdownY.val() || hash.y || "GHG";
+  let zVal = dropdownZ.val() || hash.z || "VADD";
+  
   if (document.getElementById("mySelect").checked){
     console.log("mySelect checked");
     // Show for region
-    midFunc(d3.select("#graph-picklist-x").node().value,d3.select("#graph-picklist-y").node().value,d3.select("#graph-picklist-z").node().value, hash,"region")
+    midFunc(xVal, yVal, zVal, hash, "region")
     //document.querySelector('#sector-list').setAttribute('area', 'GAUSEEIO');
   } else {
     console.log("mySelect unchecked");
     // Show for all
-    midFunc(d3.select("#graph-picklist-x").node().value,d3.select("#graph-picklist-y").node().value,d3.select("#graph-picklist-z").node().value, hash,"all")
+    midFunc(xVal, yVal, zVal, hash, "all")
     //document.querySelector('#sector-list').setAttribute('area', 'USEEIO');
   }
 }
@@ -462,39 +554,59 @@ function displayImpactBubbles(attempts) {
     }
 
 
-    //dataObject1.stateshown=13; // Georgia and otehr states when ready
-    //let params = loadParams(location.search,location.hash);
     let hash = getHash();
-
-    if (hash.geo) {
-      if (hash.geo.includes(",")){
-          let geos=hash.geo.split(",");
-          dataObject1.stateshown=(geos[0].split("US")[1]).slice(0,2)
-      } else {
-          dataObject1.stateshown=(hash.geo.split("US")[1]).slice(0,2)
-      }
-    }
-    if (!hash.geo && hash.state == "GA") { // Only Georgia was in EPA's initial models.
-      dataObject1.stateshown = "13";
-    }
-    if (dataObject1.stateshown=='13'){
-      model='_GA'
-    } else {
-      model=''
-    }
-    var community_data_root = "https://model.earth";
-
-    // Probably needs to be regenerated for USSEEIOv2.0
-    // https://github.com/modelearth/community-data/tree/master/us/indicators
-
-    let sectorCSV = community_data_root + "/community-data/us/indicators/indicators_sectors"+model+".csv";
     
-    console.log("Bubble.js Load model for US or GA: " + sectorCSV);
-    d3.csv(sectorCSV ).then(function(data){
-      data.forEach(d => indicators.forEach(indicator => d[indicator] = +d[indicator]));
-      allData = data;
-      //alert("allData type: " + typeof allData);
-      applyToBubbleHTML(hash,1);
+    // Determine which model to use based on state parameter
+    const modelName = getModelName(hash.state);
+    const apiBase = "/io/build/api/" + modelName;
+    
+    console.log("Bubble.js Loading v2 model: " + modelName);
+    
+    // Load sectors and matrix data from JSON API
+    Promise.all([
+      fetch(apiBase + "/sectors.json").then(r => r.json()),
+      fetch(apiBase + "/matrix/N.json").then(r => r.json()),
+      fetch(apiBase + "/indicators.json").then(r => r.json())
+    ]).then(([sectors, matrixN, indicatorsData]) => {
+      
+      console.log("Loaded " + sectors.length + " sectors from " + modelName);
+      
+      // Build allData array from sectors and matrix
+      // Filter to only show state-specific sectors (not RoUS) if state is specified
+      const filteredSectors = hash.state 
+        ? sectors.filter(s => s.location === 'US-' + hash.state.toUpperCase())
+        : sectors;
+      
+      console.log("Displaying " + filteredSectors.length + " sectors (filtered by location)");
+      
+      allData = filteredSectors.map((sector, idx) => {
+        const sectorData = {
+          id: sector.id,
+          code: sector.code,
+          name: sector.name,
+          location: sector.location,
+          index: sector.index
+        };
+        
+        // Add indicator values from matrix N
+        indicatorsData.forEach(indicator => {
+          const indicatorIndex = indicatorsData.findIndex(ind => ind.code === indicator.code);
+          if (indicatorIndex !== -1 && matrixN && matrixN[indicatorIndex]) {
+            sectorData[indicator.code] = matrixN[indicatorIndex][sector.index] || 0;
+          }
+        });
+        
+        return sectorData;
+      });
+      
+      console.log("Built allData with " + allData.length + " sectors");
+      console.log("First sector sample:", allData[0]);
+      console.log("Indicators available:", indicatorsData.map(i => i.code).slice(0, 5));
+      applyToBubbleHTML(hash, 1);
+      
+    }).catch(error => {
+      console.error("Error loading bubble chart data:", error);
+      console.log("Attempted to load from: " + apiBase);
     });
 
   } else if (attempts<100) { // Wait 10th of a second and try again.
@@ -522,25 +634,14 @@ function applyToBubbleHTML(hash,attempts) {
         // Prior to changes in localsite/js/naics.html, we were able to load a bubble chart with no red bubbles highlighted.
         // Swithcing to 73 sectors next.
       }
-      if (hash.x && hash.y && hash.z) {
-        dropdownX.val(hash.x);
-        dropdownY.val(hash.y);
-        dropdownZ.val(hash.z);
-      } else { // Same as below
-        dropdownX.val('ENRG');
-        dropdownY.val('WATR');
-        dropdownZ.val('JOBS');
-      }
-      // Initial load
-      // To do: invoke the following when something like param load=true reside in embed
       
-      /*
-      if (document.getElementById("mySelect").checked) {
-        midFunc(dropdownX.val(), dropdownY.val(), dropdownZ.val(), hash, "region");
-      } else {
-        midFunc(dropdownX.val(), dropdownY.val(), dropdownZ.val(), hash, "all");
-      }
-      */
+      // Dropdown values are already set in $(document).ready(), don't override them here
+      // This prevents the dropdowns from being reset when data loads
+      console.log("displayImpactBubbles - dropdown values:", dropdownX.val(), dropdownY.val(), dropdownZ.val());
+      
+      // Trigger chart update after data loads (needed for state changes)
+      console.log("Calling toggleBubbleHighlights to redraw chart");
+      toggleBubbleHighlights(hash);
 
       d3.selectAll(".graph-picklist").on("change",function(){
         // Update hash and trigger hashChange event. Resides in localsite.js
