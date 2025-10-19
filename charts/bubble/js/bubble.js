@@ -555,7 +555,7 @@ function displayImpactBubbles(attempts) {
 
 
     let hash = getHash();
-    
+
     // Determine which model to use based on state parameter
     const modelName = getModelName(hash.state);
     const apiBase = "/io/build/api/" + modelName;
