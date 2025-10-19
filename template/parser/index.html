@@ -103,21 +103,29 @@ removed dash plants: - id
 <script>
 // Function to load YAML text into textarea
 async function loadYAML() {
+    alert('1. loadYAML() called');
     try {
         let hash = getHash();
         let pathYaml = "../product/product-nodashes.yaml";
         if (hash.yaml) {
           pathYaml = hash.yaml;
         }
+        alert('2. About to fetch YAML from: ' + pathYaml);
         const response = await fetch(pathYaml);
         const data = await response.text();
+        alert('3. YAML data loaded, length: ' + data.length);
         const matches = data.match(/---\n([\s\S]*?)\n---\n([\s\S]*)/);
         if (matches) {
             document.getElementById('source').value = matches[1];
+            alert('4x. Set source value to matches[1], length: ' + matches[1].length);
         } else {
             document.getElementById('source').value = data;
+            alert('4y. Set source value to full data, length: ' + data.length);
         }
-        formatYaml();
+        alert('5. About to call formatYaml() after 1 second timeout');
+        setTimeout(() => {
+          formatYaml();
+        }, 1000);
     } catch (error) {
         alert('Error loading YAML:', error);
     }
