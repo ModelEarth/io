@@ -104,3 +104,19 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 You can generate location-based prompts by updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
 Our DreamStudio "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data.
+
+
+### Contributor Workflow
+
+1. Select a project that interests you and write Loren as you begin work: 
+[Github.com/modelearth/projects/issues](https://github.com/modelearth/projects/issues) and in our [Active Projects](../../projects).
+
+2. Add a post on the project info above to let others know what you're working on. 
+Local setup: [model.earth/webroot](https://model.earth/webroot/)
+
+3. Work in a fork (avoid branches), and email Loren again after you submit a PR.
+
+4. Update your post above once the PR is pulled.
+
+5. Share progress with others in Discord and in email threads. Help guide others and answer questions.
+
