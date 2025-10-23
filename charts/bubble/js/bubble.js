@@ -303,9 +303,10 @@ function loadIndicatorDropdowns(state, callback) {
   
   // Set default indicator codes if not provided in hash
   // Using indicators confirmed to exist in v2 state models
-  if (!x) x = "WATR"; // Freshwater withdrawals (default X-axis)
+
+  if (!x) x = "WATR"; // Freshwater withdrawals (default X-axis) 
   if (!y) y = "GHG";  // Greenhouse Gases (default Y-axis)
-  if (!z) z = "VADD"; // Value Added (default bubble size)
+  if (!z) z = "JOBS"; // Value Added (default bubble size)
   
   console.log("loadIndicatorDropdowns - Using indicators - x:", x, "y:", y, "z:", z);
   
