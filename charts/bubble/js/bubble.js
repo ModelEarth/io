@@ -719,7 +719,7 @@ function displayImpactBubbles(attempts) {
           }
           applyToBubbleHTML(hash, 1);
         });
-      } else {
+    } else {
         applyToBubbleHTML(hash, 1);
       }
       
@@ -1036,7 +1036,7 @@ function updateChart(x,y,z,useeioList,boundry) {
           rolloverDiv.transition()
             .duration(200)
             .style("opacity", .9);               
-          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.industry_detail + "</b><br/><b> " +x1+":</b> "+d.x+ "<br/><b> " +y1+":</b> "+ d.y + "<br/><b>" +z1+":</b> "+ d.z+'</span >')
+          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.name + "</b><br/><b> " +x1+":</b> "+d.x.toFixed(2)+ "<br/><b> " +y1+":</b> "+ d.y.toFixed(2) + "<br/><b>" +z1+":</b> "+ d.z.toFixed(2)+'</span >')
             .style("left", (d3.event.pageX + 6) + "px")
             .style("top", (d3.event.pageY + 6) + "px");                     
         })
@@ -1110,7 +1110,7 @@ function updateChart(x,y,z,useeioList,boundry) {
             .attr("stroke-opacity", 1)
           d3.select(this).classed("selected"+clickCount, true)
           $("#impactTextIntro").hide();
-          $("#impactText").html($("#impactText").html() + "<br>"+ '<font size="5">'+d.industry_detail+"</font>"+"<br>"+z1 +":"+d.z+ "<br>" + y1 +":"+d.y+ "<br>" + x1+":"+d.x + "<br>");
+          $("#impactText").html($("#impactText").html() + "<br>"+ '<font size="5">'+d.name+"</font>"+"<br>"+z1 +":"+d.z.toFixed(2)+ "<br>" + y1 +":"+d.y.toFixed(2)+ "<br>" + x1+":"+d.x.toFixed(2) + "<br>");
           $("#impact-chart").show();
           create_bar(d,x,y,z,x1,y1,z1);
           sect_list.push(d.industry_code.toUpperCase())
@@ -1187,7 +1187,7 @@ function updateChart(x,y,z,useeioList,boundry) {
       .attr('class', 'title')
       .style('text-anchor','middle')
       .attr('transform', 'translate(130,-30)')
-      .text( d.industry_detail)
+      .text( d.name)
       .attr("fill", "black").style("font-size", "20px");
 
     svg3.append("rect").attr("y", 360 - rect_scale(d.x)).attr("x", 355)
