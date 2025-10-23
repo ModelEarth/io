@@ -1,6 +1,15 @@
 var chartData = {
     "nodes": [
         {
+            "name": "CO2 emissions"
+        },
+        {
+            "name": "Water use"
+        },
+        {
+            "name": "Energy consumption"
+        },
+        {
             "name": "Automobiles"
         },
         {
@@ -71,6 +80,20 @@ var chartData = {
         }
     ],
     "links": [
+        {
+            "source": 0, 
+            "target": 6, 
+            "value": 5.0
+        },
+        {
+            "source": 1, 
+            "target": 16, 
+            "value": 3.2
+        },
+        { 
+            "source": 2, 
+            "target": 5, 
+            "value": 2.5 }  
         {
             "source": 3,
             "target": 0,
