@@ -191,11 +191,108 @@ function getModelName(stateCode) {
   return stateCode.toUpperCase() + "EEIOv1.0-s-20";
 }
 
+// Function to load top industries for a state and set them in hash for red bubble highlighting
+// Follows the pattern used in localsite/info/#state=IL
+function loadTopIndustriesForState(stateCode, callback) {
+  if (!stateCode) {
+    if (callback) callback([]);
+    return;
+  }
+  
+  // State ID mapping (same as naics.js)
+  const stateIDs = {AL:1,AK:2,AZ:4,AR:5,CA:6,CO:8,CT:9,DE:10,FL:12,GA:13,HI:15,ID:16,IL:17,IN:18,IA:19,KS:20,KY:21,LA:22,ME:23,MD:24,MA:25,MI:26,MN:27,MS:28,MO:29,MT:30,NE:31,NV:32,NH:33,NJ:34,NM:35,NY:36,NC:37,ND:38,OH:39,OK:40,OR:41,PA:42,RI:44,SC:45,SD:46,TN:47,TX:48,UT:49,VT:50,VA:51,WA:53,WV:54,WI:55,WY:56};
+  
+  const stateUpper = stateCode.toUpperCase();
+  const stateFips = stateIDs[stateUpper];
+  
+  if (!stateFips) {
+    console.log("Unknown state code:", stateCode);
+    if (callback) callback([]);
+    return;
+  }
+  
+  // Load top 20 NAICS codes for the state from community-data
+  // This follows the same data source as localsite/info
+  // Path: industries/naics/US/country/US-census-naics6-2021.csv (national data with state FIPS filtering)
+  const dataUrl = "https://raw.githubusercontent.com/ModelEarth/community-data/master/industries/naics/US/country/US-census-naics6-2021.csv";
+  
+  d3.csv(dataUrl).then(function(data) {
+    console.log("Loaded census data, checking columns:", Object.keys(data[0] || {}));
+    console.log("Looking for state FIPS:", stateFips, "Padded:", String(stateFips).padStart(2, '0'));
+    
+    // Filter data for the specific state FIPS - columns are: Fips, Naics, Establishments, Employees, Payroll
+    const stateData = data.filter(d => {
+      const fipsValue = d.Fips || d.fips || d.FIPS || d.state_fips || d.STATE_FIPS;
+      return fipsValue === String(stateFips).padStart(2, '0') || fipsValue === String(stateFips);
+    });
+    
+    console.log("Filtered to", stateData.length, "rows for state", stateUpper);
+    
+    if (stateData.length === 0) {
+      console.log("No data found for state FIPS:", stateFips, "- trying without filtering");
+      // Fallback: just use top 20 from all data (better than nothing)
+      const sorted = data.sort((a, b) => (parseFloat(b.Employees) || parseFloat(b.Payroll) || 0) - (parseFloat(a.Employees) || parseFloat(a.Payroll) || 0));
+      const topNaics = sorted.slice(0, 20).map(d => d.Naics || d.naics || d.NAICS).filter(Boolean);
+      console.log("Using top 20 industries from national data:", topNaics.slice(0, 5), "...");
+      if (callback) callback(topNaics);
+      return;
+    }
+    
+    // Sort by employment (Employees column) and take top 20
+    const sorted = stateData.sort((a, b) => (parseFloat(b.Employees) || parseFloat(b.Payroll) || 0) - (parseFloat(a.Employees) || parseFloat(a.Payroll) || 0));
+    const topNaics = sorted.slice(0, 20).map(d => d.Naics || d.naics || d.NAICS).filter(Boolean);
+    
+    console.log("Loaded top 20 industries for " + stateUpper + " (FIPS " + stateFips + "):", topNaics.slice(0, 5), "...");
+    
+    if (callback) callback(topNaics);
+  }).catch(error => {
+    console.log("Could not load state industries from community-data:", error);
+    if (callback) callback([]);
+  });
+}
+
 let indicators = new Set();
 let dropdownX = $("#graph-picklist-x");
 let dropdownY = $("#graph-picklist-y");
 let dropdownZ = $("#graph-picklist-z");
 let currentModelName = null; // Track the currently loaded model
+
+/**
+ * Maps NAICS codes to v2 USEEIO sector codes
+ * v2 sectors use codes like "111CA", "311FT" where first 3-6 digits match NAICS
+ * 
+ * @param {Array} naicsCodes - Array of 6-digit NAICS codes
+ * @param {Array} sectorData - Array of sector objects with 'code' property
+ * @returns {Array} - Array of matching v2 sector codes
+ */
+function mapNaicsToV2Sectors(naicsCodes, sectorData) {
+  const sectorCodes = new Set();
+  
+  naicsCodes.forEach(naicsCode => {
+    if (!naicsCode) return;
+    
+    // Try matching with 3, 4, 5, or 6 digit prefixes
+    const naicsStr = String(naicsCode);
+    
+    // Find sectors that start with this NAICS code (or vice versa)
+    sectorData.forEach(sector => {
+      const sectorCode = sector.code;
+      
+      // Extract numeric part from sector code (e.g., "111CA" -> "111")
+      const sectorNumeric = sectorCode.match(/^\d+/);
+      if (sectorNumeric) {
+        const sectorPrefix = sectorNumeric[0];
+        
+        // Check if NAICS starts with sector prefix or vice versa
+        if (naicsStr.startsWith(sectorPrefix) || sectorPrefix.startsWith(naicsStr.substring(0, 3))) {
+          sectorCodes.add(sectorCode);
+        }
+      }
+    });
+  });
+  
+  return Array.from(sectorCodes);
+}
 
 /**
  * Loads indicator dropdowns for a specific state model
@@ -222,7 +319,9 @@ function loadIndicatorDropdowns(state, callback) {
   }
   
   currentModelName = modelName;
-  const indicatorsUrl = "/io/build/api/" + modelName + "/indicators.json";
+  // Fetch directly from useeio-json repository
+  const endpoint = 'https://raw.githubusercontent.com/ModelEarth/useeio-json/main/models/2020';
+  const indicatorsUrl = endpoint + "/" + modelName + "/indicators.json";
   
   console.log("Loading indicators from model: " + modelName);
   
@@ -558,9 +657,12 @@ function displayImpactBubbles(attempts) {
 
     // Determine which model to use based on state parameter
     const modelName = getModelName(hash.state);
-    const apiBase = "/io/build/api/" + modelName;
     
-    console.log("Bubble.js Loading v2 model: " + modelName);
+    // Fetch directly from useeio-json repository following pattern in profile/footprint/js/config.js
+    const endpoint = 'https://raw.githubusercontent.com/ModelEarth/useeio-json/main/models/2020';
+    const apiBase = endpoint + "/" + modelName;
+    
+    console.log("Bubble.js Loading v2 model: " + modelName + " from GitHub");
     
     // Load sectors and matrix data from JSON API
     Promise.all([
@@ -602,7 +704,24 @@ function displayImpactBubbles(attempts) {
       console.log("Built allData with " + allData.length + " sectors");
       console.log("First sector sample:", allData[0]);
       console.log("Indicators available:", indicatorsData.map(i => i.code).slice(0, 5));
-      applyToBubbleHTML(hash, 1);
+      
+      // Load top industries for state to enable red bubble highlighting
+      // Only if state is specified and naics not already in hash
+      if (hash.state && !hash.naics) {
+        loadTopIndustriesForState(hash.state, function(topNaics) {
+          if (topNaics && topNaics.length > 0) {
+            // Map NAICS codes to v2 sector codes for highlighting
+            const topSectorCodes = mapNaicsToV2Sectors(topNaics, allData);
+            if (topSectorCodes.length > 0) {
+              hiddenhash.topSectors = topSectorCodes; // Store sector codes for highlighting
+              console.log("Mapped " + topNaics.length + " NAICS to " + topSectorCodes.length + " v2 sectors:", topSectorCodes.slice(0, 5));
+            }
+          }
+          applyToBubbleHTML(hash, 1);
+        });
+      } else {
+        applyToBubbleHTML(hash, 1);
+      }
       
     }).catch(error => {
       console.error("Error loading bubble chart data:", error);
@@ -804,9 +923,12 @@ function updateChart(x,y,z,useeioList,boundry) {
         })
         .style('fill', function (d) { 
           if (boundry1=="region"){
-            if (useeioList1.length>0){
+            // Check if this sector is in the top industries list (v2 uses sector codes)
+            const topSectors = hiddenhash.topSectors || [];
+            const sectorCode = d.code || d.industry_code;
+            if (useeioList1.length>0 || topSectors.length>0){
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                if (useeioList1.includes(d.industry_code)) {
+                if (useeioList1.includes(d.industry_code) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
                   return "#aaa";
@@ -855,9 +977,12 @@ function updateChart(x,y,z,useeioList,boundry) {
         .append("circle")
         .style('fill', function (d) { 
           if (boundry1=="region"){
-            if (useeioList1.length>0){
+            // Check if this sector is in the top industries list (v2 uses sector codes)
+            const topSectors = hiddenhash.topSectors || [];
+            const sectorCode = d.code || d.industry_code;
+            if (useeioList1.length>0 || topSectors.length>0){
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                if (useeioList1.includes( d.industry_code) ) {
+                if (useeioList1.includes( d.industry_code) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
                   return "#aaa";
@@ -922,13 +1047,15 @@ function updateChart(x,y,z,useeioList,boundry) {
           d3.selectAll(".circles").style('fill', function (d) { 
 
             if (boundry1=="region"){
-
-              if (useeioList1.length>0){
+              // Check if this sector is in the top industries list (v2 uses sector codes)
+              const topSectors = hiddenhash.topSectors || [];
+              const sectorCode = d.code || d.industry_code;
+              if (useeioList1.length>0 || topSectors.length>0){
                 console.log("usseeee")
                 console.log("class"+d3.select(this).attr("class"))
                 if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
 
-                  if (useeioList1.includes( d.industry_code) ) {
+                  if (useeioList1.includes( d.industry_code) || topSectors.includes(sectorCode)) {
                     console.log("nullllll")
                     return "url(#gradient)";
                   } else {
@@ -1083,9 +1210,12 @@ function clearBubbleSelection(){
   clickCount=-1
     d3.selectAll(".circles").style('fill', function (d) { 
       if (boundry1=="region"){
-        if (useeioList.length>0){
+        // Check if this sector is in the top industries list (v2 uses sector codes)
+        const topSectors = hiddenhash.topSectors || [];
+        const sectorCode = d.code || d.industry_code;
+        if (useeioList.length>0 || topSectors.length>0){
           if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-            if (useeioList.includes(d.industry_code)) {
+            if (useeioList.includes(d.industry_code) || topSectors.includes(sectorCode)) {
               return "url(#gradient)";
             } else {
               return "#303030";
