@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mohammed Saalim K - Portfolio | Model.Earth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    
+    <!-- Include base styles -->
+    <link rel="stylesheet" href="../../../localsite/css/base.css" />
+    <script src="../../../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
+    
+    <!-- Custom portfolio styles -->
+    <style>
+        .portfolio-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .portfolio-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .portfolio-header .subtitle {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .achievement-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #28a745;
+        }
+        
+        .achievement-card h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .code-snippet {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #28a745;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #667eea;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- Header Section -->
+        <div class="portfolio-header">
+            <h1>Mohammed Saalim K</h1>
+            <div class="subtitle">Full-Stack Developer</div>
+            <div class="subtitle">USEEIO Model Specialist | Environmental Data Visualization</div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About</h2>
+            <p>Passionate full-stack developer with 3+ years of experience in React development and environmental data visualization, specializing in USEEIO model integration and interactive chart development. Currently serving as Lead Developer for USEEIO updates at Model.Earth, where I've built advanced D3.js visualizations and solved complex data processing challenges for EPA's environmental impact models.</p>
+            
+            <div class="quote">
+                "Saalim picked up USEEIO the fastest of anyone I've worked with. Great React and data skills." 
+                <br><strong>- Loren Heyns, Data Scientist & Project Lead</strong>
+            </div>
+        </div>
+
+        <!-- Model.Earth Contributions -->
+        <div class="section">
+            <h2>Model.Earth Contributions</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>🔧 Production Bug Fixes</h3>
+                    <p>Fixed critical 4-year-old hash retention bug in USEEIO React widgets. Implemented intelligent URL parameter merging for seamless navigation state preservation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">URL Management</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>📊 USEEIO v2 Integration</h3>
+                    <p>Migrated bubble chart from hardcoded v1 data to dynamic v2 JSON API integration. Supports all US states with 73 sectors per state, loading data dynamically from GitHub.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">API Integration</span>
+                        <span class="tech-tag">Data Visualization</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>💼 Advanced Analytics</h3>
+                    <p>Implemented D matrix × q vector calculation for actual job quantities display. Built smart decimal formatting and comprehensive UX interaction overhaul with single-selection mode.</p>
+                    <div class="code-snippet">
+// Calculate actual JOBS quantity: jobs = q[sector] × D[JOBS][sector]
+const actualJobs = output * jobCoefficient;
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Matrix Math</span>
+                        <span class="tech-tag">Data Science</span>
+                        <span class="tech-tag">UX Design</span>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>🚀 Professional Development</h3>
+                    <p>Created comprehensive PR documentation with detailed technical changes and test plans. Demonstrated production-level software development practices.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">Documentation</span>
+                        <span class="tech-tag">Code Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Expertise -->
+        <div class="section">
+            <h2>Technical Expertise</h2>
+            
+            <h3>Frontend & Data Visualization</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">D3.js</span>
+                <span class="tech-tag">Redux</span>
+                <span class="tech-tag">Material-UI</span>
+                <span class="tech-tag">Responsive Design</span>
+                <span class="tech-tag">Data Visualization</span>
+                <span class="tech-tag">Interactive Charts</span>
+            </div>
+
+            <h3>USEEIO & Environmental Data</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">USEEIO Model Integration</span>
+                <span class="tech-tag">Environmental Data Analysis</span>
+                <span class="tech-tag">Matrix Mathematics</span>
+                <span class="tech-tag">NAICS Sector Mapping</span>
+                <span class="tech-tag">EPA Data Processing</span>
+                <span class="tech-tag">Economic Impact Modeling</span>
+                <span class="tech-tag">State-Level Data Analysis</span>
+                <span class="tech-tag">JSON API Integration</span>
+            </div>
+
+            <h3>Backend & APIs</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">RESTful APIs</span>
+                <span class="tech-tag">API Integration</span>
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Entity Framework Core</span>
+            </div>
+
+            <h3>Development & Performance</h3>
+            <div class="tech-stack">
+                <span class="tech-tag">Performance Optimization</span>
+                <span class="tech-tag">Lazy Loading</span>
+                <span class="tech-tag">Event-Driven Architecture</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">CI/CD</span>
+                <span class="tech-tag">Unit Testing</span>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="achievement-card">
+                <h3>DreamStudio (Model.Earth - EPA USEEIO Project) | Lead Software Developer</h3>
+                <p><strong>09/2025 - Present | Chicago, Illinois</strong></p>
+                <ul>
+                    <li>Lead USEEIO widget development integrating EPA's v2 state economic models into interactive visualizations</li>
+                    <li>Fixed critical retention bug in React TypeScript widgets using URLSearchParams API, eliminating navigation state loss</li>
+                    <li>Built D3.js bubble charts with RESTful JSON API integration, real-time animations, and event-driven state filtering</li>
+                    <li>Developed automated data processing pipelines with NAICS sector mapping algorithm using React hooks and Papa Parse</li>
+                </ul>
+            </div>
+
+            <div class="achievement-card">
+                <h3>Tata Consultancy Services (Humana Healthcare) | ASP.NET Developer</h3>
+                <p><strong>02/2022 - 09/2023 | Louisville, Kentucky</strong></p>
+                <ul>
+                    <li>Designed RESTful Web APIs using .NET Minimal API for wellness rewards platform serving 500K+ users</li>
+                    <li>Implemented Confluent Kafka event-driven microservices (40% efficiency improvement, 25% less downtime)</li>
+                    <li>Built SOA-compliant .NET API with MongoDB Atlas handling 10M+ records (sub-200ms response times)</li>
+                    <li>Achieved 90% test coverage using XUnit and MOQ (reduced production defects by 45%)</li>
+                </ul>
+            </div>
+
+            <div class="achievement-card">
+                <h3>Newgen Software Technologies | Full Stack Developer</h3>
+                <p><strong>02/2021 - 02/2022 | Chennai, India</strong></p>
+                <ul>
+                    <li>Enhanced OCR/ICR document processing app using .NET (C#) and ReactJS with gRPC microservices (35% lower latency)</li>
+                    <li>Developed partial data masking feature for sensitive documents using Python/OpenCV (saved 20+ manual hours/month)</li>
+                    <li>Refactored legacy Document Identification API to microservices (60% faster processing, 25% fewer errors)</li>
+                    <li>Optimized multi-database operations across MSSQL, PostgreSQL, Oracle with EF Core and Dapper (30% less DB latency)</li>
+                </ul>
+            </div>
+
+            <div class="achievement-card">
+                <h3>Open Source Contributions | Microsoft PowerToys & Polly .NET</h3>
+                <p><strong>01/2025 - Present</strong></p>
+                <ul>
+                    <li><strong>PowerToys:</strong> Built "No leading spaces" option for WPF-based Hosts File Editor (PR #41206)</li>
+                    <li><strong>Polly:</strong> Designed high-performance HybridCache strategy for Polly.Caching (PR #2709)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Live Projects -->
+        <div class="section">
+            <h2>Live Projects</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>🌊 Interactive Bubble Chart</h3>
+                    <p>Dynamic environmental impact visualization with real-time data loading, state-specific filtering, and actual job quantity calculations.</p>
+                    <a href="/io/charts/bubble/#state=IL" class="cta-button" target="_blank">View Live Chart</a>
+                </div>
+                
+                <div class="achievement-card">
+                    <h3>📊 USEEIO v2 Integration</h3>
+                    <p>Seamless integration with GitHub-based JSON API supporting all US states with 73 sectors per state.</p>
+                    <a href="https://github.com/ModelEarth/useeio-json" class="cta-button" target="_blank">View Data Source</a>
+                </div>
+                
+                <div class="achievement-card">
+                    <h3>🔧 Hash Retention Fix</h3>
+                    <p>Production-level bug fix ensuring URL state preservation across widget interactions.</p>
+                    <a href="https://github.com/ModelEarth/io/pull/11" class="cta-button" target="_blank">View PR #11</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>Ready to Collaborate?</h2>
+            <p>I'm passionate about environmental data science and always excited to work on meaningful projects that make a difference.</p>
+            <a href="mailto:mohammed.saalim.k@gmail.com" class="cta-button">Get In Touch</a>
+            <a href="https://github.com/mohammed-saalim" class="cta-button" target="_blank">View GitHub</a>
+            <a href="https://mohammed-saalim.vercel.app/" class="cta-button" target="_blank">View Full Portfolio</a>
+        </div>
+    </div>
+</body>
+</html>
