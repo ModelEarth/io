@@ -489,6 +489,30 @@ function randomFloatBetween(minValue,maxValue,precision){
     return parseFloat(Math.min(minValue + (Math.random() * (maxValue - minValue)),maxValue).toFixed(precision));
 }
 
+// Smart formatting function for small values
+function smartFormat(value) {
+  if (Math.abs(value) < 0.01) {
+    return value.toFixed(6); // Show 6 decimals for very small values
+  } else if (Math.abs(value) < 0.1) {
+    return value.toFixed(4); // Show 4 decimals for small values
+  } else if (Math.abs(value) < 1) {
+    return value.toFixed(3); // Show 3 decimals for values < 1
+  } else {
+    return value.toFixed(2); // Show 2 decimals for larger values
+  }
+}
+
+// Helper function to format large numbers with commas (for actual job counts)
+function formatWithCommas(value) {
+  if (value === null || value === undefined || isNaN(value)) return "N/A";
+
+  // Round to whole number for job counts
+  const rounded = Math.round(value);
+
+  // Add commas as thousands separators
+  return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 //"draw" the line with many points respecting the calculated bubble-graph-equation
 function calculateLineData(leastSquares,xRange,iterations){
   var returnData = [];
@@ -666,11 +690,14 @@ function displayImpactBubbles(attempts) {
     console.log("Bubble.js Loading v2 model: " + modelName + " from GitHub");
     
     // Load sectors and matrix data from JSON API
+    // Also load D matrix and q vector for calculating actual job quantities
     Promise.all([
       fetch(apiBase + "/sectors.json").then(r => r.json()),
       fetch(apiBase + "/matrix/N.json").then(r => r.json()),
-      fetch(apiBase + "/indicators.json").then(r => r.json())
-    ]).then(([sectors, matrixN, indicatorsData]) => {
+      fetch(apiBase + "/indicators.json").then(r => r.json()),
+      fetch(apiBase + "/matrix/D.json").then(r => r.json()),
+      fetch(apiBase + "/matrix/q.json").then(r => r.json())
+    ]).then(([sectors, matrixN, indicatorsData, matrixD, vectorQ]) => {
       
       console.log("Loaded " + sectors.length + " sectors from " + modelName);
       
@@ -682,6 +709,9 @@ function displayImpactBubbles(attempts) {
       
       console.log("Displaying " + filteredSectors.length + " sectors (filtered by location)");
       
+      // Find JOBS indicator index for special handling
+      const jobsIndicatorIndex = indicatorsData.findIndex(ind => ind.code === 'JOBS');
+
       allData = filteredSectors.map((sector, idx) => {
         const sectorData = {
           id: sector.id,
@@ -690,7 +720,7 @@ function displayImpactBubbles(attempts) {
           location: sector.location,
           index: sector.index
         };
-        
+
         // Add indicator values from matrix N
         indicatorsData.forEach(indicator => {
           const indicatorIndex = indicatorsData.findIndex(ind => ind.code === indicator.code);
@@ -698,7 +728,20 @@ function displayImpactBubbles(attempts) {
             sectorData[indicator.code] = matrixN[indicatorIndex][sector.index] || 0;
           }
         });
-        
+
+        // Calculate actual JOBS quantity: jobs = q[sector] × D[JOBS][sector]
+        // This gives us actual job count instead of jobs-per-dollar
+        if (jobsIndicatorIndex !== -1 && matrixD && vectorQ &&
+            matrixD[jobsIndicatorIndex] && vectorQ[sector.index]) {
+          const jobCoefficient = matrixD[jobsIndicatorIndex][sector.index] || 0;
+          const output = vectorQ[sector.index][0] || 0; // q is array of arrays [[value1], [value2], ...]
+          const actualJobs = output * jobCoefficient;
+
+          // Store both the coefficient (for bubble size) and actual count (for display)
+          sectorData['JOBS_actual'] = actualJobs;
+          sectorData['JOBS_coefficient'] = jobCoefficient;
+        }
+
         return sectorData;
       });
       
@@ -929,7 +972,7 @@ function updateChart(x,y,z,useeioList,boundry) {
             const sectorCode = d.code || d.industry_code;
             if (useeioList1.length>0 || topSectors.length>0){
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                if (useeioList1.includes(d.industry_code) || topSectors.includes(sectorCode)) {
+                if (useeioList1.includes(d.code) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
                   return "#aaa";
@@ -1036,87 +1079,60 @@ function updateChart(x,y,z,useeioList,boundry) {
           }
           rolloverDiv.transition()
             .duration(200)
-            .style("opacity", .9);               
-          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.name + "</b><br/><b> " +x1+":</b> "+d.x.toFixed(2)+ "<br/><b> " +y1+":</b> "+ d.y.toFixed(2) + "<br/><b>" +z1+":</b> "+ d.z.toFixed(2)+'</span >')
+            .style("opacity", .9);
+
+          // For JOBS indicator, show actual job count instead of coefficient
+          const zDisplay = (z1 === "JOBS" && d.JOBS_actual !== undefined)
+            ? formatWithCommas(d.JOBS_actual) + " jobs"
+            : smartFormat(d.z);
+
+          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.name + "</b><br/><b> " +x1+":</b> "+smartFormat(d.x)+ "<br/><b> " +y1+":</b> "+ smartFormat(d.y) + "<br/><b>" +z1+":</b> "+ zDisplay +'</span >')
             .style("left", (d3.event.pageX + 6) + "px")
             .style("top", (d3.event.pageY + 6) + "px");                     
         })
         .on("click", function(d,i) {
-          //alert("click")
-          clickCount+=1;
-          //d3.selectAll(".circles").classed("selected", false);
-          d3.selectAll(".circles").style('fill', function (d) { 
-
-            if (boundry1=="region"){
-              // Check if this sector is in the top industries list (v2 uses sector codes)
-              const topSectors = hiddenhash.topSectors || [];
-              const sectorCode = d.code || d.industry_code;
-              if (useeioList1.length>0 || topSectors.length>0){
-                console.log("usseeee")
-                console.log("class"+d3.select(this).attr("class"))
-                if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-
-                  if (useeioList1.includes( d.industry_code) || topSectors.includes(sectorCode)) {
-                    console.log("nullllll")
-                    return "url(#gradient)";
-                  } else {
-                    return "#303030";
-                  }
-                } else {
-                  return colors[d3.select(this).attr("class").split("circles selected")[1]];
-                  console.log(colors[d3.select(this).attr("class").split("circles selected")[1]])
-                }
-              } else {
-                if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null) {
-                  return "#303030";
-                } else {
-                  return colors[d3.select(this).attr("class").split("circles selected")[1]];
-                }
-             }
-            } else {
-              if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                return "url(#gradient)";
-              } else {
-                return colors[d3.select(this).attr("class").split("circles selected")[1]];
-              }
-            }
-          })
-          .attr("stroke-width", function (d) { 
-            if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-              return 1;
-            } else {
-              return 6;
-            }
-          })
-          .attr("stroke-opacity", function (d) { 
-            if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-              return 0.7;
-            } else {
-                return 1;
-            }
-          })
-          .style("fill-opacity" , function (d) { 
-            if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-              return 0.5;
-            } else {
-                return 1;
-            }
-          })
-
-          d3.select(this)
+          // Single-selection mode: deselect previous bubble without redrawing ALL bubbles
+          d3.selectAll(".circles.selected")
+            .classed("selected", false)
+            .attr("data-selected-stroke", null)  // Clear the saved stroke color
             .transition()
-            .style("fill",colors[clickCount])
-            .style("fill-opacity",1)
-            .attr('stroke-width', 6)
-            .attr("stroke-opacity", 1)
-          d3.select(this).classed("selected"+clickCount, true)
+            .duration(200)
+            .style("fill-opacity", 0.5)
+            .style("stroke-width", "1px")  // Use .style() to override CSS
+            .style("stroke-opacity", 0.7)
+            .style("stroke", "black");  // Reset to black with .style()
+
+          // Select the clicked bubble (keep original fill color with subtle highlight)
+          d3.select(this)
+            .classed("selected", true)
+            .attr("data-selected-stroke", "#333")  // Store the stroke color we want
+            .style("fill-opacity", 1)
+            .style("stroke-width", "3px")  // Use .style() to override CSS
+            .style("stroke-opacity", 1)
+            .style("stroke", "#333");  // Use .style() to override CSS
+
+          // Display info in upper right corner (replace, not append)
           $("#impactTextIntro").hide();
-          $("#impactText").html($("#impactText").html() + "<br>"+ '<font size="5">'+d.name+"</font>"+"<br>"+z1 +":"+d.z.toFixed(2)+ "<br>" + y1 +":"+d.y.toFixed(2)+ "<br>" + x1+":"+d.x.toFixed(2) + "<br>");
+
+          // For JOBS indicator, show actual job count instead of coefficient
+          const zClickDisplay = (z1 === "JOBS" && d.JOBS_actual !== undefined)
+            ? formatWithCommas(d.JOBS_actual) + " jobs"
+            : smartFormat(d.z);
+
+          $("#bubble-click-info").html('<h4 style="margin:0; color:#333;">' + d.name + '</h4><br/>' +
+            '<strong>' + z1 + ':</strong> ' + zClickDisplay + '<br/>' +
+            '<strong>' + y1 + ':</strong> ' + smartFormat(d.y) + '<br/>' +
+            '<strong>' + x1 + ':</strong> ' + smartFormat(d.x));
+          $("#bubble-click-info").show();
           $("#impact-chart").show();
           create_bar(d,x,y,z,x1,y1,z1);
-          sect_list.push(d.industry_code.toUpperCase())
-          console.log("sects"+sect_list)
-          console.log(typeof sect_list[0])
+
+          // Fix: use d.code with safety check (v2 uses 'code', not 'industry_code')
+          const sectorCode = d.code || d.industry_code;
+          if (sectorCode) {
+            sect_list = [sectorCode.toUpperCase()]; // Replace array, not append (single selection)
+          }
+          console.log("Selected sector: " + sect_list);
           //document.querySelector('#sector-list').setAttribute('sector', sect_list);
         })
         .on("mouseout", function(d) {
@@ -1137,9 +1153,19 @@ function updateChart(x,y,z,useeioList,boundry) {
         .attr("r",function(d){
           return zScale(d.z)+2
         })
-        .style("stroke","black")
-        .attr("stroke-opacity", 0.7)
-        .style("fill-opacity" , 0.5)
+        .style("stroke", function() {
+          // Preserve stroke color for selected bubbles using stored attribute
+          const savedStroke = d3.select(this).attr("data-selected-stroke");
+          return savedStroke ? savedStroke : "black";
+        })
+        .attr("stroke-opacity", function() {
+          // Preserve stroke opacity for selected bubbles
+          return d3.select(this).classed("selected") ? 1 : 0.7;
+        })
+        .style("fill-opacity", function() {
+          // Preserve fill opacity for selected bubbles
+          return d3.select(this).classed("selected") ? 1 : 0.5;
+        })
         .transition().duration(animDuration)
         .attr("transform",function(d){return "translate("+xScale(d.x)+","+yScale(d.y)+")";});
 
@@ -1204,67 +1230,30 @@ function updateChart(x,y,z,useeioList,boundry) {
 
 //TODO: check if implemented anywhere
 function clearBubbleSelection(){
-  for(l=0;l<=clickCount;l++){
-    d3.selectAll(".circles").classed("selected"+l, false);
-  }
-  
-  clickCount=-1
-    d3.selectAll(".circles").style('fill', function (d) { 
-      if (boundry1=="region"){
-        // Check if this sector is in the top industries list (v2 uses sector codes)
-        const topSectors = hiddenhash.topSectors || [];
-        const sectorCode = d.code || d.industry_code;
-        if (useeioList.length>0 || topSectors.length>0){
-          if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-            if (useeioList.includes(d.industry_code) || topSectors.includes(sectorCode)) {
-              return "url(#gradient)";
-            } else {
-              return "#303030";
-            }
-          } else {return colors[clickCount]}
-        } else {
-          if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-            return "#303030";
-          } else {return colors[clickCount]}
-        }
-      } else {
-        if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-          return "url(#gradient)";
-        } else {
-          return colors[clickCount];
-        }
-      }
-    })
-    .attr("stroke-width", function (d) { 
-      if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-        return 1;
-      } else {
-        return 6;
-      }
-    })
-    .attr("stroke-opacity", function (d) { 
-      if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-        return 0.7;
-      } else {
-        return 1;
-      }
-    })
-    .style("fill-opacity" , function (d) { 
-      if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-        return 0.5;
-      } else {
-        return 1;
-      }
-    })
+  // Clear selection with transition (matches click behavior)
+  d3.selectAll(".circles.selected")
+    .classed("selected", false)
+    .attr("data-selected-stroke", null)  // Clear the saved stroke color
+    .transition()
+    .duration(200)
+    .style("fill-opacity", 0.5)
+    .style("stroke-width", "1px")  // Use .style() to override CSS
+    .style("stroke-opacity", 0.7)
+    .style("stroke", "#000");  // Reset to default black stroke with .style()
 
-    //document.getElementById("impactText").innerHTML ="";
-    selected_sector=[]
-    sect_list=[]
-    //document.querySelector('#sector-list').setAttribute('sector', sect_list);
-    d3.select("#selected_bar").remove();
-    $("#impactText").html("");
-    $("#impactTextIntro").show();
-    $("#impact-chart").hide();
+  // Hide info display
+  $("#bubble-click-info").hide();
+  $("#impactTextIntro").show();
+  $("#impact-chart").hide();
+
+  // Clear sector list
+  selected_sector = [];
+  sect_list = [];
+  clickCount = -1;
+
+  // Clear bar chart
+  d3.select("#selected_bar").remove();
+  $("#impactText").html("");
 
     //impactchart clear
     d3.select("#imp").remove();
