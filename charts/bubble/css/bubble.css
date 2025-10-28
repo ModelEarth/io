@@ -127,10 +127,12 @@ text {
 /* bubble chart toggle */
 /* source: https://www.w3schools.com/howto/howto_css_switch.asp */
 
+/* Commented out - was causing conflicts with JavaScript styling
 .selected {
   stroke-width:100px;
   fill: "yellow"
 }
+*/
 
 /* bubble chart red toggle */
 input:checked + .slider {
