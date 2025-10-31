@@ -6,7 +6,7 @@
 [YAML-to-JSON-to-HTML Parser](parser/) and [Food Nutrition Labels](/profile/item/#layout=nutrition)<!-- /io/template/parser/sample.html -->
 [Select states and counties](#geoview=country) to explore local industry impacts
 
-[Why strict YAML instead of TOML](https://hitchdev.com/strictyaml/why-not/toml/) and our [TOML parse to json](toml)
+[Why StrictYAML instead of TOML](https://hitchdev.com/strictyaml/why-not/toml/) and our [TOML parse to json](toml)
 
 ---
 <br>
