@@ -142,4 +142,34 @@ input:focus + .slider {
   box-shadow: 0 0 1px #862b23;
 }
 
+/* bubble click info panel */
+#bubble-click-info {
+  min-width: 300px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#bubble-click-info h4 {
+  font-weight: bold;
+  margin-bottom: 0px; /* Remove space after title */
+}
+
+/* Dark mode styles for bubble click info */
+.dark #bubble-click-info {
+  background: #2d3748 !important;
+  color: #e2e8f0;
+  border: 2px solid #4a5568;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.dark #bubble-click-info h4 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
 
