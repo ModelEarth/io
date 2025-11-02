@@ -182,6 +182,57 @@ function refreshBubbleWidget() {
     priorHash_bubble = getHash();
 }
 
+// Function to refresh the upper-right info panel after state/indicator changes
+function refreshInfoPanel() {
+  // Only refresh if a bubble is currently selected
+  if (sect_list.length === 0) {
+    return; // No bubble selected, nothing to refresh
+  }
+
+  const selectedSectorCode = sect_list[0];
+  console.log("Refreshing info panel for selected sector:", selectedSectorCode);
+
+  // Wait for allData to be available after state change
+  waitForVariable('allData', function() {
+    // Find the selected sector in the updated allData
+    const selectedSector = allData.find(d => {
+      const code = (d.code || d.industry_code || "").toUpperCase();
+      return code === selectedSectorCode;
+    });
+
+    if (!selectedSector) {
+      console.log("Selected sector not found in new state data, hiding info panel");
+      $("#bubble-click-info").hide();
+      $("#impactTextIntro").show();
+      sect_list = [];
+      return;
+    }
+
+    // Get current x, y, z values from dropdowns
+    const x = dropdownX.val() || "WATR";
+    const y = dropdownY.val() || "GHG";
+    const z = dropdownZ.val() || "JOBS";
+
+    // Calculate display values
+    const xVal = selectedSector[x] || 0;
+    const yVal = selectedSector[y] || 0;
+    const zVal = selectedSector[z] || 0;
+
+    const zDisplay = (z === "JOBS" && selectedSector.JOBS_actual !== undefined)
+      ? formatWithCommas(selectedSector.JOBS_actual) + " jobs"
+      : smartFormat(zVal);
+
+    // Update the info panel with new values
+    $("#bubble-click-info").html('<h4>' + selectedSector.name + '</h4>' +
+      '<strong>' + z + ':</strong> ' + zDisplay + '<br/>' +
+      '<strong>' + y + ':</strong> ' + smartFormat(yVal) + '<br/>' +
+      '<strong>' + x + ':</strong> ' + smartFormat(xVal));
+    $("#bubble-click-info").show();
+
+    console.log("Info panel refreshed with updated values");
+  });
+}
+
 // Function to get model name based on state parameter
 function getModelName(stateCode) {
   if (!stateCode) {
@@ -323,32 +374,45 @@ function loadIndicatorDropdowns(state, callback) {
   // Fetch directly from useeio-json repository
   const endpoint = 'https://raw.githubusercontent.com/ModelEarth/useeio-json/main/models/2020';
   const indicatorsUrl = endpoint + "/" + modelName + "/indicators.json";
-  
+
   console.log("Loading indicators from model: " + modelName);
-  
-  dropdownX.empty();
-  dropdownY.empty();
-  dropdownZ.empty();
-  indicators.clear();
+
+  // Store current selections before rebuilding
+  const currentX = dropdownX.val() || x;
+  const currentY = dropdownY.val() || y;
+  const currentZ = dropdownZ.val() || z;
 
   fetch(indicatorsUrl)
     .then(response => response.json())
     .then(data => {
+      // Build options in memory first to avoid flicker
+      const optionsX = [];
+      const optionsY = [];
+      const optionsZ = [];
+      const newIndicators = new Set();
+
       data.forEach(d => {
         // Filter out indicators with incomplete data (HCAN, HNCN had issues in older versions)
         // Keeping GHG now since we have v2 data with complete values
         if (d.code != "HCAN" && d.code != "HNCN" && d.code != "CRHW" && d.code != "CCDD") {
-          dropdownX.append($("<option></option>").attr("value", d.code).text(d.name));
-          dropdownY.append($("<option></option>").attr("value", d.code).text(d.name));
-          dropdownZ.append($("<option></option>").attr("value", d.code).text(d.name));
-          indicators.add(d.code); // Applied to bubbles
+          optionsX.push($("<option></option>").attr("value", d.code).text(d.name));
+          optionsY.push($("<option></option>").attr("value", d.code).text(d.name));
+          optionsZ.push($("<option></option>").attr("value", d.code).text(d.name));
+          newIndicators.add(d.code);
         }
       });
+
+      // Now update dropdowns all at once (reduces flicker)
+      dropdownX.empty().append(optionsX);
+      dropdownY.empty().append(optionsY);
+      dropdownZ.empty().append(optionsZ);
+      indicators.clear();
+      newIndicators.forEach(ind => indicators.add(ind));
 
       // Set dropdown values to match the hash (or defaults if not in hash)
       console.log("Attempting to set dropdowns to - X:", x, "Y:", y, "Z:", z);
       console.log("Available indicator options:", Array.from(indicators));
-      
+
       dropdownX.val(x);
       dropdownY.val(y);
       dropdownZ.val(z);
@@ -806,9 +870,19 @@ function applyToBubbleHTML(hash,attempts) {
       console.log("Calling toggleBubbleHighlights to redraw chart");
       toggleBubbleHighlights(hash);
 
+      // Refresh info panel after chart redraws (for state changes)
+      setTimeout(function() {
+        refreshInfoPanel();
+      }, 200); // Small delay to ensure chart rendering completes
+
       d3.selectAll(".graph-picklist").on("change",function(){
         // Update hash and trigger hashChange event. Resides in localsite.js
         goHash({ "x": dropdownX.val(), "y": dropdownY.val(), "z": dropdownZ.val()});
+
+        // Refresh info panel when indicators change
+        setTimeout(function() {
+          refreshInfoPanel();
+        }, 200);
         //updateChart(d3.select("#graph-picklist-x").node().value,
         ///  d3.select("#graph-picklist-y").node().value,
         //  d3.select("#graph-picklist-z").node().value);
@@ -1119,7 +1193,8 @@ function updateChart(x,y,z,useeioList,boundry) {
             ? formatWithCommas(d.JOBS_actual) + " jobs"
             : smartFormat(d.z);
 
-          $("#bubble-click-info").html('<h4 style="margin:0; color:#333;">' + d.name + '</h4><br/>' +
+          // Build info display with Z-axis (bubble size) first, then Y, then X
+          $("#bubble-click-info").html('<h4>' + d.name + '</h4>' +
             '<strong>' + z1 + ':</strong> ' + zClickDisplay + '<br/>' +
             '<strong>' + y1 + ':</strong> ' + smartFormat(d.y) + '<br/>' +
             '<strong>' + x1 + ':</strong> ' + smartFormat(d.x));

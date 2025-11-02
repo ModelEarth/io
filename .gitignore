@@ -1,4 +1,5 @@
 build/apidoc/
+build/api/
 node_modules/
 dist/
 .vscode/
