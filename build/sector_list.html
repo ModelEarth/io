@@ -6,37 +6,234 @@
     <title>Industry list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="widgets.css">
+    <link rel="stylesheet" href="../../localsite/css/base.css" id="/localsite/css/base.css" />
+    <script src="../../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
 </head>
 
 <body>
-    <div class="io">
-        <div style="margin: 0 auto;">
-            <div class="matrix-title">Goods & Services: MEEEIOv1.0-s-20</div><br><br>
-            <div class="sector-list">
+    <div class="content contentpadding">
+        <div id="relocatedStateMenu"></div>
+
+        <div class="io">
+            <div style="margin: 0 auto;">
+                <div class="matrix-title" id="model-title">Goods & Services: MEEEIOv1.0-s-20</div><br><br>
+                <div class="sector-list">
+                </div>
             </div>
         </div>
     </div>
 
     <script src="lib/useeio_widgets.js"></script>
     <script>
+        console.log("=== SECTOR LIST SCRIPT LOADED - VERSION 4 ===");
+
+        // Function to get model name from state code (similar to bubble chart)
+        function getModelName(stateCode) {
+            if (!stateCode || stateCode === 'US') {
+                return 'USEEIOv2.0.1-411';
+            }
+            // All state models use the format: [STATE]EEIOv1.0-s-20
+            return stateCode + 'EEIOv1.0-s-20';
+        }
+
+        function getStateName(stateCode) {
+            var stateNames = {
+                'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+                'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'FL': 'Florida', 'GA': 'Georgia',
+                'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa',
+                'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+                'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri',
+                'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
+                'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio',
+                'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+                'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont',
+                'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming',
+                'US': 'United States'
+            };
+            return stateNames[stateCode] || stateCode;
+        }
+
+        // Get state from URL hash
+        var hashParams = new URLSearchParams(window.location.hash.substring(1));
+        var stateCode = hashParams.get('state') || 'ME';
+
+        console.log("Current URL hash:", window.location.hash);
+        console.log("Extracted state code:", stateCode);
+
+        // Store initial hash parameters (excluding state) to preserve them on state changes
+        // This ensures naics and other params are preserved when state dropdown changes
+        var initialHashParams = new URLSearchParams();
+        hashParams.forEach(function(value, key) {
+            if (key !== 'state') {
+                initialHashParams.set(key, value);
+            }
+        });
+        
+        // Also check query params for naics (in case it's in query string)
+        var queryParams = new URLSearchParams(window.location.search.substring(1));
+        if (queryParams.has('naics') && !initialHashParams.has('naics')) {
+            initialHashParams.set('naics', queryParams.get('naics'));
+        }
 
         var config = useeio.urlConfig();
-        var modelID = config.get().model || 'MEEEIOv1.0-s-20';
+        var modelID = getModelName(stateCode);
 
-        var model = useeio.model({
-            endpoint: './api',
-            model: modelID,
-            asJsonFiles: true,
-        });
+        console.log("Model ID to load:", modelID);
 
+        // Update title with current model
+        var titleElement = document.getElementById('model-title');
+        console.log("Title element:", titleElement);
+        if (titleElement) {
+            titleElement.textContent = 'Goods & Services: ' + modelID;
+            console.log("Title updated to:", titleElement.textContent);
+        } else {
+            console.error("Title element not found!");
+        }
+
+        // Wait a moment for widget to attempt loading, then check if it failed
+        setTimeout(function() {
+            modelCheckPromise.then(function(modelExists) {
+                if (!modelExists) {
+                    // Model doesn't exist - error already shown by showModelNotFoundError
+                    // Update title to be cleaner
+                    if (titleElement) {
+                        titleElement.textContent = 'Goods & Services: ' + getStateName(stateCode) + ' (Model Not Available)';
+                    }
+                }
+            });
+        }, 500);
+
+        // Use local API endpoint (no CORS issues with local files)
+        const endpointBase = './api';
+
+        function createModel(modelName) {
+            return useeio.model({
+                endpoint: endpointBase,
+                model: modelName,
+                asJsonFiles: true,
+            });
+        }
+
+        var model = createModel(modelID);
+
+        // Note: State models (73 sectors) don't support NAICS filtering
+        // NAICS filtering is only for US national 411-sector models
+        // State models already use simplified sector codes (like '22', '111CA')
+        
         var sectorList = useeio.sectorList({
             model: model,
             selector: '.sector-list',
         });
+        
         config.withDefaults({
             count: 10,
-        })
+        });
         config.join(sectorList);
+
+        // Check if model exists and show user-friendly error if it doesn't
+        // Available state models: GA, IL, ME (others will use US national model)
+        var modelCheckPromise = fetch(endpointBase + '/' + modelID + '/sectors.json')
+            .then(function(response) {
+                if (!response.ok) {
+                    console.warn('⚠️ State model ' + modelID + ' not found in local API. Available state models: GA, IL, ME.');
+                    showModelNotFoundError(stateCode, modelID);
+                    return false;
+                } else {
+                    console.log('✅ Model ' + modelID + ' loaded successfully');
+                    return true;
+                }
+            })
+            .catch(function(error) {
+                console.error('Error checking model availability:', error);
+                showModelNotFoundError(stateCode, modelID);
+                return false;
+            });
+
+        function showModelNotFoundError(stateCode, modelID) {
+            var sectorListContainer = document.querySelector('.sector-list');
+            if (!sectorListContainer) return;
+
+            // Simple, clean error message matching website style
+            var currentParams = new URLSearchParams(window.location.search);
+            var viewParam = currentParams.get('view') || 'mosaic';
+            var countParam = currentParams.get('count') || '50';
+            var baseUrl = '?view=' + viewParam + '&count=' + countParam;
+
+            var errorHTML = '<div style="text-align: center; padding: 60px 20px;">' +
+                '<h2 style="font-size: 24px; font-weight: 600; color: #333; margin: 0 0 20px 0;">Model Not Available</h2>' +
+                '<p style="font-size: 16px; color: #666; margin: 0 0 40px 0;">Available models</p>' +
+                '<div style="margin-top: 30px;">' +
+                '<a href="' + baseUrl + '#state=GA" class="btn btn-primary">Georgia</a> ' +
+                '<a href="' + baseUrl + '#state=IL" class="btn btn-primary">Illinois</a> ' +
+                '<a href="' + baseUrl + '#state=ME" class="btn btn-primary">Maine</a>' +
+                '</div>' +
+                '</div>';
+
+            sectorListContainer.innerHTML = errorHTML;
+        }
+
+        // Track current state for change detection
+        var currentStateCode = stateCode;
+
+        function handleStateChange(debugSource) {
+            var params = new URLSearchParams(window.location.hash.substring(1));
+            var newStateCode = params.get('state') || 'ME';
+
+            if (newStateCode === currentStateCode) {
+                console.log(debugSource + ': hash change detected but state unchanged (' + newStateCode + ')');
+                return;
+            }
+
+            console.log(debugSource + ': state changed from', currentStateCode, 'to', newStateCode, '- preserving hash params and reloading...');
+            
+            // Preserve all hash parameters (including naics, view, count, etc.) except state
+            // First, get params from current hash
+            var preservedParams = new URLSearchParams();
+            params.forEach(function(value, key) {
+                if (key !== 'state') {
+                    preservedParams.set(key, value);
+                }
+            });
+            
+            // Also merge in initial params (in case localsite.js cleared them)
+            // This ensures naics from initial URL is preserved
+            initialHashParams.forEach(function(value, key) {
+                if (!preservedParams.has(key)) {
+                    preservedParams.set(key, value);
+                }
+            });
+            
+            // Also check query params for naics (in case it's in query string, not hash)
+            var currentQueryParams = new URLSearchParams(window.location.search.substring(1));
+            if (currentQueryParams.has('naics') && !preservedParams.has('naics')) {
+                preservedParams.set('naics', currentQueryParams.get('naics'));
+            }
+            
+            // Build new hash with new state + preserved parameters
+            var newHash = '#state=' + newStateCode;
+            if (preservedParams.toString()) {
+                newHash += '&' + preservedParams.toString();
+            }
+            
+            // Update hash before reload to ensure it's preserved
+            window.location.hash = newHash;
+            currentStateCode = newStateCode;
+            
+            // Small delay to ensure hash is updated, then reload
+            setTimeout(function() {
+                location.reload();
+            }, 10);
+        }
+
+        // Listen for the custom hashChangeEvent dispatched by localsite.js/goHash
+        document.addEventListener('hashChangeEvent', function () {
+            handleStateChange('Custom hashChangeEvent');
+        });
+
+        // Also listen for the native hashchange event (manual URL edits)
+        window.addEventListener('hashchange', function () {
+            handleStateChange('Native hashchange');
+        });
 
     </script>
 </body>
