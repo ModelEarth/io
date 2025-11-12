@@ -33,6 +33,9 @@ colors=['rgb(198,60,65)','rgb(21,192,191)','rgb(155,89,182)','rgb(52,152,219)','
 //the selected bubbles sect_list starter
 sect_list=[]
 
+// Store indicator units for display in tooltips and info boxes
+var indicatorUnits = {};
+
 //state,county drop down, for Nazanin's reference
 //dropdown population code
 /*
@@ -399,6 +402,8 @@ function loadIndicatorDropdowns(state, callback) {
           optionsY.push($("<option></option>").attr("value", d.code).text(d.name));
           optionsZ.push($("<option></option>").attr("value", d.code).text(d.name));
           newIndicators.add(d.code);
+          // Store unit for this indicator (prefer unit, fallback to simpleunit)
+          indicatorUnits[d.code] = d.unit || d.simpleunit || "";
         }
       });
 
@@ -1160,7 +1165,13 @@ function updateChart(x,y,z,useeioList,boundry) {
             ? formatWithCommas(d.JOBS_actual) + " jobs"
             : smartFormat(d.z);
 
-          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.name + "</b><br/><b> " +x1+":</b> "+smartFormat(d.x)+ "<br/><b> " +y1+":</b> "+ smartFormat(d.y) + "<br/><b>" +z1+":</b> "+ zDisplay +'</span >')
+          // Get units for each indicator (x1, y1, z1 are indicator codes)
+          const xUnit = (indicatorUnits[x1] || "");
+          const yUnit = (indicatorUnits[y1] || "");
+          // For JOBS, unit is already included in zDisplay, so don't add it again
+          const zUnit = (z1 === "JOBS" ? "" : (indicatorUnits[z1] || ""));
+
+          rolloverDiv.html('<span style="color: black" >'+"<b style='font-size:1.3em'>" + d.name + "</b><br/><b> " +x1+":</b> "+smartFormat(d.x) + (xUnit ? " " + xUnit : "") + "<br/><b> " +y1+":</b> "+ smartFormat(d.y) + (yUnit ? " " + yUnit : "") + "<br/><b>" +z1+":</b> "+ zDisplay + (zUnit ? " " + zUnit : "") +'</span >')
             .style("left", (d3.event.pageX + 6) + "px")
             .style("top", (d3.event.pageY + 6) + "px");                     
         })
@@ -1193,11 +1204,17 @@ function updateChart(x,y,z,useeioList,boundry) {
             ? formatWithCommas(d.JOBS_actual) + " jobs"
             : smartFormat(d.z);
 
+          // Get units for each indicator (x1, y1, z1 are indicator codes)
+          const xUnit = (indicatorUnits[x1] || "");
+          const yUnit = (indicatorUnits[y1] || "");
+          // For JOBS, unit is already included in zClickDisplay, so don't add it again
+          const zUnit = (z1 === "JOBS" ? "" : (indicatorUnits[z1] || ""));
+
           // Build info display with Z-axis (bubble size) first, then Y, then X
           $("#bubble-click-info").html('<h4>' + d.name + '</h4>' +
-            '<strong>' + z1 + ':</strong> ' + zClickDisplay + '<br/>' +
-            '<strong>' + y1 + ':</strong> ' + smartFormat(d.y) + '<br/>' +
-            '<strong>' + x1 + ':</strong> ' + smartFormat(d.x));
+            '<strong>' + z1 + ':</strong> ' + zClickDisplay + (zUnit ? " " + zUnit : "") + '<br/>' +
+            '<strong>' + y1 + ':</strong> ' + smartFormat(d.y) + (yUnit ? " " + yUnit : "") + '<br/>' +
+            '<strong>' + x1 + ':</strong> ' + smartFormat(d.x) + (xUnit ? " " + xUnit : ""));
           $("#bubble-click-info").show();
           $("#impact-chart").show();
           create_bar(d,x,y,z,x1,y1,z1);
