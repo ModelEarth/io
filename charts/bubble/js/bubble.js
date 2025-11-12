@@ -357,7 +357,7 @@ function loadIndicatorDropdowns(state, callback) {
 
   if (!x) x = "WATR"; // Freshwater withdrawals (default X-axis) 
   if (!y) y = "GHG";  // Greenhouse Gases (default Y-axis)
-  if (!z) z = "JOBS"; // Value Added (default bubble size)
+  if (!z) z = "JOBS"; // Jobs (default bubble size)
   
   console.log("loadIndicatorDropdowns - Using indicators - x:", x, "y:", y, "z:", z);
   
@@ -429,8 +429,8 @@ function loadIndicatorDropdowns(state, callback) {
         dropdownY.val("GHG");
       }
       if (!dropdownZ.val()) {
-        console.warn("WARNING: Z-axis dropdown value is empty! Tried to set:", z, "- Falling back to VADD");
-        dropdownZ.val("VADD");
+        console.warn("WARNING: Z-axis dropdown value is empty! Tried to set:", z, "- Falling back to JOBS");
+        dropdownZ.val("JOBS");
       }
       
       if (callback) callback();
@@ -603,7 +603,7 @@ function toggleBubbleHighlights(hash) {
   // Get x, y, z from dropdowns, or use defaults if dropdowns not populated yet
   let xVal = dropdownX.val() || hash.x || "WATR";
   let yVal = dropdownY.val() || hash.y || "GHG";
-  let zVal = dropdownZ.val() || hash.z || "VADD";
+  let zVal = dropdownZ.val() || hash.z || "JOBS";
   
   if (document.getElementById("mySelect").checked){
     console.log("mySelect checked");
