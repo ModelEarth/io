@@ -22,23 +22,26 @@
   float:left;
   margin-bottom: 40px;
 }
-/* Default: Flexible aspect ratio images */
+/* Default: Square images forced to circles */
 .bioimage img {
     padding: 0px !important;
     margin: 0px !important;
     margin-right: 30px !important;
     background-size: cover !important;
-    max-width: 180px !important;
-    height: auto !important;
-    border-radius: 10px !important;
-}
-/* Square images: Forced to circles */
-.bioimage-square img {
     width: 180px !important;
     height: 180px !important;
     min-width: 180px !important;
     min-height: 180px !important;
     border-radius: 50% !important;
+}
+/* Flexible aspect ratio images */
+.bioimage-flex img {
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 180px !important;
+    border-radius: 10px !important;
 }
 .biotext {
   overflow: auto;
@@ -54,13 +57,17 @@
 }
 @media print {
   .bioimage img {
-      max-width: 140px !important;
-  }
-  .bioimage-square img {
       width: 140px !important;
       height: 140px !important;
       min-width: 140px !important;
       min-height: 140px !important;
+  }
+  .bioimage-flex img {
+      width: auto !important;
+      height: auto !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      max-width: 140px !important;
   }
   #toplogos {
     margin-top: -40px;
@@ -99,7 +106,7 @@
 <div class="bios">
 
 <div class="bio presenter">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Wesley-Ingwersen.jpg">
 </div>
 <div class="biotext">
@@ -113,7 +120,7 @@ He leads the development of the GA model.
 </div>
 
 <div class="bio presenter">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Loren-Heyns-2021.jpg">
 </div>
 <div class="biotext">
@@ -124,7 +131,7 @@ Loren Heyns is a Programmer Analyst at the Georgia Department of Economic Develo
 </div>
 
 <div class="bio presenter">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Valerie-Thomas.png">
 </div>
 <div class="biotext">
@@ -134,7 +141,7 @@ Dr. Valerie Thomas is the Anderson Interface Professor of Natural Systems in the
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Costas-Simoglou.jpg">
 </div>
 <div class="biotext">
@@ -144,7 +151,7 @@ Costas Simoglou is the Director of the Georgia Center of Innovation for Energy T
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Dawn-Price.jpg">
 </div>
 <div class="biotext">
@@ -154,7 +161,7 @@ Dawn M. Price works with the Georgia Department of Economic Development on the C
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Nazanin-Tabatabaei.jpg">
 </div>
 <div class="biotext">
@@ -164,7 +171,7 @@ Nazanin is a Ph.D. student at Georgia Tech majoring in Computational Design with
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Yilun-Zha.jpg">
 </div>
 <div class="biotext">
@@ -174,7 +181,7 @@ Yilun Zha is a Ph.D. student at Georgia Institute of Technology with majors in U
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Cindy-Giselle-Azuero-Pedraza.jpg">
 </div>
 <div class="biotext">
@@ -185,7 +192,7 @@ Cindy Azuero is a PhD student at the H. Milton School of Industrial and Systems 
 
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Barbara-Alfano.jpg">
 </div>
 <div class="biotext">
@@ -195,7 +202,7 @@ Barbara Alfano is Chief of the PCB & Sustainability Section for the U.S. Environ
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Ivy-Zhou.jpg">
 </div>
 <div class="biotext">
@@ -211,7 +218,7 @@ is passionate about discovering data insights and optimizing strategy decision-m
 </div>
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Gaurav-Patil.jpg">
 </div>
 <div class="biotext">
@@ -222,7 +229,7 @@ Gaurav Patil is a product designer & data scientist interested in creating user 
 
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Kargil-Thakur.jpg">
 </div>
 <div class="biotext">
@@ -233,7 +240,7 @@ Kargil Thakur is a Master's student in Applied Data Science at the University of
 
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/Honglin-Zhu.jpg">
 </div>
 <div class="biotext">
@@ -244,7 +251,7 @@ Honglin Zhu holds a Master of Science in Engineering Degree in Data Science from
 
 
 <div class="bio">
-<div class="bioimage bioimage-square">
+<div class="bioimage">
 <img src="img/LakshPant.jpg">
 </div>
 <div class="biotext">
@@ -255,7 +262,7 @@ Laksh Pant is a full-stack development with a Computer Science masters degree fr
 
 
 <div class="bio">
-<div class="bioimage">
+<div class="bioimage bioimage-flex">
 <img src="img/Mohammed-Saalim-K.jpg">
 </div>
 <div class="biotext">
