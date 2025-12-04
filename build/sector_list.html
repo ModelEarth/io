@@ -128,8 +128,8 @@
             return useeio.model({
                 endpoint: endpointBase,
                 model: modelName,
-                asJsonFiles: true,
-            });
+            asJsonFiles: true,
+        });
         }
 
         var model = createModel(modelID);
@@ -137,7 +137,7 @@
         // Note: State models (73 sectors) don't support NAICS filtering
         // NAICS filtering is only for US national 411-sector models
         // State models already use simplified sector codes (like '22', '111CA')
-        
+
         var sectorList = useeio.sectorList({
             model: model,
             selector: '.sector-list',
