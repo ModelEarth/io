@@ -22,26 +22,18 @@
   float:left;
   margin-bottom: 40px;
 }
-/* Default: Square images forced to circles */
+/* All images forced to circles, portraits cropped from bottom */
 .bioimage img {
     padding: 0px !important;
     margin: 0px !important;
     margin-right: 30px !important;
-    background-size: cover !important;
     width: 180px !important;
     height: 180px !important;
     min-width: 180px !important;
     min-height: 180px !important;
     border-radius: 50% !important;
-}
-/* Flexible aspect ratio images */
-.bioimage-flex img {
-    width: auto !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    max-width: 180px !important;
-    border-radius: 10px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
 }
 .biotext {
   overflow: auto;
@@ -61,13 +53,6 @@
       height: 140px !important;
       min-width: 140px !important;
       min-height: 140px !important;
-  }
-  .bioimage-flex img {
-      width: auto !important;
-      height: auto !important;
-      min-width: 0 !important;
-      min-height: 0 !important;
-      max-width: 140px !important;
   }
   #toplogos {
     margin-top: -40px;
@@ -262,7 +247,7 @@ Laksh Pant is a full-stack development with a Computer Science masters degree fr
 
 
 <div class="bio">
-<div class="bioimage bioimage-flex">
+<div class="bioimage">
 <img src="img/Mohammed-Saalim-K.jpg">
 </div>
 <div class="biotext">
