@@ -1,5 +1,3 @@
-
-
 // Helper function to format URLs
 const formatUrl = (url) => {
   return `<a href="${url}" target="_blank">${url.length > 30 ? url.substring(0, 30) + '...' : url}</a>`;
@@ -46,87 +44,112 @@ function isEmpty(obj) {
 }
 
 // Loop through yamlData and create divs for each key-value pair
-function formatYamlLabel(data,profileContainer) {
-  waitForElm('#formatted').then((elm) => {
+function formatYamlLabel(data, profileContainer) {
+  if (!profileContainer) {
+    return;
+  }
 
-    const profileDiv = document.createElement('div');
-    profileDiv.classList.add('envProfile');
+  profileContainer.innerHTML = '';
 
-    // Add profile type
-    const profileTypeDiv = document.createElement('div');
-    profileTypeDiv.classList.add('profileType');
-    profileTypeDiv.textContent = 'Product Profile';
-    profileDiv.appendChild(profileTypeDiv);
+  let yamlData;
+  try {
+    yamlData = typeof data === 'string' ? jsyaml.load(data) : data;
+  } catch (error) {
+    console.error('Unable to parse YAML for label rendering:', error);
+    profileContainer.textContent = 'Unable to render footprint label. Please check your YAML syntax.';
+    return;
+  }
 
-    // Add profile title
-    const profileTitleDiv = document.createElement('div');
-    profileTitleDiv.classList.add('profileTitle');
-    profileTitleDiv.textContent = 'Product Title'; // Hardcoded for now
-    profileDiv.appendChild(profileTitleDiv);
+  if (!yamlData || typeof yamlData !== 'object') {
+    profileContainer.textContent = 'No label data available.';
+    return;
+  }
 
-    const yamlData = jsyaml.load(data);
-    Object.entries(yamlData).forEach(([key, value]) => {
-      if (value !== null && typeof value !== 'object') {
-        const itemDiv = document.createElement('div');
-        const span = document.createElement('span');
-        if (key.includes('url') || key == 'ref') {
-          span.innerHTML = formatUrl(value);
-        } else if (key.includes('date')) {
-          span.textContent = formatDate(value);
-        } else {
-          span.textContent = value;
-        }
-        itemDiv.innerHTML = `<b>${formatKey(key)}</b> `;
-        itemDiv.appendChild(span);
-        profileDiv.appendChild(itemDiv);
-      } else if (typeof value === 'object' && value !== null && !isEmpty(value)) {
-        const itemDiv = document.createElement('div');
-        const keyDiv = document.createElement('div');
-        keyDiv.innerHTML = `<b>${formatKey(key)}</b> `;
-        itemDiv.appendChild(keyDiv);
+  const profileDiv = document.createElement('div');
+  profileDiv.classList.add('envProfile');
 
-        // Loop through nested object
-        Object.entries(value).forEach(([subKey, subValue]) => {
-          if (subValue !== null && typeof subValue !== 'object') {
-            const subItemDiv = document.createElement('div');
-            const subSpan = document.createElement('span');
-            if (subKey.includes('url') || subKey == 'ref') {
-              subSpan.innerHTML = formatUrl(subValue);
-            } else if (subKey.includes('date')) {
-              subSpan.textContent = formatDate(subValue);
-            } else {
-              subSpan.textContent = subValue;
-            }
-            subItemDiv.innerHTML = `${formatKey(subKey)} `;
-            subItemDiv.appendChild(subSpan);
-            itemDiv.appendChild(subItemDiv);
-          } else if (typeof subValue === 'object' && subValue !== null)  {
-            const subItemDiv = document.createElement('div');
-            const subSpan = document.createElement('span');
-            subSpan.innerHTML = `<b>${formatKey(key)}</b> `;
-            subItemDiv.appendChild(keyDiv);
-            Object.entries(subValue).forEach(([subSubKey, subSubValue]) => {
-              if (subSubValue !== null) {
+  const profileTypeDiv = document.createElement('div');
+  profileTypeDiv.classList.add('profileType');
+  profileTypeDiv.textContent = formatKey(yamlData.profile_type || 'Product Profile');
+  profileDiv.appendChild(profileTypeDiv);
 
-                const subSubItemDiv = document.createElement('div');
-                const subSubSpan = document.createElement('span');
-                if (subSubKey.includes('url') || subSubKey == 'ref') {
-                  subSubSpan.innerHTML = formatUrl(subSubValue);
-                } else if (subSubKey.includes('date')) {
-                  subSubSpan.textContent = formatDate(subSubValue);
-                } else {
-                  subSubSpan.textContent = subSubValue;
-                }
-                subSubItemDiv.innerHTML = `${formatKey(subSubKey)} `;
-                subSubItemDiv.appendChild(subSubSpan);
-                subItemDiv.appendChild(subSubItemDiv);
-              }
-            });
-          }
-        });
-        profileDiv.appendChild(itemDiv);
-      }
-    });
-    profileContainer.appendChild(profileDiv);
+  const profileTitleDiv = document.createElement('div');
+  profileTitleDiv.classList.add('profileTitle');
+  profileTitleDiv.textContent = yamlData.product_name || yamlData.name || yamlData.title || 'Product Title';
+  profileDiv.appendChild(profileTitleDiv);
+
+  Object.entries(yamlData).forEach(([key, value]) => {
+    if (['profile_type', 'product_name', 'name', 'title'].includes(key)) {
+      return;
+    }
+    appendYamlContent(profileDiv, key, value);
   });
+
+  profileContainer.appendChild(profileDiv);
+}
+
+function appendYamlContent(container, key, value) {
+  if (value === null || value === undefined || value === '') {
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    if (!value.length) {
+      return;
+    }
+    const primitiveArray = value.every(item => item === null || ['string', 'number', 'boolean'].includes(typeof item));
+    if (primitiveArray) {
+      const itemDiv = document.createElement('div');
+      itemDiv.innerHTML = `<b>${formatKey(key)}</b> `;
+      const span = document.createElement('span');
+      span.textContent = value.join(', ');
+      itemDiv.appendChild(span);
+      container.appendChild(itemDiv);
+      return;
+    }
+
+    const arrayWrapper = document.createElement('div');
+    const header = document.createElement('div');
+    header.innerHTML = `<b>${formatKey(key)}</b>`;
+    arrayWrapper.appendChild(header);
+    value.forEach((entry, index) => {
+      const label = typeof entry === 'object' && entry !== null ? `${key} ${index + 1}` : '';
+      appendYamlContent(arrayWrapper, label, entry);
+    });
+    container.appendChild(arrayWrapper);
+    return;
+  }
+
+  if (typeof value === 'object') {
+    if (isEmpty(value)) {
+      return;
+    }
+    const wrapper = document.createElement('div');
+    if (key) {
+      const header = document.createElement('div');
+      header.innerHTML = `<b>${formatKey(key)}</b>`;
+      wrapper.appendChild(header);
+    }
+    Object.entries(value).forEach(([subKey, subValue]) => {
+      appendYamlContent(wrapper, subKey, subValue);
+    });
+    container.appendChild(wrapper);
+    return;
+  }
+
+  const itemDiv = document.createElement('div');
+  if (key) {
+    itemDiv.innerHTML = `<b>${formatKey(key)}</b> `;
+  }
+  const span = document.createElement('span');
+  const loweredKey = (key || '').toLowerCase();
+  if (loweredKey.includes('url') || key === 'ref') {
+    span.innerHTML = formatUrl(value);
+  } else if (loweredKey.includes('date')) {
+    span.textContent = formatDate(value);
+  } else {
+    span.textContent = value;
+  }
+  itemDiv.appendChild(span);
+  container.appendChild(itemDiv);
 }

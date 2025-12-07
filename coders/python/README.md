@@ -2,16 +2,14 @@ Install steps for:
 <h1>pyenv (python and pip)<br>nvm (node and npm)<br>conda and docker notes</h1>
 
 To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
+[Github token steps](../../../localsite/start/steps/github-token) - Push files from python or Rust.
 
-## JAM and Yarn
+
+## JAMstack and Yarn
 
 We generally focus on [JAM Stack](https://www.cloudflare.com/learning/performance/what-is-jamstack/) development without builds.
 When we do build, we'll do so with [Yarn](https://yarnpkg.com/) if the project isn't already using npm.
 Yarn syntax is easier and the builds are faster. 
-
-## Use a GitHub token to push files
-
-[Github token steps](../../../localsite/start/steps/github-token) - Push files from python or Rust.
 
 ## Start a Virtual Environment 
 
@@ -40,30 +38,13 @@ If you're on a new computer, start below with pyenv (python and pip) and nvm (no
 
 Vibe code with numerous repos and submodules, like in our [webroot](../../../).
 
-**Lock your screen without stopping terminal if you step away:**
-On macOS, Command-Control-Q (⌘-⌃-Q)
-On Windows, Windows Key + L
-
-**Closeups during meetups**  
-Zoom in on PC - Ctrl shift plus  
-Zoom in on Mac - scroll wheel after setting a Modifier Key: 
-System Settings > Accessibility > Zoom and choose Control or other.
-
-**Prompt shortcuts**
-Arrows to return to prior prompts
-Ctrl C - Clear prompt
-
-### Claude
-
-[Claude Code CLI](https://www.anthropic.com/claude-code) ($20/month) - Recommended
+[Claude Code CLI](https://www.anthropic.com/claude-code) ($17/month) - Recommended
 
 <!-- 
 Run /init to create a CLAUDE.md file with instructions for Claude.
 
 Or /terminal-setup which also adds .claude/settings.json for key commands.
 -->
-
-<br>
 
 
 ## pyenv - for multiple versions of python
@@ -361,3 +342,17 @@ For anyone unable to install the Github CLI on their Windows PC using winget, Ch
 ### Install GitHub CLI via Chocolatey
 
 	choco install gh -y
+
+
+**Lock your screen without stopping terminal if you step away:**
+On macOS, Command-Control-Q (⌘-⌃-Q)
+On Windows, Windows Key + L
+
+**Closeups during meetups**  
+Zoom in on PC - Ctrl shift plus  
+Zoom in on Mac - scroll wheel after setting a Modifier Key: 
+System Settings > Accessibility > Zoom and choose Control or other.
+
+**Prompt shortcuts**
+Arrows to return to prior prompts
+Ctrl C - Clear prompt

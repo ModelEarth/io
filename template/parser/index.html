@@ -101,57 +101,157 @@ removed dash plants: - id
 </div>
 
 <script>
-// Function to load YAML text into textarea
+function getHash() {
+    const hash = {};
+    if (location.hash) {
+        const params = location.hash.slice(1).split('&');
+        params.forEach(param => {
+            const [key, value] = param.split('=');
+            if (key && value) {
+                hash[decodeURIComponent(key)] = decodeURIComponent(value);
+            }
+        });
+    }
+    return hash;
+}
+
+function getCodeMirrorEditor(textareaId) {
+    const textarea = document.getElementById(textareaId);
+    if (!textarea) {
+        return null;
+    }
+    if (textarea.nextElementSibling && textarea.nextElementSibling.CodeMirror) {
+        return textarea.nextElementSibling.CodeMirror;
+    }
+    if (textarea.CodeMirror) {
+        return textarea.CodeMirror;
+    }
+    const editors = document.querySelectorAll('.CodeMirror');
+    for (const editor of editors) {
+        if (editor && editor.CodeMirror) {
+            const prevSibling = editor.previousSibling;
+            const prevElement = editor.previousElementSibling;
+            if (prevSibling === textarea || prevElement === textarea) {
+                return editor.CodeMirror;
+            }
+        }
+    }
+    return null;
+}
+
+function setEditorValue(editor, textarea, value) {
+    if (editor) {
+        if (editor.getValue() !== value) {
+            editor.setValue(value);
+        }
+    } else if (textarea && textarea.value !== value) {
+        textarea.value = value;
+    }
+}
+
+let codeMirrorListenersAttached = false;
+function attachCodeMirrorListeners() {
+    if (codeMirrorListenersAttached) {
+        return;
+    }
+    const sourceEditor = getCodeMirrorEditor('source');
+    if (sourceEditor) {
+        sourceEditor.on('change', () => {
+            clearTimeout(sourceEditor.__formatYamlTimer);
+            sourceEditor.__formatYamlTimer = setTimeout(formatYaml, 150);
+        });
+        codeMirrorListenersAttached = true;
+    }
+}
+
 async function loadYAML() {
-    alert('1. loadYAML() called');
     try {
-        let hash = getHash();
+        const hash = getHash();
         let pathYaml = "../product/product-nodashes.yaml";
         if (hash.yaml) {
           pathYaml = hash.yaml;
         }
-        alert('2. About to fetch YAML from: ' + pathYaml);
+        console.log('Loading YAML from:', pathYaml);
         const response = await fetch(pathYaml);
         const data = await response.text();
-        alert('3. YAML data loaded, length: ' + data.length);
+        console.log('YAML data loaded, length:', data.length);
+        const sourceTextarea = document.getElementById('source');
+        const sourceEditor = getCodeMirrorEditor('source');
         const matches = data.match(/---\n([\s\S]*?)\n---\n([\s\S]*)/);
-        if (matches) {
-            document.getElementById('source').value = matches[1];
-            alert('4x. Set source value to matches[1], length: ' + matches[1].length);
-        } else {
-            document.getElementById('source').value = data;
-            alert('4y. Set source value to full data, length: ' + data.length);
-        }
-        alert('5. About to call formatYaml() after 1 second timeout');
+        const yamlContent = matches ? matches[1] : data;
+        setEditorValue(sourceEditor, sourceTextarea, yamlContent);
         setTimeout(() => {
+          attachCodeMirrorListeners();
           formatYaml();
-        }, 1000);
+        }, 300);
     } catch (error) {
-        alert('Error loading YAML:', error);
+        console.error('Error loading YAML:', error);
     }
 }
 
-// Call the loadYAML function
 loadYAML();
 
-// Define the mutation observer
-const observer = new MutationObserver(formatYaml);
-
-// Observe changes to the textarea content
+const observer = new MutationObserver(() => {
+    const sourceEditor = getCodeMirrorEditor('source');
+    if (sourceEditor && !sourceEditor.__hasParserListener) {
+        sourceEditor.on('change', () => {
+            clearTimeout(sourceEditor.__formatYamlTimer);
+            sourceEditor.__formatYamlTimer = setTimeout(formatYaml, 150);
+        });
+        sourceEditor.__hasParserListener = true;
+    }
+    if (!sourceEditor) {
+        formatYaml();
+    }
+});
 observer.observe(document.getElementById('source'), { subtree: true, characterData: true, childList: true });
 
-// Function to format YAML
 function formatYaml() {
+    attachCodeMirrorListeners();
 
-    // Footprint Label - This loads when others don't.
-    // It's populated by formatYamlLabel().
     const profileContainer = document.getElementById('profileContainer');
+    const sourceTextarea = document.getElementById('source');
+    const sourceEditor = getCodeMirrorEditor('source');
+    const yamlText = sourceEditor ? sourceEditor.getValue() : (sourceTextarea ? sourceTextarea.value : '');
 
-    // #source initially contains "test"
-    // It gets applied to 2 others: #dst and #formatted (below top three)
-    const sourceDiv = document.getElementById("source");
-    const yamldata = sourceDiv.value;
-    formatYamlLabel(yamldata,profileContainer);
+    if (!yamlText) {
+        if (profileContainer) {
+            profileContainer.innerHTML = '';
+        }
+        const formattedDiv = document.getElementById('formatted');
+        if (formattedDiv) {
+            formattedDiv.innerHTML = '';
+        }
+        setEditorValue(getCodeMirrorEditor('result'), document.getElementById('result'), '');
+        return;
+    }
+
+    try {
+        const yamlObj = jsyaml.load(yamlText);
+        formatYamlLabel(yamlObj, profileContainer);
+
+        const jsonString = JSON.stringify(yamlObj, null, 2);
+        setEditorValue(getCodeMirrorEditor('result'), document.getElementById('result'), jsonString);
+
+        if (typeof convertToHtmlTable === 'function') {
+            convertToHtmlTable(yamlObj);
+        } else {
+            const formattedDiv = document.getElementById('formatted');
+            if (formattedDiv) {
+                formattedDiv.textContent = jsonString;
+            }
+        }
+    } catch (error) {
+        console.error('Error formatting YAML:', error);
+        if (profileContainer) {
+            profileContainer.innerHTML = '<div class="text-highlight">Unable to render label. Please fix YAML errors.</div>';
+        }
+        const formattedDiv = document.getElementById('formatted');
+        if (formattedDiv) {
+            formattedDiv.textContent = 'Unable to create hierarchy output (invalid YAML).';
+        }
+        setEditorValue(getCodeMirrorEditor('result'), document.getElementById('result'), '');
+    }
 }
 
 </script>
