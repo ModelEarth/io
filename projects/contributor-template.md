@@ -45,3 +45,11 @@ Use this template to add new contributors to the `contributors.md` page.
 3. Add the new contributor section to `contributors.md`
 4. Place it in the "Other Recent Contributors" section
 5. Update the "Featured Contributors" section if this person should be featured
+
+
+
+
+
+
+
+
