@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "updated": "2024-12-18",
+  "description": "Maps product categories from products-data repo to NAICS/BEA sector codes",
+  "mappings": {
+    "Ready_Mix": {
+      "naics": ["327320"],
+      "bea": ["327320"],
+      "description": "Ready-mix concrete manufacturing",
+      "productCount": 23096
+    },
+    "Cement": {
+      "naics": ["327310"],
+      "bea": ["327310"],
+      "description": "Cement manufacturing",
+      "productCount": 14
+    },
+    "Concrete": {
+      "naics": ["327390"],
+      "bea": ["327390"],
+      "description": "Other concrete products",
+      "productCount": 7
+    },
+    "Concrete_Unit_Masonry": {
+      "naics": ["327331"],
+      "bea": ["327330"],
+      "description": "Concrete block and brick manufacturing",
+      "productCount": 120
+    },
+    "Steel": {
+      "naics": ["331110"],
+      "bea": ["331110"],
+      "description": "Iron and steel mills and ferroalloy manufacturing",
+      "productCount": 1
+    },
+    "Coil_Steel": {
+      "naics": ["331200"],
+      "bea": ["331200"],
+      "description": "Steel product manufacturing from purchased steel",
+      "productCount": 9
+    },
+    "Structural_Steel": {
+      "naics": ["332312"],
+      "bea": ["332310"],
+      "description": "Fabricated structural metal manufacturing",
+      "productCount": 4
+    },
+    "Reinforcing_Bar": {
+      "naics": ["331222"],
+      "bea": ["331200"],
+      "description": "Steel wire drawing",
+      "productCount": 34
+    },
+    "Asphalt": {
+      "naics": ["324121"],
+      "bea": ["324121"],
+      "description": "Asphalt paving mixture and block manufacturing",
+      "productCount": 392
+    },
+    "Gypsum_Board": {
+      "naics": ["327420"],
+      "bea": ["327400"],
+      "description": "Gypsum product manufacturing",
+      "productCount": 52
+    },
+    "Carpet": {
+      "naics": ["314110"],
+      "bea": ["314110"],
+      "description": "Carpet and rug mills",
+      "productCount": 22
+    },
+    "Brick": {
+      "naics": ["327121"],
+      "bea": ["327100"],
+      "description": "Brick and structural clay tile manufacturing",
+      "productCount": 2
+    },
+    "Acoustical_Ceilings": {
+      "naics": ["327993"],
+      "bea": ["327993"],
+      "description": "Mineral wool manufacturing",
+      "productCount": 2
+    },
+    "Aluminium": {
+      "naics": ["331313"],
+      "bea": ["331313"],
+      "description": "Alumina refining and primary aluminum production",
+      "productCount": 1
+    },
+    "Aluminium_Extrusions": {
+      "naics": ["331318"],
+      "bea": ["33131B"],
+      "description": "Other aluminum rolling, drawing, and extruding",
+      "productCount": 9
+    },
+    "Insulated_Wall_Panels": {
+      "naics": ["332322"],
+      "bea": ["332320"],
+      "description": "Sheet metal work manufacturing",
+      "productCount": 34
+    },
+    "Aggregates": {
+      "naics": ["212319"],
+      "bea": ["2123A0"],
+      "description": "Other crushed and broken stone mining and quarrying",
+      "productCount": 53
+    },
+    "Precast_Concrete": {
+      "naics": ["327390"],
+      "bea": ["327390"],
+      "description": "Other concrete product manufacturing",
+      "productCount": 15
+    },
+    "Shotcrete": {
+      "naics": ["327320"],
+      "bea": ["327320"],
+      "description": "Ready-mix concrete (shotcrete variant)",
+      "productCount": 1013
+    },
+    "Flowable_Concrete_Fill": {
+      "naics": ["327320"],
+      "bea": ["327320"],
+      "description": "Ready-mix concrete (flowable fill variant)",
+      "productCount": 1219
+    },
+    "High_Strength_Cement-Based_Grout": {
+      "naics": ["327320"],
+      "bea": ["327320"],
+      "description": "Ready-mix concrete (grout variant)",
+      "productCount": 1132
+    }
+  },
+  "reverseIndex": {
+    "327320": ["Ready_Mix", "Shotcrete", "Flowable_Concrete_Fill", "High_Strength_Cement-Based_Grout"],
+    "327310": ["Cement"],
+    "327390": ["Concrete", "Precast_Concrete"],
+    "327330": ["Concrete_Unit_Masonry"],
+    "331110": ["Steel"],
+    "331200": ["Coil_Steel", "Reinforcing_Bar"],
+    "332310": ["Structural_Steel"],
+    "324121": ["Asphalt"],
+    "327400": ["Gypsum_Board"],
+    "314110": ["Carpet"],
+    "327100": ["Brick"],
+    "327993": ["Acoustical_Ceilings"],
+    "331313": ["Aluminium"],
+    "33131B": ["Aluminium_Extrusions"],
+    "332320": ["Insulated_Wall_Panels"],
+    "2123A0": ["Aggregates"]
+  }
+}
+
