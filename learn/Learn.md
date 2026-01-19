@@ -1,5 +1,7 @@
 # For Research & Teaching
 
+Multi-Region Input Output (MRIO) Data Projects
+
 Our research and teaching tools use dynamic charts to present over 10 million data points from a fully transparent, open and freely available US Environmentally-Extended Input-Output ([USEEIO](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models)) life cycle model created by the US EPA and maintained by [Cornerstone with CEDA](https://cornerstonedata.org/). 
 
 Interactive [data](/data-pipeline/) visualizations provide insights across more than 20 environmental, social and economic indicators for 389 categories of goods and services in the United States.  Student and volunteer work focuses on both international and local impacts. We're working toward integrating [company](https://OpenCorporates.com) and [product](/products) zip code datasets.
