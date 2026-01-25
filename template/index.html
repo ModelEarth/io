@@ -6,11 +6,19 @@
 <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link type="text/css" rel="stylesheet" href="../../localsite/css/base.css" id="/localsite/css/base.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <script type="text/javascript" src="../../localsite/js/d3.v5.min.js" id="/localsite/js/d3.v5.min.js"></script>
 <script type="text/javascript" src="../../localsite/js/jquery.min.js" id="/localsite/js/jquery.min.js"></script>
 <script type="text/javascript" src="../../localsite/js/showdown.min.js" id="/localsite/js/showdown.min.js"></script>
 
 <script type="text/javascript" src="../../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
+
+<!-- Product Label Embed - CSS and JS -->
+<link type="text/css" rel="stylesheet" href="../../profile/item/css/label.css" />
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+<script type="text/javascript" src="../../profile/item/js/shared.js"></script>
+<script type="text/javascript" src="../../profile/item/js/layout-product.js"></script>
+<script type="text/javascript" src="../../profile/item/js/label-product.js"></script>
 
 <!--
 &state=OR&geo=US41045,US41025,US41037,US41035&&regiontitle=Southeastern+Oregon
@@ -28,6 +36,69 @@ https://www.cloudcarbonfootprint.org/docs/aws/
 
 <script type="text/javascript">
 loadMarkdown("README.md", "readmeDiv", "_parent");
+
+// Load product embed with parameters
+async function loadProductEmbed() {
+  const container = document.getElementById('item-embed');
+  if (!container) return;
+
+  // Parameters for the product to display
+  const params = {
+    layout: 'product',
+    cat: 'Cement',
+    country: 'US',
+    id: '173495a02fe34de7b5976b4ca2f8c6a3'
+  };
+
+  container.innerHTML = '<div style="padding: 20px; color: #666;">Loading product...</div>';
+
+  try {
+    // Construct the GitHub raw URL for the YAML file
+    const yamlUrl = `https://raw.githubusercontent.com/ModelEarth/products-data/main/${params.country}/${params.cat}/${params.id}.yaml`;
+
+    // Fetch the YAML file
+    const response = await fetch(yamlUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to load product: ${response.status}`);
+    }
+
+    const yamlText = await response.text();
+    const data = jsyaml.load(yamlText);
+
+    // Add category to data if not present
+    if (!data.category_name && params.cat) {
+      data.category_name = params.cat;
+    }
+
+    // Create the profile object using the layout-product.js function
+    const profile = createProductProfileObject(data);
+
+    // Clear container
+    container.innerHTML = '';
+
+    // Create a wrapper div for better styling
+    const wrapper = document.createElement('div');
+    wrapper.style.maxWidth = '400px';
+    wrapper.style.margin = '0';
+
+    // Render the product label using the label-product.js function
+    const label = renderProductLabel(profile, 1);
+    wrapper.appendChild(label);
+
+    container.appendChild(wrapper);
+
+  } catch (error) {
+    console.error('Error loading product embed:', error);
+    container.innerHTML = '<div style="padding: 20px; color: #d32f2f;">Error loading product. Please check console for details.</div>';
+  }
+}
+
+// Load the product when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadProductEmbed);
+} else {
+  loadProductEmbed();
+}
 </script>
 
 </head>
@@ -105,15 +176,6 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     .dark .text-highlight {
       background-color: #555;
     }
-    .templateCircle {
-      margin-top: 10px;
-      display:inline-block;
-      background-color:#ddd;
-      border-radius:100px; width:200px; height:200px
-    }
-    .dark .templateCircle {
-      background-color:#444;
-    }
     ol > li:before {
         border-radius:20px;
     }
@@ -181,7 +243,11 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     <div class="figure_caption">
     Figure 1. Entity Impact Labels<br><br>
 
+    <div id="item-embed"></div>
+    Figure 2. <a href="../../profile/item/#layout=product">Dynamic Impact Label</a>
+    <!--
     Also see <a href="../../io/build/sector_list.html?view=mosaic&count=50">heatmap mosaic</a> for indicators from our <a href="../../io/charts/">IO widgets</a>
+    -->
     </div>
   </div>
 
