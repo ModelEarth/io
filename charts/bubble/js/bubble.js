@@ -166,8 +166,9 @@ function refreshBubbleWidget() {
 
     // If state changed, reload indicators first, then display bubbles
     if (priorHash_bubble.state != hash.state) {
+        const primaryState = getPrimaryState(hash.state);
         console.log("State changed from", priorHash_bubble.state, "to", hash.state, "- reloading indicators");
-        loadIndicatorDropdowns(hash.state, function() {
+        loadIndicatorDropdowns(primaryState, function() {
           displayImpactBubbles(1);
         });
     } else if (priorHash_bubble.geo != hash.geo) {
@@ -236,13 +237,22 @@ function refreshInfoPanel() {
   });
 }
 
+function getPrimaryState(stateCode) {
+  if (!stateCode) return "";
+  if (stateCode.includes(",")) {
+    return stateCode.split(",")[0].trim();
+  }
+  return stateCode.trim();
+}
+
 // Function to get model name based on state parameter
 function getModelName(stateCode) {
-  if (!stateCode) {
+  const primaryState = getPrimaryState(stateCode);
+  if (!primaryState) {
     return "USEEIOv2.0.1-411"; // Default to national model
   }
   // Convert state code to model name (e.g., IL -> ILEEIOv1.0-s-20)
-  return stateCode.toUpperCase() + "EEIOv1.0-s-20";
+  return primaryState.toUpperCase() + "EEIOv1.0-s-20";
 }
 
 // Function to load top industries for a state and set them in hash for red bubble highlighting
@@ -750,7 +760,8 @@ function displayImpactBubbles(attempts) {
     let hash = getHash();
 
     // Determine which model to use based on state parameter
-    const modelName = getModelName(hash.state);
+    const primaryState = getPrimaryState(hash.state);
+    const modelName = getModelName(primaryState);
     
     // Fetch directly from useeio-json repository following pattern in profile/footprint/js/config.js
     const endpoint = 'https://raw.githubusercontent.com/ModelEarth/useeio-json/main/models/2020';
@@ -772,8 +783,8 @@ function displayImpactBubbles(attempts) {
       
       // Build allData array from sectors and matrix
       // Filter to only show state-specific sectors (not RoUS) if state is specified
-      const filteredSectors = hash.state 
-        ? sectors.filter(s => s.location === 'US-' + hash.state.toUpperCase())
+      const filteredSectors = primaryState
+        ? sectors.filter(s => s.location === 'US-' + primaryState.toUpperCase())
         : sectors;
       
       console.log("Displaying " + filteredSectors.length + " sectors (filtered by location)");
@@ -820,8 +831,8 @@ function displayImpactBubbles(attempts) {
       
       // Load top industries for state to enable red bubble highlighting
       // Only if state is specified and naics not already in hash
-      if (hash.state && !hash.naics) {
-        loadTopIndustriesForState(hash.state, function(topNaics) {
+      if (primaryState && !hash.naics) {
+        loadTopIndustriesForState(primaryState, function(topNaics) {
           if (topNaics && topNaics.length > 0) {
             // Map NAICS codes to v2 sector codes for highlighting
             const topSectorCodes = mapNaicsToV2Sectors(topNaics, allData);
@@ -855,11 +866,12 @@ function applyToBubbleHTML(hash,attempts) {
 
   console.log("wait for #bubble-graph-id");
   waitForElm('#bubble-graph-id').then((elm) => {
+      const primaryState = getPrimaryState(hash.state);
 
     //if ($('#bubble-graph-id').length > 0) {
 
       console.log("#bubble-graph-id found. Attempts: " + attempts)
-      if(hash.state) {
+      if(primaryState) {
         $('#bubble-graph-id').show();
       } else {
         // We are probably missing a list of all the naics when there is no state.
