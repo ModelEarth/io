@@ -1,6 +1,6 @@
 # For Research & Teaching
 
-Multi-Region Input Output (MRIO) Data Projects
+Multi-Region Input Output (MRIO) Data Projects - [Date Pipeline](../../data-pipeline/)
 
 Our research and teaching tools use dynamic charts to present over 10 million data points from a fully transparent, open and freely available US Environmentally-Extended Input-Output ([USEEIO](https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models)) life cycle model created by the US EPA and maintained by [Cornerstone with CEDA](https://cornerstonedata.org/). 
 
