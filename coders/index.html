@@ -33,22 +33,51 @@ if (location.host.indexOf('model') >= 0 && location.host.indexOf('earth') < 0) {
 
 <script type="text/javascript">
 function updateCoderReadme() {
-    // Find the webroot cloning link by its ID
-    const webrootLink = document.getElementById('webroot-cloning-link');
-    
-    if (webrootLink) {
-        // Check if we're on localhost and the path contains "webroot"
-        if (window.location.hostname === 'localhost' && 
-            !window.location.pathname.includes('webroot')) {
-            // Modify the href to remove /webroot since we're already in webroot
-            // Change from ../../webroot/ to ../../
-            const currentHref = webrootLink.getAttribute('href');
-            if (currentHref === '../../webroot/') {
-                webrootLink.setAttribute('href', '../../');
-                console.log('Updated webroot cloning link for localhost webroot path');
-            }
-        }
+    const readmeDiv = document.getElementById('readmeDiv');
+    const hostname = window.location.hostname.toLowerCase();
+    const isAllowedDomain = ['localhost', 'model.earth', 'neighborhood', 'dreamstudio']
+        .some(domainPart => hostname.includes(domainPart));
+
+    if (!readmeDiv || isAllowedDomain) {
+        return;
     }
+
+    const needsModelEarthPrefix = (href) => {
+        if (!href) {
+            return false;
+        }
+        const normalizedHref = href.trim().toLowerCase();
+        return normalizedHref &&
+            !normalizedHref.startsWith('http://') &&
+            !normalizedHref.startsWith('https://') &&
+            !normalizedHref.startsWith('//') &&
+            !normalizedHref.startsWith('mailto:') &&
+            !normalizedHref.startsWith('tel:') &&
+            !normalizedHref.startsWith('javascript:') &&
+            !normalizedHref.startsWith('#');
+    };
+
+    const getTopLevelFolder = (href) => {
+        try {
+            const pathname = new URL(href, 'https://model.earth/').pathname;
+            return pathname.replace(/^\/+/, '').split('/')[0].toLowerCase();
+        } catch (error) {
+            return '';
+        }
+    };
+
+    const prependModelEarth = (link) => {
+        const href = link.getAttribute('href');
+        if (!needsModelEarthPrefix(href)) {
+            return;
+        }
+        if (['team', 'io', 'localsite'].includes(getTopLevelFolder(href))) {
+            return;
+        }
+        link.setAttribute('href', new URL(href, 'https://model.earth/').href);
+    };
+
+    readmeDiv.querySelectorAll('a[href]').forEach(prependModelEarth);
 }
 
 // Load markdown and execute callback when complete
@@ -71,16 +100,6 @@ loadMarkdown("README.md", "readmeDiv", "_parent", undefined, updateCoderReadme);
 <br>
 
   <div id="readmeDiv"></div>
-
-  <div style="margin-top:10px">
-    <!--
-    <a href="../../community/challenge/" class="btn btn-primary">About Challenge</a>
-    <a href="../../community/challenge/registration/" class="btn btn-success">Register Online</a>
-    -->
-    <a href="../../projects/" class="btn btn-primary">Active Projects</a>
-    <a href="../../community/projects/" class="btn btn-warning">Moonshots</a>
-  </div>
-  <br><br>
 
 </div>
 

@@ -60,7 +60,7 @@ Collaborate on open source modeling tools.
 
 Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/pcv-xrdh-bat) 
 
-[Register as a Coding Volunteer](../../community/members/) and get started by <a href="../../webroot/" id="webroot-cloning-link">cloning the webroot repo</a> to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/localsite/timeline/) and [RealityStream&nbsp;colab](../../realitystream/). 
+[Register as a Coding Volunteer](../../community/members/) and use our [Webroot Manager](../../team/setup/) steps to&nbsp;contribute to our [Primary repos](codechat), [Data Commons timelines](/localsite/timeline/) and [RealityStream&nbsp;colab](../../realitystream/). 
 
 <!--
 ** - AI and Flask
@@ -103,7 +103,7 @@ We use [Google Data Commons](../../data-commons/) for [UN Timeline Reports](../.
 
 You can generate location-based prompts by updating our [Active Reader Storyboard](/requests/) which sends .csv files to GitHub.
 
-Our DreamStudio "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data.
+Our "[home](/home)" repo features our latest data visualizations using Google Data Commons UN timeline data.
 
 
 ### Contributor Workflow
@@ -112,7 +112,7 @@ Our DreamStudio "[home](/home)" repo features our latest data visualizations usi
 [Github.com/modelearth/projects/issues](https://github.com/modelearth/projects/issues) and in our [Active Projects](../../projects).
 
 2. Add a post on the project info above to let others know what you're working on. 
-Local setup: [model.earth/webroot](https://model.earth/webroot/)
+Local setup: [team/setup](../../team/setup)
 
 3. Work in a fork (avoid branches), and email Loren again after you submit a PR.
 
@@ -120,3 +120,12 @@ Local setup: [model.earth/webroot](https://model.earth/webroot/)
 
 5. Share progress with others in Discord and in email threads. Help guide others and answer questions.
 
+<div style="margin-top:20px">
+  <!--
+  <a href="../../community/challenge/" class="btn btn-primary">About Challenge</a>
+  <a href="../../community/challenge/registration/" class="btn btn-success">Register Online</a>
+  -->
+  <a href="../../projects/" class="btn btn-primary">Active Projects</a>
+  <a href="../../community/projects/" class="btn btn-warning">Moonshots</a>
+</div>
+<br><br>
