@@ -1,5 +1,5 @@
 Install steps for:
-<h1>pyenv (python and pip)<br>nvm (node and npm)<br>conda and docker notes</h1>
+<h1>UV python version manager<br>nvm (node and npm)<br>conda and docker notes</h1>
 
 To open local .ipynb files, run `jupyter notebook` after choosing "New Terminal at Folder".
 [Github token steps](../../../localsite/start/steps/github-token) - Push files from python or Rust.
@@ -13,7 +13,7 @@ Yarn syntax is easier and the builds are faster.
 
 ## Start a Virtual Environment 
 
-See the [pyenv](#pyenv) steps below if you need to run a different version of python.
+See the [uv](#uv) steps below if you need to run a different version of python.
 
 Always using a virtualenv is a best-practice for protecting your OS.
 
@@ -34,7 +34,7 @@ If pip install doesn't run, and you see (base), then deactivate the conda base e
 
 ## Coding CLI setup
 
-If you're on a new computer, start below with pyenv (python and pip) and nvm (node and npm).
+If you're on a new computer, start below with uv (python manager) and nvm (node and npm).
 
 Vibe code with numerous repos and submodules, like in our [webroot](../../../).
 
@@ -46,106 +46,28 @@ Run /init to create a CLAUDE.md file with instructions for Claude.
 Or /terminal-setup which also adds .claude/settings.json for key commands.
 -->
 
+<section id="uv"></section>
 
-## pyenv - for multiple versions of python
+## UV - python version manager
 
-Install before python (and pip)
-Each Python version pyenv installs comes with its own pip
+On a new Mac, the python3 command works by default (but not the python command).
 
-Check if you have pyenv installed:
+Commands for [installing UV](https://docs.astral.sh/uv/)
 
-	pyenv --version
+UV is an extremely fast Python package and project manager written in Rust. It replaces separate tools such as pip, pyenv, virtualenv, and pipx with a single program that is 10-100x faster. [Also get Warp](https://mac.install.guide/python/install-uv)
 
-List the Python versions installed on your machine.  
-If it's python 2 or older, best to upgrade your machine's OS.
+	uv python list
 
-	ls -l /usr/local/bin/python*
-
-
-### For WindowsOS - Run PowerShell as Administrator
-
-	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
-
-IMPORTANT: After these installs, you'll need to revert back to more secure settings with:
-
-	Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope LocalMachine -Force
-
-
-### Install on Windows (pyenv-win)
-
-Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
-
-
-Download a python version and set it as your machine's global default:
-
-	pyenv install 3.12.2
-	pyenv global 3.12.2
-
-
-### Install on MacOS
-
-If pyenv is not installed, you can [install pyenv with homebrew](https://mac.install.guide/python/install-pyenv) or [with pip on Windows](https://github.com/pyenv-win/pyenv-win?tab=readme-ov-file#installation)
-
-
-Sample of running python 3.10 for [Exiobase sankey trade data](https://github.com/ModelEarth/Mapping-global-ghg-emissions):
-
-pyenv local 3.10  # Creates .python-version
-
-	pyenv install 3.10  # Skip if you've already installed
-	pyenv local 3.10
-	python3.10 -m venv env  # Before re-running, delete the existing env folder, or skip this line and reuse the env folder.
-	source env/bin/activate  # On Windows .\env\Scripts\activate
-	python --version
-
-Even in a virtual environment, "pyenv global" will update your machine.
-[For OpenWebUI projects](/projects/location/setup) you can use the technique above to use Python 3.11.
-Python 3.12 was not compatible with the OpenWebUI build as of Jul 22, 2024.
-
-If you need to use a prior version of Python,  
-view what's installed `pyenv virtualenvs`
-Here's an alternative to `-m venv env`
-
-	pyenv install 3.7.17
-	pyenv local 3.7.17
-	pyenv virtualenv 3.7.17 myenv
-	pyenv activate myenv
-
-To delete the current pyenv environment use `pyenv deactivate` since you won't have a myenv folder.
-
-
-## pip
-
-pip is installed automatically with Python (including with pyenv above)
-
-How to stop your virtual environment and update pip.  
-Once in a virtual environment, avoid appending 3 (as in pip3 or python3) .
-
-	ctrl-c
-	python3 -m pip install --upgrade pip
-	pip -V
-
-<!--
-To check which shell you are using:
-
-	echo $SHELL
-
-If your shell is zsh, open .zshrc in your home directory. Add at the end of the file:
-Wasn't in there, and currently running python 3.12
-
-	export PATH="/Users/Library/Python/3.9/bin:$PATH"
-
-Replace with the actual path where your python pip scripts are located.
-
-Close the current and open a new terminal window for the updated configuration.
-Type `echo $PATH` to verify.
--->
+Our older [pyenv and pip notes](https://github.com/ModelEarth/io/blob/main/coders/python/pyenv.md).
 
 ## nvm for node and npm
 
 	nvm -v
 
-**To install nvm**  
-[MacOS/Linux - curl command with bash to install nvm](https://github.com/nvm-sh/nvm). On a Mac since OS X 10.9, first run `touch ~/.zshrc`.  
+**To install nvm**
+On a Mac since OS X 10.9, first run `touch ~/.zshrc` for variables/path storage and terminal appearance. 
+[MacOS/Linux - curl command with bash to install nvm](https://github.com/nvm-sh/nvm).  
+
 [WindowsOS](https://github.com/coreybutler/nvm-windows/releases) - In the .exe installer, first choose C:\Program Files\nvm, then leave syslink default as C:\nvm4w\nodejs to avoid errors from permissions and space in "Program Files". Restart your PowerShell terminal.  
 
 Check if you already have node and npm. If so, it's easiest to AVOID installing nvm, unless you are encountering permission errors.
@@ -157,14 +79,19 @@ Check if you already have node and npm. If so, it's easiest to AVOID installing 
 Note: [npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) recommends installing the Node Version Manager [nvm](https://github.com/nvm-sh/nvm) to avoid permission errors when you run npm packages globally.  
 Run `nvm ls` to see all the node versions you have installed. 
 
-**Update nvm to set your version of node**
+**For the latest LTS (recommended for most setups):**
 
-	nvm install 22.20.0
-	nvm use 22.20.0
+	nvm install --lts
+	nvm use --lts
 
-Run the above BEFORE invoking a virtual environment.
+Or set a specific version of node:
 
-Note that prior to 2025 we avoided node v22 because there was a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.
+	nvm install 24.17.0
+	nvm use 24.17.0
+
+Either of the above will also install npm.
+Run either of the above BEFORE invoking a virtual environment.<!-- was 22.20.0 -->
+Prior to 2025 we avoided node v22 because there was a [punycode error](https://stackoverflow.com/questions/68774489/punycode-is-deprecated-in-npm-what-should-i-replace-it-with) in data-commons build.
 
 **If you're not using Node Version Manager (nvm)** (above)
 You can [install node/npm directly](https://nodejs.org/en/download). The installer includes the Node.js package manager (npm) within it, so you won't need to install npm separately.  
@@ -179,23 +106,13 @@ Skip this if you are using nvm (above). This directly updates your machine to th
 
 ## Python
 
-Check python version (may differ in your virtual environments)
-Only python3 was available after running `brew install python` after upgrading to Mac Sonoma OS.
+The following is your OS version (it will differ in your virtual environments)
+This will remain an older version that your machine uses:
 
-	python --version
+
 	python3 --version
 
-
-If your python version is older, you may want to upgrade Python to 3.10 or 3.11.  
-3.10 is needed for the Nature journal Exiobase download for Sankey.  
-3.11 is currently used for the OpenWebUI build as of as of Jul 22, 2024.
-3.12 does not work for the two above, use pyenv.
-
-If you don't have brew yet, [download the .pkg installer](https://brew.sh).
-You might also get a dialog to install xcode.
-
-	brew install python
-
+In UV you'll manage different python versions.
 
 
 
