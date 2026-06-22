@@ -23,5 +23,5 @@ An introduction to matrix algebra and factor preparation
 
 **More Resources**
 - <a href="http://epa.gov/smm" target="_parent">US EPA Sustainable Materials Management (SMM)</a>  
-- [SMM Prioritization Tools](https://www.epa.gov/smm/sustainable-materials-management-prioritization-tools)
+- [SMM Prioritization Tools](https://www.epa.gov/smm/sustainable-materials-management-tools)
 - [Prior Student Research Projects](/io/projects/)
