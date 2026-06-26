@@ -3,155 +3,53 @@
 <head>
 <meta charset="utf-8">
 <title>Environmentally-Extended Input-Output Model</title>
-<link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/ModelEarth/localsite@main/img/logo/earth/model-earth.png" />
+<link rel="icon" type="image/x-icon" href="../../localsite/img/logo/earth/model-earth.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ModelEarth/localsite@main/css/base.css" id="/localsite/css/base.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ModelEarth/localsite@main/js/localsite.js?showheader=true&showsearch=true"></script>
+<link type="text/css" rel="stylesheet" href="../../localsite/css/base.css" id="/localsite/css/base.css" />
+<script type="text/javascript" src="../../localsite/js/localsite.js?showheader=true&showsearch=true"></script>
+
+<!--
+To follow-up on:
+
+Check all visible boxes and add allsectors=true
+https://github.com/USEPA/useeio-widgets/issues/29
+
+Is hovering displaying percent?
+https://github.com/USEPA/useeio-widgets/issues/32
+
+-->
+
+<style>
+	#toplogo {
+		background-color: #dae8eb; overflow: auto; padding:0px; padding-left:20px; padding-right:20px; border:0px;
+	}
+	@media (max-width: 800px) {
+		#toplogo {
+			padding-left:0px;
+		}
+	}
+</style>
+
 <script type="text/javascript">
 loadMarkdown("charts.md", "topicsDiv", "_parent");
 </script>
-<style>
-  body {
-    margin: 0;
-    background:
-      radial-gradient(circle at top right, rgba(187, 99, 63, 0.18), transparent 24%),
-      linear-gradient(180deg, #f5f1e8 0%, #ece7dc 100%);
-  }
-  .charts-shell {
-    width: min(1120px, calc(100% - 32px));
-    margin: 0 auto;
-    padding: 26px 0 40px;
-  }
-  .hero-card,
-  .feature-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(28, 35, 48, 0.1);
-    border-radius: 28px;
-    box-shadow: 0 20px 48px rgba(31, 39, 52, 0.12);
-  }
-  .hero-card {
-    padding: 28px;
-    margin-bottom: 18px;
-  }
-  .eyebrow {
-    display: inline-flex;
-    padding: 7px 11px;
-    border-radius: 999px;
-    background: rgba(184, 92, 56, 0.12);
-    color: #b85c38;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  h1 {
-    margin: 14px 0 10px;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1;
-    letter-spacing: -0.04em;
-  }
-  .lede {
-    margin: 0;
-    max-width: 760px;
-    color: #5d6472;
-    line-height: 1.6;
-    font-size: 1rem;
-  }
-  .hero-links,
-  .feature-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .hero-links {
-    margin-top: 18px;
-  }
-  .primary-link,
-  .secondary-link,
-  .feature-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0 16px;
-    border-radius: 14px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .primary-link,
-  .feature-link {
-    background: linear-gradient(180deg, #d46f45 0%, #b85c38 100%);
-    color: #fffaf6;
-  }
-  .secondary-link {
-    border: 1px solid rgba(28, 35, 48, 0.12);
-    color: #223043;
-    background: rgba(255, 255, 255, 0.7);
-  }
-  .feature-card {
-    padding: 22px 24px;
-    margin-bottom: 18px;
-  }
-  .feature-card h2 {
-    margin: 0 0 6px;
-    font-size: 1.2rem;
-    letter-spacing: -0.02em;
-  }
-  .feature-card p {
-    margin: 0;
-    max-width: 760px;
-    color: #5d6472;
-    line-height: 1.55;
-  }
-  @media (max-width: 760px) {
-    .charts-shell {
-      width: min(100% - 18px, 100%);
-      padding: 18px 0 28px;
-    }
-    .hero-card,
-    .feature-card {
-      border-radius: 20px;
-    }
-    .hero-card,
-    .feature-card {
-      padding: 20px;
-    }
-  }
-</style>
+
 </head>
+
 <body>
-<div class="charts-shell">
-  <section class="hero-card">
-    <span class="eyebrow">Input-Output Charts</span>
-    <h1>Embeddable IO dashboards and flow views</h1>
-    <p class="lede">Open the refreshed Sankey trade dashboard or browse the chart notes below. The featured view now loads its data and scripts from the GitHub-backed <code>savar25/trade-data</code> repository instead of depending on local clone paths.</p>
-    <div class="hero-links">
-      <a class="primary-link" href="./sankey/">Open Trade Dashboard</a>
-      <a class="secondary-link" href="../">Back to IO Home</a>
-    </div>
-  </section>
 
-  <section class="feature-card">
-    <div>
-      <h2>Featured: Worldwide Trade Impact Dashboard</h2>
-      <p>The Sankey page now points at the GitHub-backed trade dataset and keeps the country and year selection in the page hash so it can be shared as a direct link.</p>
-    </div>
-    <a class="feature-link" href="./sankey/#country=US&year=2022">Launch US 2022 View</a>
-  </section>
+<div class="content contentpadding" style="margin-bottom:0px; padding-bottom:0px">
 
-  <div class="content contentpadding" style="margin-bottom:0px; padding-bottom:0px">
-    <a href="../projects/">Active Projects</a>
-    <div class="local" style="display:none">
-      - <a href="../projects/">IO Projects</a>
-    </div>
+	<a href="../../projects/">Active Projects</a>
+	<div class="local" style="display:none">
+		- <a href="../projects/">IO Projects</a>
+	</div>
 
-    <div id="topicsDiv"></div>
-    <br>
-  </div>
+	<div id="topicsDiv"></div>
+	<br>
+
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ModelEarth/localsite@main/css/fonts/materialicons/icon.css" id="/localsite/css/fonts/materialicons/icon.css" />
+<link rel="stylesheet" href="/localsite/css/fonts/materialicons/icon.css" id="/localsite/css/fonts/materialicons/icon.css" />
 </body>
 </html>
