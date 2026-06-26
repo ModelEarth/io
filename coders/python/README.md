@@ -278,8 +278,12 @@ Ctrl C - Clear prompt
 
 [Wispr Flow](https://wisprflow.ai) lets your hold your function key for speech input. 
 
+## Nginx
+
+[Host multiple stacks in the same root](https://github.com/ModelEarth/docker/tree/main/nginx) - Assign ports for subfolders with Python (Flask), Rust, NodeJS, DotNet.
+
 ## Check for Viruses
 
-Commands to check for Code CLI hacks. This check if for a March 2026 axios 1.14.1 exploit:
+Commands to check for Code CLI hacks. This check is for a March 2026 axios 1.14.1 exploit:
 
 	grep -rH --include="package-lock.json" -E 'axios@?(1\.14\.1|0\.30\.4)|plain-crypto-js' . 2>/dev/null
