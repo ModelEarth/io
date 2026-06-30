@@ -287,3 +287,8 @@ Ctrl C - Clear prompt
 Commands to check for Code CLI hacks. This check is for a March 2026 axios 1.14.1 exploit:
 
 	grep -rH --include="package-lock.json" -E 'axios@?(1\.14\.1|0\.30\.4)|plain-crypto-js' . 2>/dev/null
+
+## Cursor Tips
+
+[How to turn on dark mode color themes](https://chatgpt.com/share/6a3e8b23-13d8-83ea-8050-ef9b5946c4f1)  
+
