@@ -7,12 +7,12 @@
 <p class="c1">
 
   <!-- ATLANTA, August 20, 2021  — -->
-  <!--<a href="https://www.georgia.org/georgia-centers-of-innovation/">The Georgia Center of Innovation for Energy Technology</a> is partnering with ... to launch -->The <a href="http://epa.gov">U.S. Environmental Protection Agency (EPA)</a> and <a href="https://www.codeforamerica.org/">Code&nbsp;for&nbsp;America</a> are pleased to announce the launch of tools for local communities interested in identifying areas for economic growth using 22 environmental sustainability indicators, including job growth, value-added, air quality, climate impact, energy, water, and land use across <a href="../../localsite/info/#state=GA">389 industry sectors</a>.<br><br>
+  <!--<a href="https://georgia.org/georgia-centers-of-innovation/">The Georgia Center of Innovation for Energy Technology</a> is partnering with ... to launch -->The <a href="http://epa.gov">U.S. Environmental Protection Agency (EPA)</a> and <a href="https://www.codeforamerica.org/">Code&nbsp;for&nbsp;America</a> are pleased to announce the launch of tools for local communities interested in identifying areas for economic growth using 22 environmental sustainability indicators, including job growth, value-added, air quality, climate impact, energy, water, and land use across <a href="../../localsite/info/#state=GA">389 industry sectors</a>.<br><br>
   
   The <a href="../../community/challenge/" target="_parent" >Sustainable Communities Web Challenge</a> culminates on <b>October 2, 2021 with $10,000 in awards</b> using new embeddable, open-source web applications. 
-  Also supported by the <a href="https://www.georgia.org/georgia-centers-of-innovation/">Georgia Center of Innovation for Energy Technology</a>, the challenge is open to community representatives, coders and designers who will compete in helping to shape and deploy the new tools with local, regional and national themes.<br><br>
+  Also supported by the <a href="https://georgia.org/georgia-centers-of-innovation/">Georgia Center of Innovation for Energy Technology</a>, the challenge is open to community representatives, coders and designers who will compete in helping to shape and deploy the new tools with local, regional and national themes.<br><br>
   <!--
-  <a href="http://epa.gov">The U.S. Environmental Protection Agency (EPA)</a> is partnering with <a href="https://www.codeforamerica.org/">Code for America</a> and the <a href="https://www.georgia.org/georgia-centers-of-innovation/">Georgia Centers of Innnovation (COI)</a> 
+  <a href="http://epa.gov">The U.S. Environmental Protection Agency (EPA)</a> is partnering with <a href="https://www.codeforamerica.org/">Code for America</a> and the <a href="https://georgia.org/georgia-centers-of-innovation/">Georgia Centers of Innnovation (COI)</a> 
   -->
 
   During the event, community app portals are being developed using new mapping and Life Cycle Assessment (LCA) tools to explore environmental and economic outcomes resulting from changes to levels of goods and services in the pursuit of innovative sustainable material management.  
@@ -51,7 +51,7 @@ Register online at https://model.earth to join the challenge. An invitation will
   <p><b>Virtual Location:</b> <a href="../../community/challenge/meetups/">Zoom Meetups and Slack</a></p>
 
 The project's community tools expand on development by <a href="https://smartcities.gatech.edu/index.php">Georgia Tech Smart Community Corps (SCC)</a> students who worked with <a href="https://www.epa.gov/aboutepa/about-epa-region-4-southeast">EPA Southeast Region #4</a> and the 
-  <a class="c3" href="https://www.georgia.org/georgia-centers-of-innovation">Georgia Center of Innovation for Energy Technology</a> 
+  <a class="c3" href="https://georgia.org/georgia-centers-of-innovation">Georgia Center of Innovation for Energy Technology</a> 
   
    during the summer of 2020 during which visualization tools were added to the US Environmentally-Extended Input-Output (<span class="c4"><a class="c3" href="https://www.epa.gov/land-research/us-environmentally-extended-input-output-useeio-models">USEEIO</a></span>) model of industries, households and the environment.<br><br>
 
