@@ -60,7 +60,7 @@ Collaborate on open source modeling tools.
 
 Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com/xqa-iqtc-rxo) 
 <!-- https://meet.google.com/pcv-xrdh-bat -->
-[Register as a Coding Volunteer](../../community/members/) and get started by <a href="../../webroot/" id="webroot-cloning-link">cloning the webroot repo</a> to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/localsite/timeline/) and [RealityStream&nbsp;colab](../../realitystream/). 
+[Register as a Coding Volunteer](../../community/members/) and get started by <a href="../../team/setup/" id="webroot-cloning-link">cloning the webroot repo</a> to&nbsp;contribute to our [ModelEarth repos](https://github.com/ModelEarth?tab=repositories), [Data Commons timelines](/localsite/timeline/) and [RealityStream&nbsp;colab](../../realitystream/). 
 
 <!--
 ** - AI and Flask
