@@ -290,5 +290,7 @@ Commands to check for Code CLI hacks. This check is for a March 2026 axios 1.14.
 
 ## Cursor Tips
 
-[How to turn on dark mode color themes](https://chatgpt.com/share/6a3e8b23-13d8-83ea-8050-ef9b5946c4f1)  
+[How to turn on dark mode color themes](https://chatgpt.com/share/6a3e8b23-13d8-83ea-8050-ef9b5946c4f1)  Fav: Monoaki 
+
+Simple left tree - Command Palette (Ctrl+Shift+P on Windows/Linux or Cmd+Shift+P on Mac). Type "File Icon Theme" and choose None.
 
