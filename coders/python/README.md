@@ -294,3 +294,10 @@ Commands to check for Code CLI hacks. This check is for a March 2026 axios 1.14.
 
 Simple left tree - Command Palette (Ctrl+Shift+P on Windows/Linux or Cmd+Shift+P on Mac). Type "File Icon Theme" and choose None.
 
+MS SQL in Cursor
+[Download Latest VSIX File](https://www.vsixhub.com/vsix/716/)  
+Cmd/Ctrl+Shift+P → type "Extensions: Install from VSIX..."
+
+To prevent it from reverting to the outdated Open VSX version,  
+open the Extensions view in Cursor (Ctrl+Shift+X / Cmd+Shift+X).  
+⚙️ Gear icon "Auto Update" should not be checked.
