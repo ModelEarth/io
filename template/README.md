@@ -1,5 +1,5 @@
 <h1 class="h1-home">Geo Profiles</h1>
-#### Environmental IO Menus for Communities, Companies and Individuals
+#### Environmental Input-Output for Communities, Companies and Individuals
 
 [Healthy Meals](/profile/item/) and [Building Materials](/profile/item/#layout=product&country=US&cat=Carpet) using [Impact Data](/products/) from the [BuildingTransparency&nbsp;API](/io/template/feed/).
 <!--New: [Feed Player Food Nutrition Labels](../../feed/#list=food)  -->
@@ -102,14 +102,14 @@ Indexes of Machine-Readable APIs and detail files allow for graph analysis and i
 
 Basing new inflow-outflow summaries for communities and individuals on existing EPD standards, developed intially for product impacts, will simplify the ease with which impacts are compared and mitigated for locations, workforces and schools. Including YAML file links in environmental product directories will allow for easier sharing of metadata for scenario configuration and web services such as impact labels and heatmaps, while providing a human-readable format that works equally well for machine learning analysis. 
 
-A frontend YAML editing interface is being developed by Code for America<sup>8</sup> to update community impact scenario files directly using GitHub Actions. The new work extends the metadata editing interface created by the government of Italy to manage public code repositories. The same process could update individual footprint estimates using a community's unique baseline mix of industries and commute times.
+A frontend YAML editing interface is being developed to update community impact scenario files directly using GitHub Actions. The same process could update individual footprint estimates using a community's unique baseline mix of industries and commute times.
 
-Possible next steps: Set up GitHub Actions using [Futura's scenario analysis tool for LCA](https://futura.readthedocs.io/en/latest/)<sup>9</sup> to preprocess foreground model data using Wurst library Python functions and the Brightway2 framework with background database systems like Ecoinvent.  
+Possible next steps: Set up GitHub Actions using [Futura's scenario analysis tool for LCA](https://futura.readthedocs.io/en/latest/)<sup>8</sup> to preprocess foreground model data using Wurst library Python functions and the Brightway2 framework with background database systems like Ecoinvent.  
 <br>
 
 
 
-## References:
+## References
 1. Janowicz, K.; Krisnadhi, A.A.; Hu, Y.; Suh, S.; Weidema, P.; Rivela, B.; Tiv, J.; Meyer, D.E.; Hitzler, P.; Ingwersen, W.; Kuczenski, B. [A minimal ontology pattern for life cycle assessment data](https://www.researchgate.net/publication/281685710_A_Minimal_Ontology_Pattern_for_Life_Cycle_Assessment_Data). Proceedings of the Workshop on Ontology and Semantic Web Patterns (6th edition) **2015**, WOP2015.
 2. Yang Y, Ingwersen WW, Hawkins TR, Srocka M, Meyer DE (2017) USEEIO: A New and Transparent United States Environmentally-Extended Input-Output Model. Journal of Cleaner Production 158:308-318. DOI:[10.1016/j.jclepro.2017.04.150 Open access version from PubMed](https://pubmed.ncbi.nlm.nih.gov/30344374/)
 3. Ecoinvent citation.
@@ -117,11 +117,10 @@ Possible next steps: Set up GitHub Actions using [Futura's scenario analysis too
 5. Simonen, K.; Droguett, B.R.; Strain, L.; McDade, E. [Embodied carbon benchmark study: LCA for low carbon construction](https://digital.lib.washington.edu/researchworks/handle/1773/38017). University of Washington. **2017**
 6. [Increased availability of machine-readable EPDs in the ILCD+EPD+ format](https://www.diva-portal.org/smash/get/diva2:1549561/FULLTEXT01.pdf)  
 7. [OpenEPD](https://www.buildingtransparency.org/openepd/) by Building Transparency
-8. [Code for America](https://CodeForAmerica.org) is contributing to the [public code YAML editor](https://github.com/italia/publiccode.yml-docs) using metadata description standards initially developed by the Government of Italy.
-9. Joyce, P.J.; Björklund, A. [Futura: A new tool for transparent and shareable scenario analysis in prospective life cycle assessment](https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13115). Journal of Industrial Ecology. **2021**
+8. Joyce, P.J.; Björklund, A. [Futura: A new tool for transparent and shareable scenario analysis in prospective life cycle assessment](https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13115). Journal of Industrial Ecology. **2021**
 
 
-##Notes:
+##Notes
 
 [Applied Sciences citation style](https://www.mdpi.com/journal/applsci/instructions) - Prep steps: start with Harvard citation style in [Google Scholar](https://scholar.google.com). Convert commas between names to semi-colons. Remove "and". Move year after the journal/conference name and make it bold.
 

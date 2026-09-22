@@ -79,6 +79,7 @@ async function loadProductEmbed() {
 
     // Create a wrapper div for better styling
     const wrapper = document.createElement('div');
+    wrapper.id = 'product-label';
     wrapper.style.maxWidth = '400px';
     wrapper.style.margin = '0';
 
@@ -126,12 +127,15 @@ if (document.readyState === 'loading') {
     .columnRight {
       float: right;
       margin-left: 30px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     @media (max-width: 600px) {
       .columnRight {
         margin-left:0px;
         float: none;
+      }
+      #item-embed > div {
+        max-width: none !important;
       }
     }
     .envProfile div {
@@ -182,7 +186,12 @@ if (document.readyState === 'loading') {
     }
   </style>
 
-  <div class="columnRight hideMobile">
+  <div class="columnRight">
+    <div id="item-embed"></div>
+    <div class="figure_caption">
+    Figure 1. <a href="../../profile/item/#layout=product">Dynamic Impact Label</a>
+    </div>
+    <div class="hideMobile">
     <h3>HTML Label Sample</h3>
     Also see our paser for displaying<br>
     <a href="parser/">YAML to JSON to HTML</a><br><br>
@@ -242,13 +251,11 @@ if (document.readyState === 'loading') {
     </div>
 
     <div class="figure_caption">
-    Figure 1. Entity Impact Labels<br><br>
-
-    <div id="item-embed"></div>
-    Figure 2. <a href="../../profile/item/#layout=product">Dynamic Impact Label</a>
+    Figure 2. Entity Impact Labels
     <!--
     Also see <a href="../../io/build/sector_list.html?view=mosaic&count=50">heatmap mosaic</a> for indicators from our <a href="../../io/charts/">IO widgets</a>
     -->
+    </div>
     </div>
   </div>
 
@@ -259,46 +266,22 @@ if (document.readyState === 'loading') {
 
     <div style="clear:both"></div>
 
-    <h1>Common Syntax</h1>
-
-    <h2>For Government, Companies, Products and Individuals</h2>
-
-    <!--
-    <h1>YAML templates for Entity Profiles</h1>
-    <h3>Community, Organization, Product, Service and Individual Profiles</h3>
-    -->
-
-    <!-- Environmental Product Declaration (EPD) 
-         EPD's avoid sensitive information 
-          Generated from private Life Cycle Assessment (LCA) settings, so your footprint can be 
-    -->
-    
-
-
-    Entity impact profiles can be summarized similar to nutritional labels. (Figure 1)<br><br>
-
-    <b>Profile Templates</b><br>
-    
-    1. Community<br>
-    2. Company/Organization<br>
-    3. <a href="product">Product - Concrete Additive sample</a> -- <a href="parser">View in parser: YAML/JSON to HTML</a><br>
-    4. Service/Event - 311 and 911 Response Profiles<br>
-    5. Individual Footprint<br>
-    <br>
   </div>
 
-<div style="border:1px solid #ccc; padding:15px; display: inline-block; margin-bottom:10px">
+<!--
+<div class="hideMobile" style="border:1px solid #ccc; padding:15px; margin-bottom:10px">
   Example of existing labels<br>We're combining these two label styles by placing only the number on the right side.<br>
   <img src="img/2-labels.png" style="width:100%; max-width:600px"><br>
   <img src="img/product-impacts-label.avif" style="width:100%; max-width:300px; float:left"><br>
   <img src="img/product-impacts-openepd.png" style="width:100%; max-width:300px"><br>
 
 </div><br><br>
+-->
 
-<h3>Get your company involved</h3>
+<h2>Embed and Update</h2>
 
 <p>
-Update our <a href="feed">Building Transparency Pull</a> and contribute to our <a href="../../community/projects/#widgets">Open Footprint label project</a><br>
+<a href="feed">Integrate the Product Feed API</a> and contribute to <a href="/profile" style="white-space:nowrap">Open Footprint Product Profiles</a><br>
 
 <a href="https://buildingtransparency.org/ec3/creator-contacts/epds">How to Get an EPD</a> - <a href="https://www.oneclicklca.com/simple-epd-guide/">EPD Guide by OneClick LCA</a> - <a href="https://docs.google.com/spreadsheets/d/1q2TW0GlLlK7yH3k5TSsWGmXyL94KPI9VUWWv9vid63A/edit">OpenEPD field documentation spreadsheet</a> 
 </p>
