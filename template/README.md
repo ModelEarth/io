@@ -118,10 +118,6 @@ Possible next steps: Set up GitHub Actions using [Futura's scenario analysis too
 6. [Increased availability of machine-readable EPDs in the ILCD+EPD+ format](https://www.diva-portal.org/smash/get/diva2:1549561/FULLTEXT01.pdf)  
 7. [OpenEPD](https://www.buildingtransparency.org/openepd/) by Building Transparency
 8. Joyce, P.J.; Björklund, A. [Futura: A new tool for transparent and shareable scenario analysis in prospective life cycle assessment](https://onlinelibrary.wiley.com/doi/full/10.1111/jiec.13115). Journal of Industrial Ecology. **2021**
-
-
-##Notes
-
-[Applied Sciences citation style](https://www.mdpi.com/journal/applsci/instructions) - Prep steps: start with Harvard citation style in [Google Scholar](https://scholar.google.com). Convert commas between names to semi-colons. Remove "and". Move year after the journal/conference name and make it bold.
+9. [Applied Sciences citation style](https://www.mdpi.com/journal/applsci/instructions) - Prep steps: start with Harvard citation style in [Google Scholar](https://scholar.google.com). Convert commas between names to semi-colons. Remove "and". Move year after the journal/conference name and make it bold.
 
 
