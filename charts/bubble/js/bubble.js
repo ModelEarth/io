@@ -972,7 +972,8 @@ function midFunc(x,y,z,hash,boundry) {
         var filteredData = consdata.filter(function(d) {
           for(i=0;i<naicsList.length;i++){
             if (d["2012_NAICS_Code"]==naicsList[i]) {
-                useeioList.push(d["USEEIO1_Code"])
+                // State models (GAEEIOv1.0-s-20) use BEA 71 summary codes such as 3361MV. The national model uses USEEIO2 codes.
+                useeioList.push(d["BEA_71_Code"], d["USEEIO2_Code"], d["USEEIO1_Code"])
                 useeiodetail.push(d["USEEIO1_Commodity"])
             }
           }
@@ -1063,7 +1064,7 @@ function updateChart(x,y,z,useeioList,boundry) {
             const sectorCode = d.code || d.industry_code;
             if (useeioList1.length>0 || topSectors.length>0){
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                if (useeioList1.includes(d.code) || topSectors.includes(sectorCode)) {
+                if (useeioList1.includes(sectorCode) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
                   return "#aaa";
@@ -1117,7 +1118,7 @@ function updateChart(x,y,z,useeioList,boundry) {
             const sectorCode = d.code || d.industry_code;
             if (useeioList1.length>0 || topSectors.length>0){
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                if (useeioList1.includes( d.industry_code) || topSectors.includes(sectorCode)) {
+                if (useeioList1.includes(sectorCode) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
                   return "#aaa";
