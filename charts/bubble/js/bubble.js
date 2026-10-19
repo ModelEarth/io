@@ -987,6 +987,10 @@ function midFunc(x,y,z,hash,boundry) {
   iBubble.priorHash = jQuery.extend(true, {}, hash); // Make a detached copy of hash object
 }
 
+// Fill for bubbles that aren't highlighted (red): light gray on a light page, darker in .dark mode
+function otherBubbleFill() {
+  return document.body.classList.contains("dark") ? "#303030" : "#aaa";
+}
 function updateChart(x,y,z,useeioList,boundry) {
   /*
   Inputs:
@@ -1067,13 +1071,12 @@ function updateChart(x,y,z,useeioList,boundry) {
                 if (useeioList1.includes(sectorCode) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
-                  return "#aaa";
+                  return otherBubbleFill();
                 }
               } else { return colors[d3.select(this).attr("class").split("circles selected")[1]]}
             } else {
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                  //return "#303030";
-                  return "#aaa";
+                  return otherBubbleFill();
               } else { return colors[d3.select(this).attr("class").split("circles selected")[1]]}
             }
           } else {
@@ -1121,12 +1124,12 @@ function updateChart(x,y,z,useeioList,boundry) {
                 if (useeioList1.includes(sectorCode) || topSectors.includes(sectorCode)) {
                   return "url(#gradient)";
                 } else {
-                  return "#aaa";
+                  return otherBubbleFill();
                 }
               } else {return colors[d3.select(this).attr("class").split("circles selected")[1]]}
             } else {
               if (d3.select(this).attr("class")=="circles" || d3.select(this).attr("class")==null){
-                return "#303030";
+                return otherBubbleFill();
               } else {
                 return colors[d3.select(this).attr("class").split("circles selected")[1]];
               }
@@ -1276,6 +1279,18 @@ function updateChart(x,y,z,useeioList,boundry) {
 
         //Remove any dom elements which are no longer data bound
         selectedCircles.exit().remove();
+
+        // Red (highlighted) bubbles in front of the others. SVG draws in DOM order, so raise() moves them last.
+        // Uses the data rather than the fill, which is still transitioning.
+        if (boundry1 == "region") {
+          const topSectors = hiddenhash.topSectors || [];
+          d3.select("#graph-plane").selectAll(".circles")
+            .filter(function(d) {
+              const sectorCode = d && (d.code || d.industry_code);
+              return sectorCode && (useeioList1.includes(sectorCode) || topSectors.includes(sectorCode));
+            })
+            .raise();
+        }
                     
         //Update Axes
         d3.select(parentId).select(".x.axis").transition().duration(animDuration).call(xAxis.ticks(8,myTickFormat))
