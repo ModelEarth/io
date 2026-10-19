@@ -10,7 +10,8 @@ and [slide presentation](https://smartcities.ipat.gatech.edu/sites/default/files
 
 ## Timeline
 
-- Summer 2026: [Data-Pipeline Admin UX](/data-pipeline/admin) - Under Development
+- Fall 2026: [State Profiles](/profile/footprint) and [Location Modeling](/localsite/info)
+- Summer 2026: [Data-Pipeline Admin UX](/data-pipeline/admin) and [Abundance Engine](/project)
 - Spring 2026: [Product Profiles](/profile/item/#layout=product&country=US&cat=Carpet) and [Food Nutrition Labels](/profile/item/)
 - Winter 2025: [EarthScape and ModelEarth Chat](https://earthscape.vercel.app) - Vercel NextJS
 - Fall 2025: [CodeChat Vector Database](../../codechat) - Trained with Repo content
