@@ -61,8 +61,11 @@ th.indicator {
 
 a {
     text-decoration: none;
-    color: #555;
+    color: #0366d6;
     cursor: pointer;
+}
+.dark a {
+    color: #acb;
 }
 
 a:hover {
