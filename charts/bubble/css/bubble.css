@@ -15,7 +15,7 @@
   padding: 30px;
   margin-right: -100px;
 }
-#bubble-graph-title {
+#bubble-graph-subtitle { /* Below the #bubble-graph-title h1 (template-charts.html) */
   font-size: 16px;
   text-align: left;
   margin-bottom: 25px;
@@ -24,7 +24,7 @@
 .graph-picklist{
   margin-left: 5px;
   font-size: 18px;
-  padding: 4px;
+  padding: 4px 32px 4px 8px; /* Right padding keeps the text clear of the custom arrow (select in localsite/css/base.css) */
   border-radius: 8px;
 }
 

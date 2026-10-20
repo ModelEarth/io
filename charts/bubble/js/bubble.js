@@ -176,7 +176,9 @@ function refreshBubbleWidget() {
     } else if (priorHash_bubble.naics != hash.naics) {
         displayImpactBubbles(1);
     } else if (priorHash_bubble.x != hash.x || priorHash_bubble.y != hash.y || priorHash_bubble.z != hash.z) {
-        displayImpactBubbles(1);
+        // x, y or z changed or removed in the hash: the menus follow the hash (defaults when removed), then the chart redraws
+        setBubbleDropdownsFromHash(hash);
+        toggleBubbleHighlights(hash);
     } else {
       //alert("bubble change")
       // No state, so there won't be red bubbles showing top industries.
@@ -213,9 +215,9 @@ function refreshInfoPanel() {
     }
 
     // Get current x, y, z values from dropdowns
-    const x = dropdownX.val() || "WATR";
-    const y = dropdownY.val() || "GHG";
-    const z = dropdownZ.val() || "JOBS";
+    const x = dropdownX.val() || bubbleDefaults.x;
+    const y = dropdownY.val() || bubbleDefaults.y;
+    const z = dropdownZ.val() || bubbleDefaults.z;
 
     // Calculate display values
     const xVal = selectedSector[x] || 0;
@@ -319,6 +321,15 @@ let indicators = new Set();
 let dropdownX = $("#graph-picklist-x");
 let dropdownY = $("#graph-picklist-y");
 let dropdownZ = $("#graph-picklist-z");
+// Indicators when the hash has no x, y or z
+const bubbleDefaults = {x: "WATR", y: "GHG", z: "HTOX"}; // Freshwater withdrawals, Greenhouse Gases, Human Toxicity (bubble size)
+// Sets the menus to the hash's x, y and z, or the defaults when absent or not in the model
+function setBubbleDropdownsFromHash(hash) {
+  [[dropdownX, "x"], [dropdownY, "y"], [dropdownZ, "z"]].forEach(function([dropdown, axis]) {
+    dropdown.val(hash[axis] || bubbleDefaults[axis]);
+    if (!dropdown.val()) dropdown.val(bubbleDefaults[axis]);
+  });
+}
 let currentModelName = null; // Track the currently loaded model
 
 /**
@@ -368,9 +379,9 @@ function loadIndicatorDropdowns(state, callback) {
   // Set default indicator codes if not provided in hash
   // Using indicators confirmed to exist in v2 state models
 
-  if (!x) x = "WATR"; // Freshwater withdrawals (default X-axis) 
-  if (!y) y = "GHG";  // Greenhouse Gases (default Y-axis)
-  if (!z) z = "JOBS"; // Jobs (default bubble size)
+  if (!x) x = bubbleDefaults.x;
+  if (!y) y = bubbleDefaults.y;
+  if (!z) z = bubbleDefaults.z;
   
   console.log("loadIndicatorDropdowns - Using indicators - x:", x, "y:", y, "z:", z);
   
@@ -444,8 +455,8 @@ function loadIndicatorDropdowns(state, callback) {
         dropdownY.val("GHG");
       }
       if (!dropdownZ.val()) {
-        console.warn("WARNING: Z-axis dropdown value is empty! Tried to set:", z, "- Falling back to JOBS");
-        dropdownZ.val("JOBS");
+        console.warn("WARNING: Z-axis dropdown value is empty! Tried to set:", z, "- Falling back to " + bubbleDefaults.z);
+        dropdownZ.val(bubbleDefaults.z);
       }
       
       if (callback) callback();
@@ -522,9 +533,9 @@ function updateTitle(x,y,z) {
     })
     $(document).ready(function () { 
       if (dataObject1.stateshown==13){
-        document.getElementById("bubble-graph-title").innerHTML = "Comparison of 3 indicators for Georgia Industries - X: " + hash.x + " &nbsp;Y: " + hash.y + " &nbsp;Z: " + hash.z;
+        document.getElementById("bubble-graph-subtitle").innerHTML = "Comparison of 3 indicators for Georgia Industries - X: " + hash.x + " &nbsp;Y: " + hash.y + " &nbsp;Z: " + hash.z;
       } else {
-        document.getElementById("bubble-graph-title").innerHTML = "US Industries"
+        document.getElementById("bubble-graph-subtitle").innerHTML = "US Industries"
       }
       //$("#impactText").html(z + "<br>" + y + "<br>" + x);
       //$("#impactText2").html(z + "<br>" + y + "<br>" + x); // Using jquery avoid error if element is not in page.
@@ -616,9 +627,9 @@ $(document).on("click", "#mySelect", function(event) {
 function toggleBubbleHighlights(hash) {
   //alert("toggleBubbleHighlights")
   // Get x, y, z from dropdowns, or use defaults if dropdowns not populated yet
-  let xVal = dropdownX.val() || hash.x || "WATR";
-  let yVal = dropdownY.val() || hash.y || "GHG";
-  let zVal = dropdownZ.val() || hash.z || "JOBS";
+  let xVal = dropdownX.val() || hash.x || bubbleDefaults.x;
+  let yVal = dropdownY.val() || hash.y || bubbleDefaults.y;
+  let zVal = dropdownZ.val() || hash.z || bubbleDefaults.z;
   
   if (document.getElementById("mySelect").checked){
     console.log("mySelect checked");
@@ -871,6 +882,9 @@ function applyToBubbleHTML(hash,attempts) {
     //if ($('#bubble-graph-id').length > 0) {
 
       console.log("#bubble-graph-id found. Attempts: " + attempts)
+      // The primary state's name in front of the title: "Georgia Impact Bubble Chart"
+      const stateName = (primaryState && typeof getState === 'function') ? (getState(primaryState.toUpperCase()) || "") : "";
+      $("#bubble-graph-title").text((stateName ? stateName + " " : "") + "Impact Bubble Chart");
       if(primaryState) {
         $('#bubble-graph-id').show();
       } else {
@@ -1010,9 +1024,9 @@ function updateChart(x,y,z,useeioList,boundry) {
     console.log("Got allData in updateChart...");
     console.log(allData); // 301 Industries
     if (!(x && y && z)) { // Same as above
-      x = 'ENRG';
-      y = 'WATR';
-      z = 'JOBS';
+      x = bubbleDefaults.x;
+      y = bubbleDefaults.y;
+      z = bubbleDefaults.z;
     }
 
     //Fetch data
@@ -1048,9 +1062,11 @@ function updateChart(x,y,z,useeioList,boundry) {
       //re-assign data (or assign new data)
       
 
+      // Keyed by sector code, so each sector's bubble moves from its prior position to its new one when the state changes.
+      // By index, raise() (red bubbles in front) reordered the circles, so the next redraw moved bubbles to other sectors' positions first.
       var selectedCircles = d3.select("#graph-plane")
         .selectAll(".circles")
-        .data(records.pairs)
+        .data(records.pairs, function(d) { return d.code || d.industry_code || d.id; })
         .attr('pointer-events', 'auto');
 
       //give a transition on the existing elements
