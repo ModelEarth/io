@@ -12,13 +12,6 @@ h1 {
     font-size: 1.7em;
 }
 
-pre, code {
-    font-family: Consolas, 'Courier New', Courier, monospace;
-    background-color: rgb(248, 249, 250);
-    color: rgb(232, 62, 140);
-    border-radius: 5px;
-}
-
 .io th {
     font-weight: normal;
     vertical-align: bottom;
