@@ -70,13 +70,14 @@ Join in our [weekly Google Meetup on Thursdays @ 7pm ET](https://meet.google.com
 -->
 
 **Project Teams** - [Active Projects](../../projects/)  
-[1. Javascript Data Visualizations with Google Data Commons (JS)](../../localsite/timeline/)  
-[2. CodeChat - RAG Interface for LLMs (AI)](https://model.earth/codechat/) - Lead Engineer: Lokesh
-[3. RealityStream Machine Learning (ML)](../../realitystream/) with [Cloud Run](../../cloud/run)
-[4. International Trade Javascript, Python (IO)](../../profile/trade/) - Lead Engineer: Gary
-[5. Geo Profiles (Geo)](../../io/template/) - BuildingTransparency.org API
-[6. FeedPlayer and Discord API (React)](../../feed/) <!-- Shreyas and Sravan -->
-[7. MoonShot Challenges (Mars)](https://model.earth/community/projects/)
+[1. MCP Processes for Impact Data Video Training (MCP)](../../projects/)  
+[2. Javascript Data Visualizations with Google Data Commons (JS)](../../localsite/timeline/)  
+[3. CodeChat - RAG Interface for LLMs (AI)](https://model.earth/codechat/) - Lead Engineer: Lokesh
+[4. RealityStream Machine Learning (ML)](../../realitystream/) with [Cloud Run](../../cloud/run)
+[5. International Trade Javascript, Python (IO)](../../profile/trade/) - Lead Engineer: Gary
+[6. Geo Profiles (Geo)](../../io/template/) - BuildingTransparency.org API
+[7. FeedPlayer and Discord API (React)](../../feed/) <!-- Shreyas and Sravan -->
+[8. MoonShot Challenges (Mars)](https://model.earth/community/projects/)
 <!-- [Python Pipeline](/data-pipeline/timelines/)
 [EarthScape NextJS](/earthscape/app/)  -->
 
