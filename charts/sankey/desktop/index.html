@@ -1114,7 +1114,6 @@ function getSankeyLayoutConfig(linkCount) {
   return {
     nodeGap: Math.round(14 - (pressure * 4)),
     nodeWidth: Math.round(22 - (pressure * 2)),
-    right: (15 + (pressure * 4)).toFixed(1) + "%",
     labelFontSize: Math.round(12 - (pressure * 3)),
     labelLineHeight: Math.round(14 - (pressure * 2)),
     labelWidth: Math.round(220 - (pressure * 40)),
@@ -1605,7 +1604,7 @@ function render() {
       nodeGap: layout.nodeGap,
       nodeWidth: layout.nodeWidth,
       left: "1%",
-      right: layout.right,
+      right: "1%",
       top: "2%",
       bottom: "2%",
       data: nodes,
