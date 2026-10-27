@@ -21,7 +21,7 @@ Join in our upcoming work sessions for an overview of the web challenge and to s
 
 <div class="floatright" style="border:1px solid #ccc; max-width:400px; float:right; margin-bottom:20px">
   <div>
-    <a href="../../community/challenge/" target="_parent" ><img src="https://model.earth/community/img/overview/code-for-america-square.jpg" style="width:100%; max-width:400px;"></a>
+    <a href="../../community/challenge/" target="_parent" ><img src="../img/side/code-square.jpg" style="width:100%; max-width:400px;"></a>
   </div>
   <div style="padding:30px; padding-top:10px; padding-bottom:20px">
 
