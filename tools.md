@@ -33,16 +33,17 @@ Samples of reporting tools you can add to your website:
 [Lifecycle Tools 3.0](smm/) - Concepts for upcoming USEEIO widgets
 -->
 
+- [Souteast Energy Mix](../localsite/info/#state=AL,AR,FL,GA,KY,LA,MS,NC,SC,TN,VA,WV&set=energy&usregion=Southeast)  
 - [Georgia Farmers Markets](../localsite/map/#state=GA&show=farmfresh)  
 - [Georgia Recycling Directories](../recycling/georgia/)  
-- [Georgia Supply Chain Inflow-Outflow](../apps/#state=GA)
+- [Georgia Supply Chain Inflow-Outflow](../localsite/info/#state=GA)
 - [Georgia County Selection](../localsite/info/#state=GA&geoview=state)
 - [Georgia Industry Annual Payrolls](../localsite/info/#state=GA)  
 - [Georgia Land Use Inflow-Outflow](../localsite/info/#state=GA&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
 
 Customize for your state:
 
-- [Wyoming Supply Chain Inflow-Outflow](../apps/#state=WY)
+- [California Energy Mix](../localsite/info/#state=CA&set=energy)
 - [Robertson County Texas Land Use](../localsite/info/#state=TX&geoview=state&geo=US48395&set=land&indicators=LAND,MNRL,PEST,METL,CRHW,CMSW,FMSW,CCDD)  
 - [Colorado Industry Impact Comparison](../localsite/info/#state=CO)  
 <!--
