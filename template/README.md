@@ -1,5 +1,8 @@
-<h1 class="h1-home">Geo Profiles</h1>
-#### Environmental Input-Output for Communities, Companies and Individuals
+<div class="craft">
+<div class="craft-eyebrow">Geo Profiles</div>
+<h1 class="craft-title"><span class="craft-title-bright">Nutrition</span> <em>Labels</em></h1>
+</div>
+#### Effectiveness parameters for Countries, Communities, Companies and Individuals
 
 [Healthy Meals](/profile/item/) and [Building Materials](/profile/item/#layout=product&country=US&cat=Carpet) using [Impact Data](/products/) from the [BuildingTransparency&nbsp;API](/io/template/feed/).
 <!--New: [Feed Player Food Nutrition Labels](../../feed/#list=food)  -->
